@@ -1,0 +1,107 @@
+{
+  "existing": {
+    "ai_gateway_custom_provider": {
+      "AI_GATEWAY_CUSTOM_PROVIDER00": {
+        "base_url": "s96",
+        "beta": false,
+        "created_at": "s98",
+        "curl_example": "s99",
+        "description": "s9a",
+        "enable": false,
+        "headers": "s9c",
+        "id": "AI_GATEWAY_CUSTOM_PROVIDER00",
+        "js_example": "s9e",
+        "link": "s9f",
+        "logo": "sa0",
+        "modified_at": "sa1",
+        "name": "sa2",
+        "position": 163,
+        "slug": "sa4",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_CUSTOM_PROVIDER01": {
+        "base_url": "s12c",
+        "beta": false,
+        "created_at": "s12e",
+        "curl_example": "s12f",
+        "description": "s130",
+        "enable": false,
+        "headers": "s132",
+        "id": "AI_GATEWAY_CUSTOM_PROVIDER01",
+        "js_example": "s134",
+        "link": "s135",
+        "logo": "s136",
+        "modified_at": "s137",
+        "name": "s138",
+        "position": 313,
+        "slug": "s13a",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_CUSTOM_PROVIDER02": {
+        "base_url": "s1c2",
+        "beta": false,
+        "created_at": "s1c4",
+        "curl_example": "s1c5",
+        "description": "s1c6",
+        "enable": false,
+        "headers": "s1c8",
+        "id": "AI_GATEWAY_CUSTOM_PROVIDER02",
+        "js_example": "s1ca",
+        "link": "s1cb",
+        "logo": "s1cc",
+        "modified_at": "s1cd",
+        "name": "s1ce",
+        "position": 463,
+        "slug": "s1d0",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway_custom_provider": {
+      "ai_gateway_custom_provider_ref01": {
+        "base_url": "s258",
+        "beta": false,
+        "created_at": "s25a",
+        "curl_example": "s25b",
+        "description": "s25c",
+        "enable": false,
+        "headers": "s25e",
+        "js_example": "s260",
+        "link": "s261",
+        "logo": "s262",
+        "modified_at": "s263",
+        "name": "s264",
+        "position": 613,
+        "slug": "s266"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/custom-providers": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/custom-providers": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/custom-providers/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-gateway/custom-providers/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/ai-gateway/custom-providers/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

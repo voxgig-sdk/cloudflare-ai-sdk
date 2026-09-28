@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "aig_billing_create_topup": {
+      "AIG_BILLING_CREATE_TOPUP00": {
+        "amount": 70,
+        "errors": [],
+        "messages": [],
+        "payment_method_id": "PAYMENT_METHOD01",
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_CREATE_TOPUP00"
+      },
+      "AIG_BILLING_CREATE_TOPUP01": {
+        "amount": 140,
+        "errors": [],
+        "messages": [],
+        "payment_method_id": "PAYMENT_METHOD01",
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_CREATE_TOPUP01"
+      },
+      "AIG_BILLING_CREATE_TOPUP02": {
+        "amount": 210,
+        "errors": [],
+        "messages": [],
+        "payment_method_id": "PAYMENT_METHOD01",
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_CREATE_TOPUP02"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_create_topup": {
+      "aig_billing_create_topup_ref01": {
+        "amount": 280,
+        "errors": [],
+        "messages": [],
+        "payment_method_id": "PAYMENT_METHOD01",
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/billing/topup": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

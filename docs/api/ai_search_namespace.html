@@ -1,0 +1,1764 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AiSearchNamespace | Cloudflare AI</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare AI<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-ai-sdk">voxgig-sdk/cloudflare-ai-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare AI</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/ai_gateway.html">AiGateway</a>
+<a href="../api/ai_gateway_custom_domain.html">AiGatewayCustomDomain</a>
+<a href="../api/ai_gateway_custom_provider.html">AiGatewayCustomProvider</a>
+<a href="../api/ai_gateway_custom_provider_cost.html">AiGatewayCustomProviderCost</a>
+<a href="../api/ai_gateway_dataset.html">AiGatewayDataset</a>
+<a href="../api/ai_gateway_dynamic_route.html">AiGatewayDynamicRoute</a>
+<a href="../api/ai_gateway_evaluation.html">AiGatewayEvaluation</a>
+<a href="../api/ai_gateway_gateway.html">AiGatewayGateway</a>
+<a href="../api/ai_gateway_log.html">AiGatewayLog</a>
+<a href="../api/ai_gateway_provider_config.html">AiGatewayProviderConfig</a>
+<a href="../api/ai_search_account_search.html">AiSearchAccountSearch</a>
+<a href="../api/ai_search_instance.html">AiSearchInstance</a>
+<a href="../api/ai_search_instances_item.html">AiSearchInstancesItem</a>
+<a href="../api/ai_search_instances_job.html">AiSearchInstancesJob</a>
+<a aria-current="page" href="../api/ai_search_namespace.html">AiSearchNamespace</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idai-searchnamespaces">POST /accounts/{account_id}/ai-search/namespaces</a>
+<a class="nav-section" href="#get-accountsaccount_idai-searchnamespaces">GET /accounts/{account_id}/ai-search/namespaces</a>
+<a class="nav-section" href="#get-accountsaccount_idai-searchnamespacesname">GET /accounts/{account_id}/ai-search/namespaces/{name}</a>
+<a class="nav-section" href="#patch-accountsaccount_idai-searchnamespacesnameinstancesid">PATCH /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idai-searchnamespacesname">DELETE /accounts/{account_id}/ai-search/namespaces/{name}</a>
+<a class="nav-section" href="#put-accountsaccount_idai-searchnamespacesname">PUT /accounts/{account_id}/ai-search/namespaces/{name}</a></div>
+<a href="../api/ai_search_token.html">AiSearchToken</a>
+<a href="../api/aig_billing_create_topup.html">AigBillingCreateTopup</a>
+<a href="../api/aig_billing_delete_spending_limit.html">AigBillingDeleteSpendingLimit</a>
+<a href="../api/aig_billing_delete_topup_config.html">AigBillingDeleteTopupConfig</a>
+<a href="../api/aig_billing_get_credit_balance.html">AigBillingGetCreditBalance</a>
+<a href="../api/aig_billing_get_invoice_history.html">AigBillingGetInvoiceHistory</a>
+<a href="../api/aig_billing_get_invoice_preview.html">AigBillingGetInvoicePreview</a>
+<a href="../api/aig_billing_get_spending_limit.html">AigBillingGetSpendingLimit</a>
+<a href="../api/aig_billing_get_topup_config.html">AigBillingGetTopupConfig</a>
+<a href="../api/aig_billing_get_topup_eligibility.html">AigBillingGetTopupEligibility</a>
+<a href="../api/aig_billing_get_topup_limit.html">AigBillingGetTopupLimit</a>
+<a href="../api/aig_billing_get_usage_history.html">AigBillingGetUsageHistory</a>
+<a href="../api/aig_billing_set_spending_limit.html">AigBillingSetSpendingLimit</a>
+<a href="../api/aig_billing_set_topup_config.html">AigBillingSetTopupConfig</a>
+<a href="../api/aig_billing_topup_status.html">AigBillingTopupStatus</a>
+<a href="../api/auto_rag_job.html">AutoRagJob</a>
+<a href="../api/auto_rag_rag.html">AutoRagRag</a>
+<a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
+<a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a href="../api/vectorize.html">Vectorize</a>
+<a href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a>
+<a href="../api/workers_ai.html">WorkersAi</a>
+<a href="../api/workers_ai_finetune.html">WorkersAiFinetune</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="aisearchnamespace">AiSearchNamespace</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idai-searchnamespaces"><code>/accounts/{account_id}/ai-search/namespaces</code></a></td>
+<td><code>create</code></td>
+<td>Namespace created</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-searchnamespaces"><code>/accounts/{account_id}/ai-search/namespaces</code></a></td>
+<td><code>list</code></td>
+<td>List of namespaces</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-searchnamespacesname"><code>/accounts/{account_id}/ai-search/namespaces/{name}</code></a></td>
+<td><code>load</code></td>
+<td>Namespace details</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idai-searchnamespacesnameinstancesid"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}</code></a></td>
+<td><code>patch</code></td>
+<td>Instance moved</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idai-searchnamespacesname"><code>/accounts/{account_id}/ai-search/namespaces/{name}</code></a></td>
+<td><code>remove</code></td>
+<td>Namespace deleted</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idai-searchnamespacesname"><code>/accounts/{account_id}/ai-search/namespaces/{name}</code></a></td>
+<td><code>update</code></td>
+<td>Returns the updated namespace</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">ai_search_namespaces, err := client.AiSearchNamespace(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(ai_search_namespaces)
+ai_search_namespace, err := client.AiSearchNamespace(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(ai_search_namespace)
+created, err := client.AiSearchNamespace(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;, &quot;new_namespace&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.AiSearchNamespace(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.AiSearchNamespace(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local ai_search_namespaces, err = client:AiSearchNamespace():list({ account_id = &quot;example&quot; })
+local ai_search_namespace, err = client:AiSearchNamespace():load({ account_id = &quot;example&quot;, id = &quot;example_id&quot; })
+local created, err = client:AiSearchNamespace():create({ account_id = &quot;example&quot;, created_at = &quot;example&quot;, name = &quot;example&quot;, new_namespace = &quot;example&quot; })
+local updated, err = client:AiSearchNamespace():update({ id = &quot;example_id&quot;, account_id = &quot;example&quot;, created_at = &quot;example&quot; })
+local removed, err = client:AiSearchNamespace():remove({ account_id = &quot;example&quot;, id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$ai_search_namespaces = $client-&gt;AiSearchNamespace()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$ai_search_namespace = $client-&gt;AiSearchNamespace()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;AiSearchNamespace()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;, &quot;new_namespace&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;AiSearchNamespace()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot;]);
+$client-&gt;AiSearchNamespace()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">ai_search_namespaces = client.AiSearchNamespace().list({&quot;account_id&quot;: &quot;example&quot;})
+ai_search_namespace = client.AiSearchNamespace().load({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;})
+created = client.AiSearchNamespace().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;, &quot;new_namespace&quot;: &quot;example&quot; })
+updated = client.AiSearchNamespace().update({&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;})
+client.AiSearchNamespace().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">ai_search_namespaces = client.AiSearchNamespace.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+ai_search_namespace = client.AiSearchNamespace.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.AiSearchNamespace.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;, &quot;new_namespace&quot; =&gt; &quot;example&quot; })
+updated = client.AiSearchNamespace.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot; })
+client.AiSearchNamespace.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const ai_search_namespaces = await client.AiSearchNamespace().list({ account_id: &quot;example&quot; })
+const ai_search_namespace = await client.AiSearchNamespace().load({ account_id: &quot;example&quot;, id: &quot;example_id&quot; })
+const created = await client.AiSearchNamespace().create({ account_id: &quot;example&quot;, created_at: &quot;example&quot;, name: &quot;example&quot;, new_namespace: &quot;example&quot; })
+const updated = await client.AiSearchNamespace().update({ id: &quot;example_id&quot;, account_id: &quot;example&quot;, created_at: &quot;example&quot; })
+await client.AiSearchNamespace().remove({ account_id: &quot;example&quot;, id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional description for the namespace.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name</td>
+</tr>
+<tr>
+<td><code>new_namespace</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Target namespace to move the instance into.</td>
+</tr>
+<tr>
+<td><code>public_endpoint_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Public Endpoint Id</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Public Endpoint Params</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idai-searchnamespaces" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/ai-search/namespaces</h3>
+<p>Operation ID: <code>ai-search-create-namespace</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional description for the namespace. Max 256 characters.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.authorized_hosts</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.chat_completions_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.chat_completions_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable chat completions endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.custom_domains</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Custom domain hostnames that alias this public endpoint. GET and create responses return the current set; on update (PUT) this field is only echoed back when supplied in the request body, otherwise it is null (omit it to leave domains unchanged).</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.default_domain_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When false, the instance is reachable only via a registered custom domain and the default &lt;<code>public_endpoint_id</code>&gt;.search.ai.cloudflare.com host returns 404. Requires at least one custom domain. Defaults to true. <code>public_endpoint_params</code> is replaced wholesale on update, so resend <code>default_domain_enabled</code> on every update to keep the default host off, omitting it resets to true.</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.instances_allowed</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Instance IDs exposed through the namespace public endpoint. Empty means nothing is searchable. Every ID must be an existing instance in this namespace, and the list cannot exceed the account's multi-instance search limit.</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.mcp</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.mcp.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.mcp.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable MCP endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.rate_limit</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.rate_limit.period_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.rate_limit.requests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.rate_limit.technique</code></td>
+<td><code>enum: fixed, sliding</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.search_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.search_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable search endpoint for this public endpoint</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="201-namespace-created" class="status" data-status="2xx">201: Namespace created</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional description for the namespace. Max 256 characters.</td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.authorized_hosts</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.chat_completions_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.chat_completions_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable chat completions endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.custom_domains</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Custom domain hostnames that alias this public endpoint. GET and create responses return the current set; on update (PUT) this field is only echoed back when supplied in the request body, otherwise it is null (omit it to leave domains unchanged).</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.default_domain_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When false, the instance is reachable only via a registered custom domain and the default &lt;<code>public_endpoint_id</code>&gt;.search.ai.cloudflare.com host returns 404. Requires at least one custom domain. Defaults to true. <code>public_endpoint_params</code> is replaced wholesale on update, so resend <code>default_domain_enabled</code> on every update to keep the default host off, omitting it resets to true.</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.instances_allowed</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Instance IDs exposed through the namespace public endpoint. Empty means nothing is searchable. Every ID must be an existing instance in this namespace, and the list cannot exceed the account's multi-instance search limit.</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable MCP endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.period_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.requests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.technique</code></td>
+<td><code>enum: fixed, sliding</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.search_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.search_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable search endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-instances-allowed-contains-unknown-instances" class="status" data-status="4xx">400: Instances allowed contains unknown instances</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-max-namespaces-reached" class="status" data-status="4xx">403: Max namespaces reached</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-namespace-already-exists" class="status" data-status="4xx">409: Namespace already exists</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idai-searchnamespaces" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-search/namespaces</h3>
+<p>Operation ID: <code>ai-search-list-namespaces</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Page number (1-indexed). |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | Number of results per page. |
+| <code>search</code> | <code>query</code> | <code>string</code> | No | Filter namespaces whose name or description contains this string (case-insensitive). |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-list-of-namespaces" class="status" data-status="2xx">200: List of namespaces</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional description for the namespace. Max 256 characters.</td>
+</tr>
+<tr>
+<td><code>result[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.authorized_hosts</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.chat_completions_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.chat_completions_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable chat completions endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.custom_domains</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Custom domain hostnames that alias this public endpoint. GET and create responses return the current set; on update (PUT) this field is only echoed back when supplied in the request body, otherwise it is null (omit it to leave domains unchanged).</td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.default_domain_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When false, the instance is reachable only via a registered custom domain and the default &lt;<code>public_endpoint_id</code>&gt;.search.ai.cloudflare.com host returns 404. Requires at least one custom domain. Defaults to true. <code>public_endpoint_params</code> is replaced wholesale on update, so resend <code>default_domain_enabled</code> on every update to keep the default host off, omitting it resets to true.</td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.instances_allowed</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Instance IDs exposed through the namespace public endpoint. Empty means nothing is searchable. Every ID must be an existing instance in this namespace, and the list cannot exceed the account's multi-instance search limit.</td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.mcp</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.mcp.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.mcp.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable MCP endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.rate_limit</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.rate_limit.period_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.rate_limit.requests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.rate_limit.technique</code></td>
+<td><code>enum: fixed, sliding</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.search_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].public_endpoint_params.search_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable search endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.total_count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-input-validation-error" class="status" data-status="4xx">400: Input Validation Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].path</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idai-searchnamespacesname" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-search/namespaces/{name}</h3>
+<p>Operation ID: <code>ai-search-fetch-namespace</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-namespace-details" class="status" data-status="2xx">200: Namespace details</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional description for the namespace. Max 256 characters.</td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.authorized_hosts</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.chat_completions_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.chat_completions_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable chat completions endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.custom_domains</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Custom domain hostnames that alias this public endpoint. GET and create responses return the current set; on update (PUT) this field is only echoed back when supplied in the request body, otherwise it is null (omit it to leave domains unchanged).</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.default_domain_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When false, the instance is reachable only via a registered custom domain and the default &lt;<code>public_endpoint_id</code>&gt;.search.ai.cloudflare.com host returns 404. Requires at least one custom domain. Defaults to true. <code>public_endpoint_params</code> is replaced wholesale on update, so resend <code>default_domain_enabled</code> on every update to keep the default host off, omitting it resets to true.</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.instances_allowed</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Instance IDs exposed through the namespace public endpoint. Empty means nothing is searchable. Every ID must be an existing instance in this namespace, and the list cannot exceed the account's multi-instance search limit.</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable MCP endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.period_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.requests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.technique</code></td>
+<td><code>enum: fixed, sliding</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.search_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.search_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable search endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-namespace-not-found" class="status" data-status="4xx">404: Namespace not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="patch">patch</h2>
+<h3 id="patch-accountsaccount_idai-searchnamespacesnameinstancesid" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}</h3>
+<p>Operation ID: <code>ai-search-move-instance</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Current namespace of the instance. |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | Instance id. |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>new_namespace</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Target namespace to move the instance into.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-instance-moved" class="status" data-status="2xx">200: Instance moved</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-ai-search-with-this-name-already-exist" class="status" data-status="4xx">400: Ai search with this name already exist</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-ai-search-not-found" class="status" data-status="4xx">404: Ai search not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-search-for-agents-instance-cannot-move-namespace-instance-modified-concurrently-please-retry-move" class="status" data-status="4xx">409: Search for agents instance cannot move namespace. Instance modified concurrently please retry move</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idai-searchnamespacesname" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/ai-search/namespaces/{name}</h3>
+<p>Operation ID: <code>ai-search-delete-namespace</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-namespace-deleted" class="status" data-status="2xx">200: Namespace deleted</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-namespace-not-empty" class="status" data-status="4xx">400: Namespace not empty</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-namespace-not-found-1" class="status" data-status="4xx">404: Namespace not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="put-accountsaccount_idai-searchnamespacesname" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/ai-search/namespaces/{name}</h3>
+<p>Operation ID: <code>ai-search-update-namespace</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional description for the namespace. Max 256 characters.</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.authorized_hosts</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.chat_completions_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.chat_completions_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable chat completions endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.custom_domains</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Custom domain hostnames that alias this public endpoint. GET and create responses return the current set; on update (PUT) this field is only echoed back when supplied in the request body, otherwise it is null (omit it to leave domains unchanged).</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.default_domain_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When false, the instance is reachable only via a registered custom domain and the default &lt;<code>public_endpoint_id</code>&gt;.search.ai.cloudflare.com host returns 404. Requires at least one custom domain. Defaults to true. <code>public_endpoint_params</code> is replaced wholesale on update, so resend <code>default_domain_enabled</code> on every update to keep the default host off, omitting it resets to true.</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.instances_allowed</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Instance IDs exposed through the namespace public endpoint. Empty means nothing is searchable. Every ID must be an existing instance in this namespace, and the list cannot exceed the account's multi-instance search limit.</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.mcp</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.mcp.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.mcp.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable MCP endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.rate_limit</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.rate_limit.period_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.rate_limit.requests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.rate_limit.technique</code></td>
+<td><code>enum: fixed, sliding</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.search_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_endpoint_params.search_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable search endpoint for this public endpoint</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-returns-the-updated-namespace" class="status" data-status="2xx">200: Returns the updated namespace</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional description for the namespace. Max 256 characters.</td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.authorized_hosts</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.chat_completions_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.chat_completions_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable chat completions endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.custom_domains</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Custom domain hostnames that alias this public endpoint. GET and create responses return the current set; on update (PUT) this field is only echoed back when supplied in the request body, otherwise it is null (omit it to leave domains unchanged).</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.default_domain_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When false, the instance is reachable only via a registered custom domain and the default &lt;<code>public_endpoint_id</code>&gt;.search.ai.cloudflare.com host returns 404. Requires at least one custom domain. Defaults to true. <code>public_endpoint_params</code> is replaced wholesale on update, so resend <code>default_domain_enabled</code> on every update to keep the default host off, omitting it resets to true.</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.instances_allowed</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Instance IDs exposed through the namespace public endpoint. Empty means nothing is searchable. Every ID must be an existing instance in this namespace, and the list cannot exceed the account's multi-instance search limit.</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.mcp.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable MCP endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.period_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.requests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.rate_limit.technique</code></td>
+<td><code>enum: fixed, sliding</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.search_endpoint</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.public_endpoint_params.search_endpoint.disabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Disable search endpoint for this public endpoint</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-instances-allowed-contains-unknown-instances-1" class="status" data-status="4xx">400: Instances allowed contains unknown instances</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-namespace-not-found-2" class="status" data-status="4xx">404: Namespace not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-namespace-modified-concurrently-please-retry" class="status" data-status="4xx">409: Namespace modified concurrently please retry</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

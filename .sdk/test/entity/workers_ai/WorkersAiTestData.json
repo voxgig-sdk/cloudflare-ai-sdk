@@ -1,0 +1,109 @@
+{
+  "existing": {
+    "workers_ai": {
+      "WORKERS_AI00": {
+        "errors": [],
+        "extension": "s65",
+        "input": {},
+        "messages": [],
+        "mimeType": "s68",
+        "model": "s69",
+        "options": {},
+        "output": {},
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "model_name": "MODEL_NAME01",
+        "id": "WORKERS_AI00"
+      },
+      "WORKERS_AI01": {
+        "errors": [],
+        "extension": "sc9",
+        "input": {},
+        "messages": [],
+        "mimeType": "scc",
+        "model": "scd",
+        "options": {},
+        "output": {},
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "model_name": "MODEL_NAME01",
+        "id": "WORKERS_AI01"
+      },
+      "WORKERS_AI02": {
+        "errors": [],
+        "extension": "s12d",
+        "input": {},
+        "messages": [],
+        "mimeType": "s130",
+        "model": "s131",
+        "options": {},
+        "output": {},
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "model_name": "MODEL_NAME01",
+        "id": "WORKERS_AI02"
+      }
+    }
+  },
+  "new": {
+    "workers_ai": {
+      "workers_ai_ref01": {
+        "errors": [],
+        "extension": "s191",
+        "input": {},
+        "messages": [],
+        "mimeType": "s194",
+        "model": "s195",
+        "options": {},
+        "output": {},
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai/run/{model_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/ai/run": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/ai/tomarkdown": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai/authors/search": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai/tasks/search": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai/tomarkdown/supported": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai/models/search": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai/models/schema": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

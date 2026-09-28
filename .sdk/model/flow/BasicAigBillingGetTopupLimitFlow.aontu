@@ -1,0 +1,26 @@
+# BasicAigBillingGetTopupLimitFlow
+
+main: kit: flow: BasicAigBillingGetTopupLimitFlow:
+{
+  entity: "aig_billing_get_topup_limit",
+  kind: "basic",
+  name: "BasicAigBillingGetTopupLimitFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "aig_billing_get_topup_limit_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAigBillingGetTopupLimitFlow"
+}

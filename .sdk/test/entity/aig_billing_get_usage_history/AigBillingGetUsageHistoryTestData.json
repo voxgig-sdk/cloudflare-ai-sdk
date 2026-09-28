@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "aig_billing_get_usage_history": {
+      "AIG_BILLING_GET_USAGE_HISTORY00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "AIG_BILLING_GET_USAGE_HISTORY01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "AIG_BILLING_GET_USAGE_HISTORY02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_get_usage_history": {
+      "aig_billing_get_usage_history_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/ai-gateway/billing/usage-history": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

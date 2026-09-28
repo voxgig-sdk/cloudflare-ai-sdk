@@ -1,0 +1,100 @@
+# BasicAiGatewayProviderConfigFlow
+
+main: kit: flow: BasicAiGatewayProviderConfigFlow:
+{
+  entity: "ai_gateway_provider_config",
+  kind: "basic",
+  name: "BasicAiGatewayProviderConfigFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_gateway_provider_config_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ai_gateway_provider_config_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      i: {
+        ref: "ai_gateway_provider_config_ref01",
+        srcdatavar: "ai_gateway_provider_config_ref01_data",
+        suffix: "_up0",
+        textfield: "alias"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_gateway_provider_config_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_gateway_provider_config_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01",
+        id: "ai_gateway_provider_config01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "ai_gateway_provider_config_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAiGatewayProviderConfigFlow"
+}

@@ -1,0 +1,34 @@
+# BasicFinetuneAssetFlow
+
+main: kit: flow: BasicFinetuneAssetFlow:
+{
+  entity: "finetune_asset",
+  kind: "basic",
+  name: "BasicFinetuneAssetFlow",
+  step: [
+    {
+      i: {
+        ref: "finetune_asset_ref01",
+        srcdatavar: "finetune_asset_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        finetune_id: "finetune01",
+        id: "finetune_asset01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-finetune_asset_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFinetuneAssetFlow"
+}

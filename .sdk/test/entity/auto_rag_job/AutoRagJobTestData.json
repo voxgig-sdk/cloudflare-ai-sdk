@@ -1,0 +1,79 @@
+{
+  "existing": {
+    "auto_rag_job": {
+      "AUTO_RAG_JOB00": {
+        "created_at": 90,
+        "end_reason": "s5b",
+        "ended_at": "s5c",
+        "id": "AUTO_RAG_JOB00",
+        "last_seen_at": "s5e",
+        "message": "s5f",
+        "message_type": 96,
+        "source": "s61",
+        "started_at": "s62",
+        "account_id": "ACCOUNT01",
+        "job_id": "JOB01",
+        "rag_id": "RAG01"
+      },
+      "AUTO_RAG_JOB01": {
+        "created_at": 180,
+        "end_reason": "sb5",
+        "ended_at": "sb6",
+        "id": "AUTO_RAG_JOB01",
+        "last_seen_at": "sb8",
+        "message": "sb9",
+        "message_type": 186,
+        "source": "sbb",
+        "started_at": "sbc",
+        "account_id": "ACCOUNT01",
+        "job_id": "JOB01",
+        "rag_id": "RAG01"
+      },
+      "AUTO_RAG_JOB02": {
+        "created_at": 270,
+        "end_reason": "s10f",
+        "ended_at": "s110",
+        "id": "AUTO_RAG_JOB02",
+        "last_seen_at": "s112",
+        "message": "s113",
+        "message_type": 276,
+        "source": "s115",
+        "started_at": "s116",
+        "account_id": "ACCOUNT01",
+        "job_id": "JOB01",
+        "rag_id": "RAG01"
+      }
+    }
+  },
+  "new": {
+    "auto_rag_job": {
+      "auto_rag_job_ref01": {
+        "created_at": 360,
+        "end_reason": "s169",
+        "ended_at": "s16a",
+        "last_seen_at": "s16c",
+        "message": "s16d",
+        "message_type": 366,
+        "source": "s16f",
+        "started_at": "s170"
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/autorag/rags/{id}/jobs/{job_id}/logs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/autorag/rags/{id}/jobs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/autorag/rags/{id}/jobs/{job_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

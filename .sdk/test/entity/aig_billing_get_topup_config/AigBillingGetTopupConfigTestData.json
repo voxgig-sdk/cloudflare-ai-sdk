@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "aig_billing_get_topup_config": {
+      "AIG_BILLING_GET_TOPUP_CONFIG00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "AIG_BILLING_GET_TOPUP_CONFIG01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "AIG_BILLING_GET_TOPUP_CONFIG02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_get_topup_config": {
+      "aig_billing_get_topup_config_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/ai-gateway/billing/topup/config": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

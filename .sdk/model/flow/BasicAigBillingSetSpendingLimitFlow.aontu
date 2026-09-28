@@ -1,0 +1,22 @@
+# BasicAigBillingSetSpendingLimitFlow
+
+main: kit: flow: BasicAigBillingSetSpendingLimitFlow:
+{
+  entity: "aig_billing_set_spending_limit",
+  kind: "basic",
+  name: "BasicAigBillingSetSpendingLimitFlow",
+  step: [
+    {
+      i: {
+        ref: "aig_billing_set_spending_limit_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAigBillingSetSpendingLimitFlow"
+}

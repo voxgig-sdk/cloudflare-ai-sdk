@@ -1,0 +1,468 @@
+# Entity: ai_gateway_custom_provider_cost
+
+main: kit: entity: ai_gateway_custom_provider_cost: {
+
+  alias: field: {}
+
+  fields: {
+    account_provider_id: {
+      fo: "uuid"
+      h: "Account Provider Id"
+      n: "account_provider_id"
+      r: true
+      sh: "ID of the custom provider that the pricing rule applies to."
+      t: "`$STRING`"
+    }
+    changed_by: {
+      h: "Changed By"
+      n: "changed_by"
+      r: false
+      t: "`$STRING`"
+    }
+    cost_in: {
+      h: "Cost In"
+      n: "cost_in"
+      r: false
+      t: "`$NUMBER`"
+    }
+    cost_out: {
+      h: "Cost Out"
+      n: "cost_out"
+      r: false
+      t: "`$NUMBER`"
+    }
+    cost_type: {
+      h: "Cost Type"
+      n: "cost_type"
+      r: false
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      t: "`$STRING`"
+    }
+    enable: {
+      h: "Enable"
+      n: "enable"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      fo: "uuid"
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    model_rule: {
+      h: "Model Rule"
+      n: "model_rule"
+      r: false
+      t: "`$STRING`"
+    }
+    modified_at: {
+      fo: "date-time"
+      h: "Modified At"
+      n: "modified_at"
+      r: true
+      t: "`$STRING`"
+    }
+    token_pricing: {
+      h: "Token Pricing"
+      n: "token_pricing"
+      r: false
+      t: "`$STRING`"
+    }
+    weight: {
+      h: "Weight"
+      n: "weight"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ai_gateway_custom_provider_cost"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-gateway/custom-providers/costs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-gateway/custom-providers/costs"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "custom-providers"
+            }
+            {
+              lit: "costs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/custom-providers/costs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "account_provider_id"
+                or: "account_provider_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "tokens"
+                k: "query"
+                n: "cost_type"
+                or: "cost_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "enable"
+                or: "enable"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "equals"
+                k: "query"
+                n: "model_rule"
+                or: "model_rule"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/custom-providers/costs"
+          q: {
+            exist: [
+              "account_id"
+              "account_provider_id"
+              "cost_type"
+              "enable"
+              "model_rule"
+              "page"
+              "per_page"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "custom-providers"
+            }
+            {
+              lit: "costs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/custom-providers/costs/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/custom-providers/costs/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "custom-providers"
+            }
+            {
+              lit: "costs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/ai-gateway/custom-providers/costs/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/ai-gateway/custom-providers/costs/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "custom-providers"
+            }
+            {
+              lit: "costs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/ai-gateway/custom-providers/costs/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/ai-gateway/custom-providers/costs/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "custom-providers"
+            }
+            {
+              lit: "costs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

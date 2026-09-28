@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "auto_rag_rag": {
+      "AUTO_RAG_RAG00": {
+        "error": "s1e",
+        "job_id": "JOB01",
+        "key": "s20",
+        "account_id": "ACCOUNT01",
+        "rag_id": "RAG01",
+        "id": "AUTO_RAG_RAG00"
+      },
+      "AUTO_RAG_RAG01": {
+        "error": "s3c",
+        "job_id": "JOB01",
+        "key": "s3e",
+        "account_id": "ACCOUNT01",
+        "rag_id": "RAG01",
+        "id": "AUTO_RAG_RAG01"
+      },
+      "AUTO_RAG_RAG02": {
+        "error": "s5a",
+        "job_id": "JOB01",
+        "key": "s5c",
+        "account_id": "ACCOUNT01",
+        "rag_id": "RAG01",
+        "id": "AUTO_RAG_RAG02"
+      }
+    }
+  },
+  "new": {
+    "auto_rag_rag": {
+      "auto_rag_rag_ref01": {
+        "error": "s78",
+        "job_id": "JOB01",
+        "key": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/autorag/rags/{id}/files": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/autorag/rags/{id}/sync": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

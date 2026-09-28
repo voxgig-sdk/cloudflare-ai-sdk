@@ -1,0 +1,180 @@
+{
+  "existing": {
+    "ai_search_instances_item": {
+      "AI_SEARCH_INSTANCES_ITEM00": {
+        "action": "s104",
+        "checksum": "s105",
+        "chunkCount": 262,
+        "chunks_count": 263,
+        "created_at": "s108",
+        "end_byte": 265,
+        "error": "s10a",
+        "errorType": "s10b",
+        "fileKey": "s10c",
+        "file_size": 269,
+        "id": "AI_SEARCH_INSTANCES_ITEM00",
+        "item": {},
+        "key": "s110",
+        "last_seen_at": "s111",
+        "message": "s112",
+        "metadata": {},
+        "namespace": "s114",
+        "next_action": "s115",
+        "processingTimeMs": 278,
+        "source_id": "SOURCE01",
+        "start_byte": 280,
+        "status": "s119",
+        "text": "s11a",
+        "timestamp": "s11b",
+        "wait_for_completion": true,
+        "warnings": [],
+        "account_id": "ACCOUNT01",
+        "instance_id": "INSTANCE01",
+        "namespace_id": "NAMESPACE01",
+        "item_id": "ITEM01"
+      },
+      "AI_SEARCH_INSTANCES_ITEM01": {
+        "action": "s208",
+        "checksum": "s209",
+        "chunkCount": 522,
+        "chunks_count": 523,
+        "created_at": "s20c",
+        "end_byte": 525,
+        "error": "s20e",
+        "errorType": "s20f",
+        "fileKey": "s210",
+        "file_size": 529,
+        "id": "AI_SEARCH_INSTANCES_ITEM01",
+        "item": {},
+        "key": "s214",
+        "last_seen_at": "s215",
+        "message": "s216",
+        "metadata": {},
+        "namespace": "s218",
+        "next_action": "s219",
+        "processingTimeMs": 538,
+        "source_id": "SOURCE01",
+        "start_byte": 540,
+        "status": "s21d",
+        "text": "s21e",
+        "timestamp": "s21f",
+        "wait_for_completion": true,
+        "warnings": [],
+        "account_id": "ACCOUNT01",
+        "instance_id": "INSTANCE01",
+        "namespace_id": "NAMESPACE01",
+        "item_id": "ITEM01"
+      },
+      "AI_SEARCH_INSTANCES_ITEM02": {
+        "action": "s30c",
+        "checksum": "s30d",
+        "chunkCount": 782,
+        "chunks_count": 783,
+        "created_at": "s310",
+        "end_byte": 785,
+        "error": "s312",
+        "errorType": "s313",
+        "fileKey": "s314",
+        "file_size": 789,
+        "id": "AI_SEARCH_INSTANCES_ITEM02",
+        "item": {},
+        "key": "s318",
+        "last_seen_at": "s319",
+        "message": "s31a",
+        "metadata": {},
+        "namespace": "s31c",
+        "next_action": "s31d",
+        "processingTimeMs": 798,
+        "source_id": "SOURCE01",
+        "start_byte": 800,
+        "status": "s321",
+        "text": "s322",
+        "timestamp": "s323",
+        "wait_for_completion": true,
+        "warnings": [],
+        "account_id": "ACCOUNT01",
+        "instance_id": "INSTANCE01",
+        "namespace_id": "NAMESPACE01",
+        "item_id": "ITEM01"
+      }
+    }
+  },
+  "new": {
+    "ai_search_instances_item": {
+      "ai_search_instances_item_ref01": {
+        "action": "s410",
+        "checksum": "s411",
+        "chunkCount": 1042,
+        "chunks_count": 1043,
+        "created_at": "s414",
+        "end_byte": 1045,
+        "error": "s416",
+        "errorType": "s417",
+        "fileKey": "s418",
+        "file_size": 1049,
+        "item": {},
+        "key": "s41c",
+        "last_seen_at": "s41d",
+        "message": "s41e",
+        "metadata": {},
+        "namespace": "s420",
+        "next_action": "s421",
+        "processingTimeMs": 1058,
+        "source_id": "SOURCE01",
+        "start_byte": 1060,
+        "status": "s425",
+        "text": "s426",
+        "timestamp": "s427",
+        "wait_for_completion": true,
+        "warnings": []
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/logs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/chunks": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/download": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

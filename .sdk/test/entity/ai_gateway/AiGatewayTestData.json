@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "ai_gateway": {
+      "AI_GATEWAY00": {
+        "byokAlias": "s46",
+        "items": [],
+        "limit": 72,
+        "metadata": {},
+        "options": {},
+        "provider": "s4b",
+        "query": "s4c",
+        "account_id": "ACCOUNT01",
+        "id": "AI_GATEWAY00"
+      },
+      "AI_GATEWAY01": {
+        "byokAlias": "s8c",
+        "items": [],
+        "limit": 142,
+        "metadata": {},
+        "options": {},
+        "provider": "s91",
+        "query": "s92",
+        "account_id": "ACCOUNT01",
+        "id": "AI_GATEWAY01"
+      },
+      "AI_GATEWAY02": {
+        "byokAlias": "sd2",
+        "items": [],
+        "limit": 212,
+        "metadata": {},
+        "options": {},
+        "provider": "sd7",
+        "query": "sd8",
+        "account_id": "ACCOUNT01",
+        "id": "AI_GATEWAY02"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway": {
+      "ai_gateway_ref01": {
+        "byokAlias": "s118",
+        "items": [],
+        "limit": 282,
+        "metadata": {},
+        "options": {},
+        "provider": "s11d",
+        "query": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai/websearch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicAigBillingGetSpendingLimitFlow
+
+main: kit: flow: BasicAigBillingGetSpendingLimitFlow:
+{
+  entity: "aig_billing_get_spending_limit",
+  kind: "basic",
+  name: "BasicAigBillingGetSpendingLimitFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "aig_billing_get_spending_limit_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAigBillingGetSpendingLimitFlow"
+}

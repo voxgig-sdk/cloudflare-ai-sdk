@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>VectorizeBetaDeprecated | Cloudflare AI</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare AI<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-ai-sdk">voxgig-sdk/cloudflare-ai-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare AI</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/ai_gateway.html">AiGateway</a>
+<a href="../api/ai_gateway_custom_domain.html">AiGatewayCustomDomain</a>
+<a href="../api/ai_gateway_custom_provider.html">AiGatewayCustomProvider</a>
+<a href="../api/ai_gateway_custom_provider_cost.html">AiGatewayCustomProviderCost</a>
+<a href="../api/ai_gateway_dataset.html">AiGatewayDataset</a>
+<a href="../api/ai_gateway_dynamic_route.html">AiGatewayDynamicRoute</a>
+<a href="../api/ai_gateway_evaluation.html">AiGatewayEvaluation</a>
+<a href="../api/ai_gateway_gateway.html">AiGatewayGateway</a>
+<a href="../api/ai_gateway_log.html">AiGatewayLog</a>
+<a href="../api/ai_gateway_provider_config.html">AiGatewayProviderConfig</a>
+<a href="../api/ai_search_account_search.html">AiSearchAccountSearch</a>
+<a href="../api/ai_search_instance.html">AiSearchInstance</a>
+<a href="../api/ai_search_instances_item.html">AiSearchInstancesItem</a>
+<a href="../api/ai_search_instances_job.html">AiSearchInstancesJob</a>
+<a href="../api/ai_search_namespace.html">AiSearchNamespace</a>
+<a href="../api/ai_search_token.html">AiSearchToken</a>
+<a href="../api/aig_billing_create_topup.html">AigBillingCreateTopup</a>
+<a href="../api/aig_billing_delete_spending_limit.html">AigBillingDeleteSpendingLimit</a>
+<a href="../api/aig_billing_delete_topup_config.html">AigBillingDeleteTopupConfig</a>
+<a href="../api/aig_billing_get_credit_balance.html">AigBillingGetCreditBalance</a>
+<a href="../api/aig_billing_get_invoice_history.html">AigBillingGetInvoiceHistory</a>
+<a href="../api/aig_billing_get_invoice_preview.html">AigBillingGetInvoicePreview</a>
+<a href="../api/aig_billing_get_spending_limit.html">AigBillingGetSpendingLimit</a>
+<a href="../api/aig_billing_get_topup_config.html">AigBillingGetTopupConfig</a>
+<a href="../api/aig_billing_get_topup_eligibility.html">AigBillingGetTopupEligibility</a>
+<a href="../api/aig_billing_get_topup_limit.html">AigBillingGetTopupLimit</a>
+<a href="../api/aig_billing_get_usage_history.html">AigBillingGetUsageHistory</a>
+<a href="../api/aig_billing_set_spending_limit.html">AigBillingSetSpendingLimit</a>
+<a href="../api/aig_billing_set_topup_config.html">AigBillingSetTopupConfig</a>
+<a href="../api/aig_billing_topup_status.html">AigBillingTopupStatus</a>
+<a href="../api/auto_rag_job.html">AutoRagJob</a>
+<a href="../api/auto_rag_rag.html">AutoRagRag</a>
+<a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
+<a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a href="../api/vectorize.html">Vectorize</a>
+<a aria-current="page" href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idvectorizeindexesindex_namedelete-by-ids">POST /accounts/{account_id}/vectorize/indexes/{index_name}/delete-by-ids</a>
+<a class="nav-section" href="#post-accountsaccount_idvectorizeindexesindex_nameget-by-ids">POST /accounts/{account_id}/vectorize/indexes/{index_name}/get-by-ids</a>
+<a class="nav-section" href="#post-accountsaccount_idvectorizeindexesindex_nameinsert">POST /accounts/{account_id}/vectorize/indexes/{index_name}/insert</a>
+<a class="nav-section" href="#post-accountsaccount_idvectorizeindexesindex_namequery">POST /accounts/{account_id}/vectorize/indexes/{index_name}/query</a>
+<a class="nav-section" href="#post-accountsaccount_idvectorizeindexesindex_nameupsert">POST /accounts/{account_id}/vectorize/indexes/{index_name}/upsert</a>
+<a class="nav-section" href="#post-accountsaccount_idvectorizeindexes">POST /accounts/{account_id}/vectorize/indexes</a>
+<a class="nav-section" href="#get-accountsaccount_idvectorizeindexes">GET /accounts/{account_id}/vectorize/indexes</a>
+<a class="nav-section" href="#get-accountsaccount_idvectorizeindexesindex_name">GET /accounts/{account_id}/vectorize/indexes/{index_name}</a>
+<a class="nav-section" href="#delete-accountsaccount_idvectorizeindexesindex_name">DELETE /accounts/{account_id}/vectorize/indexes/{index_name}</a>
+<a class="nav-section" href="#put-accountsaccount_idvectorizeindexesindex_name">PUT /accounts/{account_id}/vectorize/indexes/{index_name}</a></div>
+<a href="../api/workers_ai.html">WorkersAi</a>
+<a href="../api/workers_ai_finetune.html">WorkersAiFinetune</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="vectorizebetadeprecated">VectorizeBetaDeprecated</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idvectorizeindexesindex_namedelete-by-ids"><code>/accounts/{account_id}/vectorize/indexes/{index_name}/delete-by-ids</code></a></td>
+<td><code>create</code></td>
+<td>Delete Vector Identifiers Response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idvectorizeindexesindex_nameget-by-ids"><code>/accounts/{account_id}/vectorize/indexes/{index_name}/get-by-ids</code></a></td>
+<td><code>create</code></td>
+<td>Get Vectors By Identifier Response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idvectorizeindexesindex_nameinsert"><code>/accounts/{account_id}/vectorize/indexes/{index_name}/insert</code></a></td>
+<td><code>create</code></td>
+<td>Insert Vectors Response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idvectorizeindexesindex_namequery"><code>/accounts/{account_id}/vectorize/indexes/{index_name}/query</code></a></td>
+<td><code>create</code></td>
+<td>Query Vectors Response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idvectorizeindexesindex_nameupsert"><code>/accounts/{account_id}/vectorize/indexes/{index_name}/upsert</code></a></td>
+<td><code>create</code></td>
+<td>Insert Vectors Response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idvectorizeindexes"><code>/accounts/{account_id}/vectorize/indexes</code></a></td>
+<td><code>create</code></td>
+<td>Create Vectorize Index Response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idvectorizeindexes"><code>/accounts/{account_id}/vectorize/indexes</code></a></td>
+<td><code>list</code></td>
+<td>List Vectorize Index Response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idvectorizeindexesindex_name"><code>/accounts/{account_id}/vectorize/indexes/{index_name}</code></a></td>
+<td><code>load</code></td>
+<td>Get Vectorize Index Response</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idvectorizeindexesindex_name"><code>/accounts/{account_id}/vectorize/indexes/{index_name}</code></a></td>
+<td><code>remove</code></td>
+<td>Delete Vectorize Index Response</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idvectorizeindexesindex_name"><code>/accounts/{account_id}/vectorize/indexes/{index_name}</code></a></td>
+<td><code>update</code></td>
+<td>Update Vectorize Index Response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">vectorize_beta__deprecateds, err := client.VectorizeBetaDeprecated(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(vectorize_beta__deprecateds)
+vectorize_beta__deprecated, err := client.VectorizeBetaDeprecated(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;index_name&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(vectorize_beta__deprecated)
+created, err := client.VectorizeBetaDeprecated(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;config&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;name&quot;: &quot;example&quot;, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.VectorizeBetaDeprecated(nil).Update(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;index_name&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.VectorizeBetaDeprecated(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;index_name&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local vectorize_beta__deprecateds, err = client:VectorizeBetaDeprecated():list({ account_id = &quot;example&quot; })
+local vectorize_beta__deprecated, err = client:VectorizeBetaDeprecated():load({ account_id = &quot;example&quot;, index_name = &quot;example&quot; })
+local created, err = client:VectorizeBetaDeprecated():create({ account_id = &quot;example&quot;, config = &quot;example&quot;, errors = {}, messages = {}, name = &quot;example&quot;, success = true })
+local updated, err = client:VectorizeBetaDeprecated():update({ account_id = &quot;example&quot;, index_name = &quot;example&quot; })
+local removed, err = client:VectorizeBetaDeprecated():remove({ account_id = &quot;example&quot;, index_name = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$vectorize_beta__deprecateds = $client-&gt;VectorizeBetaDeprecated()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$vectorize_beta__deprecated = $client-&gt;VectorizeBetaDeprecated()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;index_name&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;VectorizeBetaDeprecated()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;config&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;name&quot; =&gt; &quot;example&quot;, &quot;success&quot; =&gt; true]);
+$updated = $client-&gt;VectorizeBetaDeprecated()-&gt;update([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;index_name&quot; =&gt; &quot;example&quot;]);
+$client-&gt;VectorizeBetaDeprecated()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;index_name&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">vectorize_beta__deprecateds = client.VectorizeBetaDeprecated().list({&quot;account_id&quot;: &quot;example&quot;})
+vectorize_beta__deprecated = client.VectorizeBetaDeprecated().load({&quot;account_id&quot;: &quot;example&quot;, &quot;index_name&quot;: &quot;example&quot;})
+created = client.VectorizeBetaDeprecated().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;config&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;messages&quot;: [], &quot;name&quot;: &quot;example&quot;, &quot;success&quot;: True })
+updated = client.VectorizeBetaDeprecated().update({&quot;account_id&quot;: &quot;example&quot;, &quot;index_name&quot;: &quot;example&quot;})
+client.VectorizeBetaDeprecated().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;index_name&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">vectorize_beta__deprecateds = client.VectorizeBetaDeprecated.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+vectorize_beta__deprecated = client.VectorizeBetaDeprecated.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;index_name&quot; =&gt; &quot;example&quot; })
+created = client.VectorizeBetaDeprecated.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;config&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;name&quot; =&gt; &quot;example&quot;, &quot;success&quot; =&gt; true })
+updated = client.VectorizeBetaDeprecated.update({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;index_name&quot; =&gt; &quot;example&quot; })
+client.VectorizeBetaDeprecated.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;index_name&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const vectorize_beta__deprecateds = await client.VectorizeBetaDeprecated().list({ account_id: &quot;example&quot; })
+const vectorize_beta__deprecated = await client.VectorizeBetaDeprecated().load({ account_id: &quot;example&quot;, index_name: &quot;example&quot; })
+const created = await client.VectorizeBetaDeprecated().create({ account_id: &quot;example&quot;, config: &quot;example&quot;, errors: [], messages: [], name: &quot;example&quot;, success: true })
+const updated = await client.VectorizeBetaDeprecated().update({ account_id: &quot;example&quot;, index_name: &quot;example&quot; })
+await client.VectorizeBetaDeprecated().remove({ account_id: &quot;example&quot;, index_name: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>any</code></td>
+<td>Yes</td>
+<td>Config</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the description of the index.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>ids</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>A list of vector identifiers to delete from the index indicated by the path.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idvectorizeindexesindex_namedelete-by-ids" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/vectorize/indexes/{index_name}/delete-by-ids</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-delete-vectors-by-id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>index_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ids</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>A list of vector identifiers to delete from the index indicated by the path.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-delete-vector-identifiers-response" class="status" data-status="2xx">200: Delete Vector Identifiers Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-delete-vector-identifiers-failure-response">4XX: Delete Vector Identifiers Failure Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h3 id="post-accountsaccount_idvectorizeindexesindex_nameget-by-ids" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/vectorize/indexes/{index_name}/get-by-ids</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-get-vectors-by-id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>index_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ids</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>A list of vector identifiers to retrieve from the index indicated by the path.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-get-vectors-by-identifier-response" class="status" data-status="2xx">200: Get Vectors By Identifier Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-get-vectors-by-identifier-failure-response">4XX: Get Vectors By Identifier Failure Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h3 id="post-accountsaccount_idvectorizeindexesindex_nameinsert" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/vectorize/indexes/{index_name}/insert</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-insert-vector</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>index_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/x-ndjson</code></p>
+<p>The request body is <code>string (binary)</code>.</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-insert-vectors-response" class="status" data-status="2xx">200: Insert Vectors Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-insert-vectors-failure-response">4XX: Insert Vectors Failure Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h3 id="post-accountsaccount_idvectorizeindexesindex_namequery" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/vectorize/indexes/{index_name}/query</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-query-vector</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>index_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filter</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>A metadata filter expression used to limit nearest neighbor results.</td>
+</tr>
+<tr>
+<td><code>returnMetadata</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to return the metadata associated with the closest vectors.</td>
+</tr>
+<tr>
+<td><code>returnValues</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to return the values associated with the closest vectors.</td>
+</tr>
+<tr>
+<td><code>topK</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The number of nearest neighbors to find.</td>
+</tr>
+<tr>
+<td><code>vector</code></td>
+<td><code>array of number</code></td>
+<td>Yes</td>
+<td>The search vector that will be used to find the nearest neighbors.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-query-vectors-response" class="status" data-status="2xx">200: Query Vectors Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-query-vectors-failure-response">4XX: Query Vectors Failure Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h3 id="post-accountsaccount_idvectorizeindexesindex_nameupsert" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/vectorize/indexes/{index_name}/upsert</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-upsert-vector</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>index_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/x-ndjson</code></p>
+<p>The request body is <code>string (binary)</code>.</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-insert-vectors-response-1" class="status" data-status="2xx">200: Insert Vectors Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-insert-vectors-failure-response-1">4XX: Insert Vectors Failure Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h3 id="post-accountsaccount_idvectorizeindexes" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/vectorize/indexes</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-create-vectorize-index</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-5">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the description of the index.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-create-vectorize-index-response" class="status" data-status="2xx">200: Create Vectorize Index Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-create-vectorize-index-failure-response">4XX: Create Vectorize Index Failure Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idvectorizeindexes" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/vectorize/indexes</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-list-vectorize-indexes</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-list-vectorize-index-response" class="status" data-status="2xx">200: List Vectorize Index Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-list-vectorize-index-failure-response">4XX: List Vectorize Index Failure Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idvectorizeindexesindex_name" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/vectorize/indexes/{index_name}</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-get-vectorize-index</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>index_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-get-vectorize-index-response" class="status" data-status="2xx">200: Get Vectorize Index Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-get-vectorize-index-failure">4XX: Get Vectorize Index Failure</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idvectorizeindexesindex_name" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/vectorize/indexes/{index_name}</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-delete-vectorize-index</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>index_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-delete-vectorize-index-response" class="status" data-status="2xx">200: Delete Vectorize Index Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-delete-vectorize-index-failure">4XX: Delete Vectorize Index Failure</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+<h2 id="update">update</h2>
+<h3 id="put-accountsaccount_idvectorizeindexesindex_name" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/vectorize/indexes/{index_name}</h3>
+<p>Operation ID: <code>vectorize-(-deprecated)-update-vectorize-index</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>index_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-6">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the description of the index.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-update-vectorize-index-response" class="status" data-status="2xx">200: Update Vectorize Index Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-update-vectorize-index-failure-response">4XX: Update Vectorize Index Failure Response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object and object</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

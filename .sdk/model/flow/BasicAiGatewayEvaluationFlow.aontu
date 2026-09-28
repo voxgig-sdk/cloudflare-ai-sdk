@@ -1,0 +1,98 @@
+# BasicAiGatewayEvaluationFlow
+
+main: kit: flow: BasicAiGatewayEvaluationFlow:
+{
+  entity: "ai_gateway_evaluation",
+  kind: "basic",
+  name: "BasicAiGatewayEvaluationFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_gateway_evaluation_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ai_gateway_evaluation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_gateway_evaluation_ref01",
+        srcdatavar: "ai_gateway_evaluation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01",
+        id: "ai_gateway_evaluation01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_gateway_evaluation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_gateway_evaluation_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01",
+        id: "ai_gateway_evaluation01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "ai_gateway_evaluation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAiGatewayEvaluationFlow"
+}

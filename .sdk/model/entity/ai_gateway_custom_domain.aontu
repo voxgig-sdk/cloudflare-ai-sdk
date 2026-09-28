@@ -1,0 +1,422 @@
+# Entity: ai_gateway_custom_domain
+
+main: kit: entity: ai_gateway_custom_domain: {
+
+  alias: field: {}
+
+  fields: {
+    cname_target: {
+      h: "Cname Target"
+      n: "cname_target"
+      r: true
+      t: "`$STRING`"
+    }
+    created_at: {
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "epoch milliseconds"
+      t: "`$INTEGER`"
+    }
+    domain: {
+      h: "Domain"
+      n: "domain"
+      r: true
+      sh: "Custom hostname that you own, such as `ai.example.com`."
+      t: "`$STRING`"
+    }
+    gateway_id: {
+      h: "Gateway Id"
+      n: "gateway_id"
+      r: true
+      sh: "Unique identifier of the AI Gateway within the account."
+      t: "`$STRING`"
+    }
+    hostname: {
+      h: "Hostname"
+      n: "hostname"
+      r: true
+      sh: "Custom hostname that you own, such as `ai.example.com`."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    minTLS: {
+      h: "Min Tls"
+      n: "minTLS"
+      r: false
+      t: "`$STRING`"
+    }
+    modified_at: {
+      h: "Modified At"
+      n: "modified_at"
+      r: true
+      sh: "epoch milliseconds"
+      t: "`$INTEGER`"
+    }
+    ssl_hostname_id: {
+      h: "Ssl Hostname Id"
+      n: "ssl_hostname_id"
+      r: true
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      t: "`$STRING`"
+    }
+    zone_id: {
+      h: "Zone Id"
+      n: "zone_id"
+      r: true
+      sh: "ID of the Cloudflare zone that contains the custom hostname."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ai_gateway_custom_domain"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "custom-domains"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "page"
+              "per_page"
+              "search"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "custom-domains"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "ai.acme.com"
+                k: "param"
+                n: "id"
+                or: "hostname"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              hostname: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "custom-domains"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "ai.acme.com"
+                k: "param"
+                n: "id"
+                or: "hostname"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              hostname: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "custom-domains"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

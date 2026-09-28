@@ -1,0 +1,889 @@
+# Entity: ai_gateway_log
+
+main: kit: entity: ai_gateway_log: {
+
+  alias: field: {}
+
+  fields: {
+    cached: {
+      h: "Cached"
+      n: "cached"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    cost: {
+      h: "Cost"
+      n: "cost"
+      r: false
+      t: "`$NUMBER`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      t: "`$STRING`"
+    }
+    custom_cost: {
+      h: "Custom Cost"
+      n: "custom_cost"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    duration: {
+      h: "Duration"
+      n: "duration"
+      r: true
+      t: "`$INTEGER`"
+    }
+    feedback: {
+      h: "Feedback"
+      n: "feedback"
+      r: false
+      t: "`$NUMBER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: false
+      t: "`$STRING`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: true
+      t: "`$STRING`"
+    }
+    model_type: {
+      h: "Model Type"
+      n: "model_type"
+      r: false
+      t: "`$STRING`"
+    }
+    path: {
+      h: "Path"
+      n: "path"
+      r: true
+      t: "`$STRING`"
+    }
+    provider: {
+      h: "Provider"
+      n: "provider"
+      r: true
+      t: "`$STRING`"
+    }
+    request_content_type: {
+      h: "Request Content Type"
+      n: "request_content_type"
+      r: false
+      t: "`$STRING`"
+    }
+    request_head: {
+      h: "Request Head"
+      n: "request_head"
+      r: false
+      t: "`$STRING`"
+    }
+    request_head_complete: {
+      h: "Request Head Complete"
+      n: "request_head_complete"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    request_size: {
+      h: "Request Size"
+      n: "request_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    request_type: {
+      h: "Request Type"
+      n: "request_type"
+      r: false
+      t: "`$STRING`"
+    }
+    response_content_type: {
+      h: "Response Content Type"
+      n: "response_content_type"
+      r: false
+      t: "`$STRING`"
+    }
+    response_head: {
+      h: "Response Head"
+      n: "response_head"
+      r: false
+      t: "`$STRING`"
+    }
+    response_head_complete: {
+      h: "Response Head Complete"
+      n: "response_head_complete"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    response_size: {
+      h: "Response Size"
+      n: "response_size"
+      r: false
+      t: "`$INTEGER`"
+    }
+    score: {
+      h: "Score"
+      n: "score"
+      r: false
+      t: "`$NUMBER`"
+    }
+    status_code: {
+      h: "Status Code"
+      n: "status_code"
+      r: false
+      t: "`$INTEGER`"
+    }
+    step: {
+      h: "Step"
+      n: "step"
+      r: false
+      t: "`$INTEGER`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    tokens_in: {
+      h: "Tokens In"
+      n: "tokens_in"
+      r: true
+      t: "`$INTEGER`"
+    }
+    tokens_out: {
+      h: "Tokens Out"
+      n: "tokens_out"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ai_gateway_log"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "cached"
+                or: "cached"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "direction"
+                or: "direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "feedback"
+                or: "feedback"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "max_cost"
+                or: "max_cost"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "max_duration"
+                or: "max_duration"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "max_tokens_in"
+                or: "max_tokens_in"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "max_tokens_out"
+                or: "max_tokens_out"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "max_total_token"
+                or: "max_total_token"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "meta_info"
+                or: "meta_info"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "min_cost"
+                or: "min_cost"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "min_duration"
+                or: "min_duration"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "min_tokens_in"
+                or: "min_tokens_in"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "min_tokens_out"
+                or: "min_tokens_out"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "min_total_token"
+                or: "min_total_token"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "model"
+                or: "model"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "model_type"
+                or: "model_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "created_at"
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "desc"
+                k: "query"
+                n: "order_by_direction"
+                or: "order_by_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "provider"
+                or: "provider"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "request_content_type"
+                or: "request_content_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "response_content_type"
+                or: "response_content_type"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "success"
+                or: "success"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs"
+          q: {
+            exist: [
+              "account_id"
+              "cached"
+              "direction"
+              "end_date"
+              "feedback"
+              "filter"
+              "gateway_id"
+              "max_cost"
+              "max_duration"
+              "max_tokens_in"
+              "max_tokens_out"
+              "max_total_token"
+              "meta_info"
+              "min_cost"
+              "min_duration"
+              "min_tokens_in"
+              "min_tokens_out"
+              "min_total_token"
+              "model"
+              "model_type"
+              "order_by"
+              "order_by_direction"
+              "page"
+              "per_page"
+              "provider"
+              "request_content_type"
+              "response_content_type"
+              "search"
+              "start_date"
+              "success"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "logs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "logs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}/request"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "log_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}/request"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "log_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "log_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "logs"
+            }
+            {
+              var: "log_id"
+            }
+            {
+              lit: "request"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}/response"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "log_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}/response"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "log_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "log_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "logs"
+            }
+            {
+              var: "log_id"
+            }
+            {
+              lit: "response"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 10000
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "created_at"
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "asc"
+                k: "query"
+                n: "order_by_direction"
+                or: "order_by_direction"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs"
+          q: {
+            exist: [
+              "account_id"
+              "filter"
+              "gateway_id"
+              "limit"
+              "order_by"
+              "order_by_direction"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "logs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "logs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

@@ -1,0 +1,1901 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AiGatewayDynamicRoute | Cloudflare AI</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare AI<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-ai-sdk">voxgig-sdk/cloudflare-ai-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare AI</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/ai_gateway.html">AiGateway</a>
+<a href="../api/ai_gateway_custom_domain.html">AiGatewayCustomDomain</a>
+<a href="../api/ai_gateway_custom_provider.html">AiGatewayCustomProvider</a>
+<a href="../api/ai_gateway_custom_provider_cost.html">AiGatewayCustomProviderCost</a>
+<a href="../api/ai_gateway_dataset.html">AiGatewayDataset</a>
+<a aria-current="page" href="../api/ai_gateway_dynamic_route.html">AiGatewayDynamicRoute</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idai-gatewaygatewaysgateway_idroutesiddeployments">POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments</a>
+<a class="nav-section" href="#post-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversions">POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions</a>
+<a class="nav-section" href="#post-accountsaccount_idai-gatewaygatewaysgateway_idroutes">POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes</a>
+<a class="nav-section" href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutes">GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes</a>
+<a class="nav-section" href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversionsversion_id">GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions/{version_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutesid">GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</a>
+<a class="nav-section" href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutesiddeployments">GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments</a>
+<a class="nav-section" href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversions">GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions</a>
+<a class="nav-section" href="#delete-accountsaccount_idai-gatewaygatewaysgateway_idroutesid">DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idai-gatewaygatewaysgateway_idroutesid">PATCH /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</a></div>
+<a href="../api/ai_gateway_evaluation.html">AiGatewayEvaluation</a>
+<a href="../api/ai_gateway_gateway.html">AiGatewayGateway</a>
+<a href="../api/ai_gateway_log.html">AiGatewayLog</a>
+<a href="../api/ai_gateway_provider_config.html">AiGatewayProviderConfig</a>
+<a href="../api/ai_search_account_search.html">AiSearchAccountSearch</a>
+<a href="../api/ai_search_instance.html">AiSearchInstance</a>
+<a href="../api/ai_search_instances_item.html">AiSearchInstancesItem</a>
+<a href="../api/ai_search_instances_job.html">AiSearchInstancesJob</a>
+<a href="../api/ai_search_namespace.html">AiSearchNamespace</a>
+<a href="../api/ai_search_token.html">AiSearchToken</a>
+<a href="../api/aig_billing_create_topup.html">AigBillingCreateTopup</a>
+<a href="../api/aig_billing_delete_spending_limit.html">AigBillingDeleteSpendingLimit</a>
+<a href="../api/aig_billing_delete_topup_config.html">AigBillingDeleteTopupConfig</a>
+<a href="../api/aig_billing_get_credit_balance.html">AigBillingGetCreditBalance</a>
+<a href="../api/aig_billing_get_invoice_history.html">AigBillingGetInvoiceHistory</a>
+<a href="../api/aig_billing_get_invoice_preview.html">AigBillingGetInvoicePreview</a>
+<a href="../api/aig_billing_get_spending_limit.html">AigBillingGetSpendingLimit</a>
+<a href="../api/aig_billing_get_topup_config.html">AigBillingGetTopupConfig</a>
+<a href="../api/aig_billing_get_topup_eligibility.html">AigBillingGetTopupEligibility</a>
+<a href="../api/aig_billing_get_topup_limit.html">AigBillingGetTopupLimit</a>
+<a href="../api/aig_billing_get_usage_history.html">AigBillingGetUsageHistory</a>
+<a href="../api/aig_billing_set_spending_limit.html">AigBillingSetSpendingLimit</a>
+<a href="../api/aig_billing_set_topup_config.html">AigBillingSetTopupConfig</a>
+<a href="../api/aig_billing_topup_status.html">AigBillingTopupStatus</a>
+<a href="../api/auto_rag_job.html">AutoRagJob</a>
+<a href="../api/auto_rag_rag.html">AutoRagRag</a>
+<a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
+<a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a href="../api/vectorize.html">Vectorize</a>
+<a href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a>
+<a href="../api/workers_ai.html">WorkersAi</a>
+<a href="../api/workers_ai_finetune.html">WorkersAiFinetune</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="aigatewaydynamicroute">AiGatewayDynamicRoute</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idai-gatewaygatewaysgateway_idroutesiddeployments"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments</code></a></td>
+<td><code>create</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversions"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions</code></a></td>
+<td><code>create</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idai-gatewaygatewaysgateway_idroutes"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes</code></a></td>
+<td><code>create</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutes"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes</code></a></td>
+<td><code>load</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversionsversion_id"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions/{version_id}</code></a></td>
+<td><code>load</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutesid"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</code></a></td>
+<td><code>load</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutesiddeployments"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments</code></a></td>
+<td><code>load</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversions"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions</code></a></td>
+<td><code>load</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idai-gatewaygatewaysgateway_idroutesid"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</code></a></td>
+<td><code>remove</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idai-gatewaygatewaysgateway_idroutesid"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</code></a></td>
+<td><code>update</code></td>
+<td>Success</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">ai_gateway_dynamic_route, err := client.AiGatewayDynamicRoute(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(ai_gateway_dynamic_route)
+created, err := client.AiGatewayDynamicRoute(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;account_tag&quot;: &quot;example&quot;, &quot;active&quot;: true, &quot;created_at&quot;: &quot;example&quot;, &quot;data&quot;: &quot;example&quot;, &quot;deployment&quot;: map[string]any{}, &quot;deployments&quot;: []any{}, &quot;elements&quot;: []any{}, &quot;id&quot;: &quot;example&quot;, &quot;modified_at&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;, &quot;order_by&quot;: &quot;example&quot;, &quot;order_by_direction&quot;: &quot;example&quot;, &quot;page&quot;: 1, &quot;per_page&quot;: 1, &quot;routes&quot;: []any{}, &quot;version&quot;: map[string]any{}, &quot;version_id&quot;: &quot;example&quot;, &quot;versions&quot;: []any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.AiGatewayDynamicRoute(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.AiGatewayDynamicRoute(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local ai_gateway_dynamic_route, err = client:AiGatewayDynamicRoute():load({ account_id = &quot;example&quot;, gateway_id = &quot;example&quot; })
+local created, err = client:AiGatewayDynamicRoute():create({ account_id = &quot;example&quot;, gateway_id = &quot;example&quot;, account_tag = &quot;example&quot;, active = true, created_at = &quot;example&quot;, data = &quot;example&quot;, deployment = {}, deployments = {}, elements = {}, id = &quot;example&quot;, modified_at = &quot;example&quot;, name = &quot;example&quot;, order_by = &quot;example&quot;, order_by_direction = &quot;example&quot;, page = 1, per_page = 1, routes = {}, version = {}, version_id = &quot;example&quot;, versions = {} })
+local updated, err = client:AiGatewayDynamicRoute():update({ id = &quot;example_id&quot;, account_id = &quot;example&quot;, gateway_id = &quot;example&quot; })
+local removed, err = client:AiGatewayDynamicRoute():remove({ account_id = &quot;example&quot;, gateway_id = &quot;example&quot;, id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$ai_gateway_dynamic_route = $client-&gt;AiGatewayDynamicRoute()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;AiGatewayDynamicRoute()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;account_tag&quot; =&gt; &quot;example&quot;, &quot;active&quot; =&gt; true, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;data&quot; =&gt; &quot;example&quot;, &quot;deployment&quot; =&gt; [], &quot;deployments&quot; =&gt; [], &quot;elements&quot; =&gt; [], &quot;id&quot; =&gt; &quot;example&quot;, &quot;modified_at&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;, &quot;order_by&quot; =&gt; &quot;example&quot;, &quot;order_by_direction&quot; =&gt; &quot;example&quot;, &quot;page&quot; =&gt; 1, &quot;per_page&quot; =&gt; 1, &quot;routes&quot; =&gt; [], &quot;version&quot; =&gt; [], &quot;version_id&quot; =&gt; &quot;example&quot;, &quot;versions&quot; =&gt; []]);
+$updated = $client-&gt;AiGatewayDynamicRoute()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;]);
+$client-&gt;AiGatewayDynamicRoute()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">ai_gateway_dynamic_route = client.AiGatewayDynamicRoute().load({&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;})
+created = client.AiGatewayDynamicRoute().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;account_tag&quot;: &quot;example&quot;, &quot;active&quot;: True, &quot;created_at&quot;: &quot;example&quot;, &quot;data&quot;: &quot;example&quot;, &quot;deployment&quot;: {}, &quot;deployments&quot;: [], &quot;elements&quot;: [], &quot;id&quot;: &quot;example&quot;, &quot;modified_at&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;, &quot;order_by&quot;: &quot;example&quot;, &quot;order_by_direction&quot;: &quot;example&quot;, &quot;page&quot;: 1, &quot;per_page&quot;: 1, &quot;routes&quot;: [], &quot;version&quot;: {}, &quot;version_id&quot;: &quot;example&quot;, &quot;versions&quot;: [] })
+updated = client.AiGatewayDynamicRoute().update({&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;})
+client.AiGatewayDynamicRoute().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">ai_gateway_dynamic_route = client.AiGatewayDynamicRoute.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot; })
+created = client.AiGatewayDynamicRoute.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;account_tag&quot; =&gt; &quot;example&quot;, &quot;active&quot; =&gt; true, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;data&quot; =&gt; &quot;example&quot;, &quot;deployment&quot; =&gt; {}, &quot;deployments&quot; =&gt; [], &quot;elements&quot; =&gt; [], &quot;id&quot; =&gt; &quot;example&quot;, &quot;modified_at&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;, &quot;order_by&quot; =&gt; &quot;example&quot;, &quot;order_by_direction&quot; =&gt; &quot;example&quot;, &quot;page&quot; =&gt; 1, &quot;per_page&quot; =&gt; 1, &quot;routes&quot; =&gt; [], &quot;version&quot; =&gt; {}, &quot;version_id&quot; =&gt; &quot;example&quot;, &quot;versions&quot; =&gt; [] })
+updated = client.AiGatewayDynamicRoute.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot; })
+client.AiGatewayDynamicRoute.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const ai_gateway_dynamic_route = await client.AiGatewayDynamicRoute().load({ account_id: &quot;example&quot;, gateway_id: &quot;example&quot; })
+const created = await client.AiGatewayDynamicRoute().create({ account_id: &quot;example&quot;, gateway_id: &quot;example&quot;, account_tag: &quot;example&quot;, active: true, created_at: &quot;example&quot;, data: &quot;example&quot;, deployment: {}, deployments: [], elements: [], id: &quot;example&quot;, modified_at: &quot;example&quot;, name: &quot;example&quot;, order_by: &quot;example&quot;, order_by_direction: &quot;example&quot;, page: 1, per_page: 1, routes: [], version: {}, version_id: &quot;example&quot;, versions: [] })
+const updated = await client.AiGatewayDynamicRoute().update({ id: &quot;example_id&quot;, account_id: &quot;example&quot;, gateway_id: &quot;example&quot; })
+await client.AiGatewayDynamicRoute().remove({ account_id: &quot;example&quot;, gateway_id: &quot;example&quot;, id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>account_tag</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Account Tag</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Data</td>
+</tr>
+<tr>
+<td><code>deployment</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Deployment</td>
+</tr>
+<tr>
+<td><code>deployments</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Deployments</td>
+</tr>
+<tr>
+<td><code>elements</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Elements</td>
+</tr>
+<tr>
+<td><code>gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Gateway Id</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>is_valid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Is Valid</td>
+</tr>
+<tr>
+<td><code>modified_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Modified At</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name</td>
+</tr>
+<tr>
+<td><code>order_by</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Order By</td>
+</tr>
+<tr>
+<td><code>order_by_direction</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Order By Direction</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Page</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Per Page</td>
+</tr>
+<tr>
+<td><code>routes</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Routes</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Version</td>
+</tr>
+<tr>
+<td><code>version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Version Id</td>
+</tr>
+<tr>
+<td><code>versions</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Versions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idai-gatewaygatewaysgateway_idroutesiddeployments" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments</h3>
+<p>Operation ID: <code>aig-config-post-gateway-dynamic-route-deployment</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-success" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversions" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions</h3>
+<p>Operation ID: <code>aig-config-post-gateway-dynamic-route-version</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-success-1" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-1" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idai-gatewaygatewaysgateway_idroutes" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes</h3>
+<p>Operation ID: <code>aig-config-post-gateway-dynamic-route</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-success-2" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deployment</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deployment.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deployment.deployment_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deployment.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.active</code></td>
+<td><code>enum: true, false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.data</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.is_valid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-2" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idai-gatewaygatewaysgateway_idroutes" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes</h3>
+<p>Operation ID: <code>aig-config-list-gateway-dynamic-routes</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Page number |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | Number of routes per page |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-success-3" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.order_by</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.order_by_direction</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].account_tag</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].deployment</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].deployment.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].deployment.deployment_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].deployment.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].version</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].version.active</code></td>
+<td><code>enum: true, false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].version.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].version.data</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].version.is_valid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.routes[].version.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-3" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversionsversion_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions/{version_id}</h3>
+<p>Operation ID: <code>aig-config-get-gateway-dynamic-route-version</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>version_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-success-4" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.active</code></td>
+<td><code>enum: true, false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.data</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.is_valid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-4" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idai-gatewaygatewaysgateway_idroutesid" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</h3>
+<p>Operation ID: <code>aig-config-get-gateway-dynamic-route</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-success-5" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deployment</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deployment.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deployment.deployment_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.deployment.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.active</code></td>
+<td><code>enum: true, false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.data</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.is_valid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-5" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idai-gatewaygatewaysgateway_idroutesiddeployments" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments</h3>
+<p>Operation ID: <code>aig-config-list-gateway-dynamic-route-deployments</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-success-6" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.deployments</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.deployments[].created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.deployments[].deployment_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.deployments[].version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.order_by</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.order_by_direction</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-6" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idai-gatewaygatewaysgateway_idroutesidversions" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions</h3>
+<p>Operation ID: <code>aig-config-list-gateway-dynamic-route-versions</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-success-7" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.order_by</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.order_by_direction</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.versions</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.versions[].active</code></td>
+<td><code>enum: true, false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.versions[].created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.versions[].data</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.versions[].is_valid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.versions[].version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-7" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idai-gatewaygatewaysgateway_idroutesid" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</h3>
+<p>Operation ID: <code>aig-config-delete-gateway-dynamic-route</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-success-8" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-8" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="patch-accountsaccount_idai-gatewaygatewaysgateway_idroutesid" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}</h3>
+<p>Operation ID: <code>aig-config-update-gateway-dynamic-route</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-success-9" class="status" data-status="2xx">200: Success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>route</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.account_tag</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.deployment</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.deployment.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.deployment.deployment_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.deployment.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.version</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.version.active</code></td>
+<td><code>enum: true, false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.version.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.version.data</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.version.is_valid</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.version.version_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-input-error" class="status" data-status="4xx">400: Input Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>route</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.account_tag</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.elements</code></td>
+<td><code>array of object or object or object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>route.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

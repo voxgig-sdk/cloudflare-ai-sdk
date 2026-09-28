@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AiGatewayCustomDomain | Cloudflare AI</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare AI<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-ai-sdk">voxgig-sdk/cloudflare-ai-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare AI</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/ai_gateway.html">AiGateway</a>
+<a aria-current="page" href="../api/ai_gateway_custom_domain.html">AiGatewayCustomDomain</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domains">POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains</a>
+<a class="nav-section" href="#get-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domains">GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains</a>
+<a class="nav-section" href="#get-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domainshostname">GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}</a>
+<a class="nav-section" href="#delete-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domainshostname">DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}</a></div>
+<a href="../api/ai_gateway_custom_provider.html">AiGatewayCustomProvider</a>
+<a href="../api/ai_gateway_custom_provider_cost.html">AiGatewayCustomProviderCost</a>
+<a href="../api/ai_gateway_dataset.html">AiGatewayDataset</a>
+<a href="../api/ai_gateway_dynamic_route.html">AiGatewayDynamicRoute</a>
+<a href="../api/ai_gateway_evaluation.html">AiGatewayEvaluation</a>
+<a href="../api/ai_gateway_gateway.html">AiGatewayGateway</a>
+<a href="../api/ai_gateway_log.html">AiGatewayLog</a>
+<a href="../api/ai_gateway_provider_config.html">AiGatewayProviderConfig</a>
+<a href="../api/ai_search_account_search.html">AiSearchAccountSearch</a>
+<a href="../api/ai_search_instance.html">AiSearchInstance</a>
+<a href="../api/ai_search_instances_item.html">AiSearchInstancesItem</a>
+<a href="../api/ai_search_instances_job.html">AiSearchInstancesJob</a>
+<a href="../api/ai_search_namespace.html">AiSearchNamespace</a>
+<a href="../api/ai_search_token.html">AiSearchToken</a>
+<a href="../api/aig_billing_create_topup.html">AigBillingCreateTopup</a>
+<a href="../api/aig_billing_delete_spending_limit.html">AigBillingDeleteSpendingLimit</a>
+<a href="../api/aig_billing_delete_topup_config.html">AigBillingDeleteTopupConfig</a>
+<a href="../api/aig_billing_get_credit_balance.html">AigBillingGetCreditBalance</a>
+<a href="../api/aig_billing_get_invoice_history.html">AigBillingGetInvoiceHistory</a>
+<a href="../api/aig_billing_get_invoice_preview.html">AigBillingGetInvoicePreview</a>
+<a href="../api/aig_billing_get_spending_limit.html">AigBillingGetSpendingLimit</a>
+<a href="../api/aig_billing_get_topup_config.html">AigBillingGetTopupConfig</a>
+<a href="../api/aig_billing_get_topup_eligibility.html">AigBillingGetTopupEligibility</a>
+<a href="../api/aig_billing_get_topup_limit.html">AigBillingGetTopupLimit</a>
+<a href="../api/aig_billing_get_usage_history.html">AigBillingGetUsageHistory</a>
+<a href="../api/aig_billing_set_spending_limit.html">AigBillingSetSpendingLimit</a>
+<a href="../api/aig_billing_set_topup_config.html">AigBillingSetTopupConfig</a>
+<a href="../api/aig_billing_topup_status.html">AigBillingTopupStatus</a>
+<a href="../api/auto_rag_job.html">AutoRagJob</a>
+<a href="../api/auto_rag_rag.html">AutoRagRag</a>
+<a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
+<a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a href="../api/vectorize.html">Vectorize</a>
+<a href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a>
+<a href="../api/workers_ai.html">WorkersAi</a>
+<a href="../api/workers_ai_finetune.html">WorkersAiFinetune</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="aigatewaycustomdomain">AiGatewayCustomDomain</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domains"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains</code></a></td>
+<td><code>create</code></td>
+<td>The created custom domain and the CNAME target to configure</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domains"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains</code></a></td>
+<td><code>list</code></td>
+<td>List objects</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domainshostname"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}</code></a></td>
+<td><code>load</code></td>
+<td>Returns a single object if found</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domainshostname"><code>/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}</code></a></td>
+<td><code>remove</code></td>
+<td>Returns the Object if it was successfully deleted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">ai_gateway_custom_domains, err := client.AiGatewayCustomDomain(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(ai_gateway_custom_domains)
+ai_gateway_custom_domain, err := client.AiGatewayCustomDomain(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(ai_gateway_custom_domain)
+created, err := client.AiGatewayCustomDomain(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;cname_target&quot;: &quot;example&quot;, &quot;created_at&quot;: 1, &quot;domain&quot;: &quot;example&quot;, &quot;hostname&quot;: &quot;example&quot;, &quot;modified_at&quot;: 1, &quot;ssl_hostname_id&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;, &quot;zone_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+removed, err := client.AiGatewayCustomDomain(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local ai_gateway_custom_domains, err = client:AiGatewayCustomDomain():list({ account_id = &quot;example&quot;, gateway_id = &quot;example&quot; })
+local ai_gateway_custom_domain, err = client:AiGatewayCustomDomain():load({ account_id = &quot;example&quot;, gateway_id = &quot;example&quot;, id = &quot;example_id&quot; })
+local created, err = client:AiGatewayCustomDomain():create({ account_id = &quot;example&quot;, gateway_id = &quot;example&quot;, cname_target = &quot;example&quot;, created_at = 1, domain = &quot;example&quot;, hostname = &quot;example&quot;, modified_at = 1, ssl_hostname_id = &quot;example&quot;, status = &quot;example&quot;, zone_id = &quot;example&quot; })
+local removed, err = client:AiGatewayCustomDomain():remove({ account_id = &quot;example&quot;, gateway_id = &quot;example&quot;, id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$ai_gateway_custom_domains = $client-&gt;AiGatewayCustomDomain()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;]);
+$ai_gateway_custom_domain = $client-&gt;AiGatewayCustomDomain()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;AiGatewayCustomDomain()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;cname_target&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; 1, &quot;domain&quot; =&gt; &quot;example&quot;, &quot;hostname&quot; =&gt; &quot;example&quot;, &quot;modified_at&quot; =&gt; 1, &quot;ssl_hostname_id&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;, &quot;zone_id&quot; =&gt; &quot;example&quot;]);
+$client-&gt;AiGatewayCustomDomain()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">ai_gateway_custom_domains = client.AiGatewayCustomDomain().list({&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;})
+ai_gateway_custom_domain = client.AiGatewayCustomDomain().load({&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;})
+created = client.AiGatewayCustomDomain().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;cname_target&quot;: &quot;example&quot;, &quot;created_at&quot;: 1, &quot;domain&quot;: &quot;example&quot;, &quot;hostname&quot;: &quot;example&quot;, &quot;modified_at&quot;: 1, &quot;ssl_hostname_id&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;, &quot;zone_id&quot;: &quot;example&quot; })
+client.AiGatewayCustomDomain().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;gateway_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">ai_gateway_custom_domains = client.AiGatewayCustomDomain.list({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot; })
+ai_gateway_custom_domain = client.AiGatewayCustomDomain.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.AiGatewayCustomDomain.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;cname_target&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; 1, &quot;domain&quot; =&gt; &quot;example&quot;, &quot;hostname&quot; =&gt; &quot;example&quot;, &quot;modified_at&quot; =&gt; 1, &quot;ssl_hostname_id&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;, &quot;zone_id&quot; =&gt; &quot;example&quot; })
+client.AiGatewayCustomDomain.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;gateway_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const ai_gateway_custom_domains = await client.AiGatewayCustomDomain().list({ account_id: &quot;example&quot;, gateway_id: &quot;example&quot; })
+const ai_gateway_custom_domain = await client.AiGatewayCustomDomain().load({ account_id: &quot;example&quot;, gateway_id: &quot;example&quot;, id: &quot;example_id&quot; })
+const created = await client.AiGatewayCustomDomain().create({ account_id: &quot;example&quot;, gateway_id: &quot;example&quot;, cname_target: &quot;example&quot;, created_at: 1, domain: &quot;example&quot;, hostname: &quot;example&quot;, modified_at: 1, ssl_hostname_id: &quot;example&quot;, status: &quot;example&quot;, zone_id: &quot;example&quot; })
+await client.AiGatewayCustomDomain().remove({ account_id: &quot;example&quot;, gateway_id: &quot;example&quot;, id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cname_target</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Cname Target</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>domain</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Custom hostname that you own, such as <code>ai.example.com</code>.</td>
+</tr>
+<tr>
+<td><code>gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the AI Gateway within the account.</td>
+</tr>
+<tr>
+<td><code>hostname</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Custom hostname that you own, such as <code>ai.example.com</code>.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>minTLS</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Min Tls</td>
+</tr>
+<tr>
+<td><code>modified_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>ssl_hostname_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Ssl Hostname Id</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Status</td>
+</tr>
+<tr>
+<td><code>zone_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the Cloudflare zone that contains the custom hostname.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domains" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains</h3>
+<p>Operation ID: <code>aig-config-create-custom-domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Custom hostname that you own, such as <code>ai.example.com</code>.</td>
+</tr>
+<tr>
+<td><code>minTLS</code></td>
+<td><code>enum: 1.0, 1.1, 1.2, 1.3</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>zone_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the Cloudflare zone that contains the custom hostname.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-the-created-custom-domain-and-the-cname-target-to-configure" class="status" data-status="2xx">200: The created custom domain and the CNAME target to configure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.cname_target</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.hostname</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>enum: initializing, pending_dcv, active, blocked, error</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domains" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains</h3>
+<p>Operation ID: <code>aig-config-list-custom-domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>status</code> | <code>query</code> | <code>enum: initializing, pending_dcv, active, blocked, error</code> | No |  |
+| <code>search</code> | <code>query</code> | <code>string</code> | No |  |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-list-objects" class="status" data-status="2xx">200: List objects</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>result[].gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the AI Gateway within the account.</td>
+</tr>
+<tr>
+<td><code>result[].hostname</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Custom hostname that you own, such as <code>ai.example.com</code>.</td>
+</tr>
+<tr>
+<td><code>result[].modified_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>result[].ssl_hostname_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].status</code></td>
+<td><code>enum: initializing, pending_dcv, active, blocked, error</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request-1" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domainshostname" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}</h3>
+<p>Operation ID: <code>aig-config-fetch-custom-domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>hostname</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-returns-a-single-object-if-found" class="status" data-status="2xx">200: Returns a single object if found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the AI Gateway within the account.</td>
+</tr>
+<tr>
+<td><code>result.hostname</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Custom hostname that you own, such as <code>ai.example.com</code>.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>result.ssl_hostname_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>enum: initializing, pending_dcv, active, blocked, error</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found" class="status" data-status="4xx">404: Not Found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idai-gatewaygatewaysgateway_idcustom-domainshostname" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}</h3>
+<p>Operation ID: <code>aig-config-delete-custom-domain</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>gateway_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>hostname</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-returns-the-object-if-it-was-successfully-deleted" class="status" data-status="2xx">200: Returns the Object if it was successfully deleted</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>result.gateway_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the AI Gateway within the account.</td>
+</tr>
+<tr>
+<td><code>result.hostname</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Custom hostname that you own, such as <code>ai.example.com</code>.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>epoch milliseconds</td>
+</tr>
+<tr>
+<td><code>result.ssl_hostname_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>enum: initializing, pending_dcv, active, blocked, error</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found-1" class="status" data-status="4xx">404: Not Found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

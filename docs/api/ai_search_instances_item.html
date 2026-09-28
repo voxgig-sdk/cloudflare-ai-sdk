@@ -1,0 +1,2611 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AiSearchInstancesItem | Cloudflare AI</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare AI<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-ai-sdk">voxgig-sdk/cloudflare-ai-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare AI</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/ai_gateway.html">AiGateway</a>
+<a href="../api/ai_gateway_custom_domain.html">AiGatewayCustomDomain</a>
+<a href="../api/ai_gateway_custom_provider.html">AiGatewayCustomProvider</a>
+<a href="../api/ai_gateway_custom_provider_cost.html">AiGatewayCustomProviderCost</a>
+<a href="../api/ai_gateway_dataset.html">AiGatewayDataset</a>
+<a href="../api/ai_gateway_dynamic_route.html">AiGatewayDynamicRoute</a>
+<a href="../api/ai_gateway_evaluation.html">AiGatewayEvaluation</a>
+<a href="../api/ai_gateway_gateway.html">AiGatewayGateway</a>
+<a href="../api/ai_gateway_log.html">AiGatewayLog</a>
+<a href="../api/ai_gateway_provider_config.html">AiGatewayProviderConfig</a>
+<a href="../api/ai_search_account_search.html">AiSearchAccountSearch</a>
+<a href="../api/ai_search_instance.html">AiSearchInstance</a>
+<a aria-current="page" href="../api/ai_search_instances_item.html">AiSearchInstancesItem</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idai-searchnamespacesnameinstancesiditems">POST /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</a>
+<a class="nav-section" href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditems">GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</a>
+<a class="nav-section" href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_idlogs">GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/logs</a>
+<a class="nav-section" href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_idchunks">GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/chunks</a>
+<a class="nav-section" href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id">GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_iddownload">GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/download</a>
+<a class="nav-section" href="#patch-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id">PATCH /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id">DELETE /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</a>
+<a class="nav-section" href="#put-accountsaccount_idai-searchnamespacesnameinstancesiditems">PUT /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</a></div>
+<a href="../api/ai_search_instances_job.html">AiSearchInstancesJob</a>
+<a href="../api/ai_search_namespace.html">AiSearchNamespace</a>
+<a href="../api/ai_search_token.html">AiSearchToken</a>
+<a href="../api/aig_billing_create_topup.html">AigBillingCreateTopup</a>
+<a href="../api/aig_billing_delete_spending_limit.html">AigBillingDeleteSpendingLimit</a>
+<a href="../api/aig_billing_delete_topup_config.html">AigBillingDeleteTopupConfig</a>
+<a href="../api/aig_billing_get_credit_balance.html">AigBillingGetCreditBalance</a>
+<a href="../api/aig_billing_get_invoice_history.html">AigBillingGetInvoiceHistory</a>
+<a href="../api/aig_billing_get_invoice_preview.html">AigBillingGetInvoicePreview</a>
+<a href="../api/aig_billing_get_spending_limit.html">AigBillingGetSpendingLimit</a>
+<a href="../api/aig_billing_get_topup_config.html">AigBillingGetTopupConfig</a>
+<a href="../api/aig_billing_get_topup_eligibility.html">AigBillingGetTopupEligibility</a>
+<a href="../api/aig_billing_get_topup_limit.html">AigBillingGetTopupLimit</a>
+<a href="../api/aig_billing_get_usage_history.html">AigBillingGetUsageHistory</a>
+<a href="../api/aig_billing_set_spending_limit.html">AigBillingSetSpendingLimit</a>
+<a href="../api/aig_billing_set_topup_config.html">AigBillingSetTopupConfig</a>
+<a href="../api/aig_billing_topup_status.html">AigBillingTopupStatus</a>
+<a href="../api/auto_rag_job.html">AutoRagJob</a>
+<a href="../api/auto_rag_rag.html">AutoRagRag</a>
+<a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
+<a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a href="../api/vectorize.html">Vectorize</a>
+<a href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a>
+<a href="../api/workers_ai.html">WorkersAi</a>
+<a href="../api/workers_ai_finetune.html">WorkersAiFinetune</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="aisearchinstancesitem">AiSearchInstancesItem</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idai-searchnamespacesnameinstancesiditems"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</code></a></td>
+<td><code>create</code></td>
+<td>Item uploaded successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditems"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</code></a></td>
+<td><code>list</code></td>
+<td>Returns the AI Search items</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_idlogs"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/logs</code></a></td>
+<td><code>list</code></td>
+<td>Returns the AI Search item logs</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_idchunks"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/chunks</code></a></td>
+<td><code>list</code></td>
+<td>Returns the AI Search item chunks with text content</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</code></a></td>
+<td><code>load</code></td>
+<td>Returns a AI Search Item detail</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_iddownload"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/download</code></a></td>
+<td><code>load</code></td>
+<td>Raw file content</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Returns a AI Search Item detail</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Item deleted successfully</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idai-searchnamespacesnameinstancesiditems"><code>/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</code></a></td>
+<td><code>update</code></td>
+<td>Returns a AI Search Item detail</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">ai_search_instances_items, err := client.AiSearchInstancesItem(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(ai_search_instances_items)
+ai_search_instances_item, err := client.AiSearchInstancesItem(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(ai_search_instances_item)
+created, err := client.AiSearchInstancesItem(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;, &quot;action&quot;: &quot;example&quot;, &quot;checksum&quot;: &quot;example&quot;, &quot;chunkCount&quot;: 1, &quot;chunks_count&quot;: 1, &quot;created_at&quot;: &quot;example&quot;, &quot;errorType&quot;: &quot;example&quot;, &quot;fileKey&quot;: &quot;example&quot;, &quot;file_size&quot;: 1, &quot;id&quot;: &quot;example&quot;, &quot;item&quot;: map[string]any{}, &quot;key&quot;: &quot;example&quot;, &quot;last_seen_at&quot;: &quot;example&quot;, &quot;message&quot;: &quot;example&quot;, &quot;metadata&quot;: map[string]any{}, &quot;namespace&quot;: &quot;example&quot;, &quot;next_action&quot;: &quot;example&quot;, &quot;processingTimeMs&quot;: 1, &quot;source_id&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;, &quot;text&quot;: &quot;example&quot;, &quot;timestamp&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.AiSearchInstancesItem(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.AiSearchInstancesItem(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local ai_search_instances_items, err = client:AiSearchInstancesItem():list({ account_id = &quot;example&quot;, instance_id = &quot;example&quot;, namespace_id = &quot;example&quot; })
+local ai_search_instances_item, err = client:AiSearchInstancesItem():load({ account_id = &quot;example&quot;, instance_id = &quot;example&quot;, namespace_id = &quot;example&quot; })
+local created, err = client:AiSearchInstancesItem():create({ account_id = &quot;example&quot;, instance_id = &quot;example&quot;, namespace_id = &quot;example&quot;, action = &quot;example&quot;, checksum = &quot;example&quot;, chunkCount = 1, chunks_count = 1, created_at = &quot;example&quot;, errorType = &quot;example&quot;, fileKey = &quot;example&quot;, file_size = 1, id = &quot;example&quot;, item = {}, key = &quot;example&quot;, last_seen_at = &quot;example&quot;, message = &quot;example&quot;, metadata = {}, namespace = &quot;example&quot;, next_action = &quot;example&quot;, processingTimeMs = 1, source_id = &quot;example&quot;, status = &quot;example&quot;, text = &quot;example&quot;, timestamp = &quot;example&quot; })
+local updated, err = client:AiSearchInstancesItem():update({ id = &quot;example_id&quot;, account_id = &quot;example&quot;, instance_id = &quot;example&quot;, namespace_id = &quot;example&quot; })
+local removed, err = client:AiSearchInstancesItem():remove({ account_id = &quot;example&quot;, id = &quot;example_id&quot;, instance_id = &quot;example&quot;, namespace_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$ai_search_instances_items = $client-&gt;AiSearchInstancesItem()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;]);
+$ai_search_instances_item = $client-&gt;AiSearchInstancesItem()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;AiSearchInstancesItem()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;, &quot;action&quot; =&gt; &quot;example&quot;, &quot;checksum&quot; =&gt; &quot;example&quot;, &quot;chunkCount&quot; =&gt; 1, &quot;chunks_count&quot; =&gt; 1, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;errorType&quot; =&gt; &quot;example&quot;, &quot;fileKey&quot; =&gt; &quot;example&quot;, &quot;file_size&quot; =&gt; 1, &quot;id&quot; =&gt; &quot;example&quot;, &quot;item&quot; =&gt; [], &quot;key&quot; =&gt; &quot;example&quot;, &quot;last_seen_at&quot; =&gt; &quot;example&quot;, &quot;message&quot; =&gt; &quot;example&quot;, &quot;metadata&quot; =&gt; [], &quot;namespace&quot; =&gt; &quot;example&quot;, &quot;next_action&quot; =&gt; &quot;example&quot;, &quot;processingTimeMs&quot; =&gt; 1, &quot;source_id&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;, &quot;text&quot; =&gt; &quot;example&quot;, &quot;timestamp&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;AiSearchInstancesItem()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;]);
+$client-&gt;AiSearchInstancesItem()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">ai_search_instances_items = client.AiSearchInstancesItem().list({&quot;account_id&quot;: &quot;example&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;})
+ai_search_instances_item = client.AiSearchInstancesItem().load({&quot;account_id&quot;: &quot;example&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;})
+created = client.AiSearchInstancesItem().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;, &quot;action&quot;: &quot;example&quot;, &quot;checksum&quot;: &quot;example&quot;, &quot;chunkCount&quot;: 1, &quot;chunks_count&quot;: 1, &quot;created_at&quot;: &quot;example&quot;, &quot;errorType&quot;: &quot;example&quot;, &quot;fileKey&quot;: &quot;example&quot;, &quot;file_size&quot;: 1, &quot;id&quot;: &quot;example&quot;, &quot;item&quot;: {}, &quot;key&quot;: &quot;example&quot;, &quot;last_seen_at&quot;: &quot;example&quot;, &quot;message&quot;: &quot;example&quot;, &quot;metadata&quot;: {}, &quot;namespace&quot;: &quot;example&quot;, &quot;next_action&quot;: &quot;example&quot;, &quot;processingTimeMs&quot;: 1, &quot;source_id&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;, &quot;text&quot;: &quot;example&quot;, &quot;timestamp&quot;: &quot;example&quot; })
+updated = client.AiSearchInstancesItem().update({&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;})
+client.AiSearchInstancesItem().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;, &quot;instance_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">ai_search_instances_items = client.AiSearchInstancesItem.list({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot; })
+ai_search_instances_item = client.AiSearchInstancesItem.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot; })
+created = client.AiSearchInstancesItem.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;, &quot;action&quot; =&gt; &quot;example&quot;, &quot;checksum&quot; =&gt; &quot;example&quot;, &quot;chunkCount&quot; =&gt; 1, &quot;chunks_count&quot; =&gt; 1, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;errorType&quot; =&gt; &quot;example&quot;, &quot;fileKey&quot; =&gt; &quot;example&quot;, &quot;file_size&quot; =&gt; 1, &quot;id&quot; =&gt; &quot;example&quot;, &quot;item&quot; =&gt; {}, &quot;key&quot; =&gt; &quot;example&quot;, &quot;last_seen_at&quot; =&gt; &quot;example&quot;, &quot;message&quot; =&gt; &quot;example&quot;, &quot;metadata&quot; =&gt; {}, &quot;namespace&quot; =&gt; &quot;example&quot;, &quot;next_action&quot; =&gt; &quot;example&quot;, &quot;processingTimeMs&quot; =&gt; 1, &quot;source_id&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;, &quot;text&quot; =&gt; &quot;example&quot;, &quot;timestamp&quot; =&gt; &quot;example&quot; })
+updated = client.AiSearchInstancesItem.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot; })
+client.AiSearchInstancesItem.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;instance_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const ai_search_instances_items = await client.AiSearchInstancesItem().list({ account_id: &quot;example&quot;, instance_id: &quot;example&quot;, namespace_id: &quot;example&quot; })
+const ai_search_instances_item = await client.AiSearchInstancesItem().load({ account_id: &quot;example&quot;, instance_id: &quot;example&quot;, namespace_id: &quot;example&quot; })
+const created = await client.AiSearchInstancesItem().create({ account_id: &quot;example&quot;, instance_id: &quot;example&quot;, namespace_id: &quot;example&quot;, action: &quot;example&quot;, checksum: &quot;example&quot;, chunkCount: 1, chunks_count: 1, created_at: &quot;example&quot;, errorType: &quot;example&quot;, fileKey: &quot;example&quot;, file_size: 1, id: &quot;example&quot;, item: {}, key: &quot;example&quot;, last_seen_at: &quot;example&quot;, message: &quot;example&quot;, metadata: {}, namespace: &quot;example&quot;, next_action: &quot;example&quot;, processingTimeMs: 1, source_id: &quot;example&quot;, status: &quot;example&quot;, text: &quot;example&quot;, timestamp: &quot;example&quot; })
+const updated = await client.AiSearchInstancesItem().update({ id: &quot;example_id&quot;, account_id: &quot;example&quot;, instance_id: &quot;example&quot;, namespace_id: &quot;example&quot; })
+await client.AiSearchInstancesItem().remove({ account_id: &quot;example&quot;, id: &quot;example_id&quot;, instance_id: &quot;example&quot;, namespace_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Action</td>
+</tr>
+<tr>
+<td><code>checksum</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Checksum</td>
+</tr>
+<tr>
+<td><code>chunkCount</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Chunk Count</td>
+</tr>
+<tr>
+<td><code>chunks_count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Chunks Count</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>end_byte</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>End Byte</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Error</td>
+</tr>
+<tr>
+<td><code>errorType</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Error Type</td>
+</tr>
+<tr>
+<td><code>fileKey</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>File Key</td>
+</tr>
+<tr>
+<td><code>file_size</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>File Size</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>item</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Item</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Item key / filename.</td>
+</tr>
+<tr>
+<td><code>last_seen_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Last Seen At</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Message</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Built-in, configured filterable, and retained source metadata for the item.</td>
+</tr>
+<tr>
+<td><code>namespace</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Namespace</td>
+</tr>
+<tr>
+<td><code>next_action</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Next Action</td>
+</tr>
+<tr>
+<td><code>processingTimeMs</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Processing Time Ms</td>
+</tr>
+<tr>
+<td><code>source_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifies which data source this item belongs to.</td>
+</tr>
+<tr>
+<td><code>start_byte</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Start Byte</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Status</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td><code>wait_for_completion</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Wait for indexing to fully complete before responding.</td>
+</tr>
+<tr>
+<td><code>warnings</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Warnings</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idai-searchnamespacesnameinstancesiditems" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-upload-item</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file</code></td>
+<td><code>string (binary)</code></td>
+<td>Yes</td>
+<td>The file to upload. Filename must not exceed 128 characters.</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON string of custom metadata key-value pairs.</td>
+</tr>
+<tr>
+<td><code>wait_for_completion</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Wait for indexing to fully complete before responding. On RAGs with vector indexing enabled, this additionally waits for Vectorize ingestion confirmation (up to 40s) so the returned item reflects a queryable state. On timeout the item is returned in <code>running</code> state and the background alarm continues polling. Defaults to false.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-item-uploaded-successfully" class="status" data-status="2xx">200: Item uploaded successfully</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.checksum</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks_count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.error</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.file_size</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.last_seen_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Built-in, configured filterable, and retained source metadata for the item.</td>
+</tr>
+<tr>
+<td><code>result.namespace</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.next_action</code></td>
+<td><code>enum: INDEX, DELETE, null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.source_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifies which data source this item belongs to. &quot;builtin&quot; for uploaded files, &quot;{type}:{source}&quot; for external sources, null for legacy items.</td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>enum: queued, running, completed, error, skipped, outdated</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.warnings</code></td>
+<td><code>array of object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-invalid-metadata-format" class="status" data-status="4xx">400: Invalid metadata format</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-ai-search-not-found" class="status" data-status="4xx">404: Ai search not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-item-key-already-exist" class="status" data-status="4xx">409: Item key already exist</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="413-file-exceeds-maximum-size" class="status" data-status="4xx">413: File exceeds maximum size</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-item-write-rate-limited-monthly-ingestion-quota-exceeded-monthly-storage-quota-exceeded-ai-search-instance-overloaded" class="status" data-status="4xx">429: Item write rate limited; Monthly ingestion quota exceeded; Monthly storage quota exceeded; Ai search instance overloaded</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object or object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="499-client-disconnected-during-upload" class="status" data-status="4xx">499: Client disconnected during upload</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idai-searchnamespacesnameinstancesiditems" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-list-items</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>search</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>sort_by</code> | <code>query</code> | <code>enum: status, modified_at</code> | No | Sort order for items. &quot;status&quot; (default) sorts by status priority then <code>last_seen_at</code>. &quot;<code>modified_at</code>&quot; sorts by file modification time (most recent first), falling back to <code>created_at</code>. |
+| <code>status</code> | <code>query</code> | <code>enum: queued, running, completed, error, skipped, outdated</code> | No |  |
+| <code>source</code> | <code>query</code> | <code>string</code> | No | Filter items by <code>source_id</code>. Use &quot;builtin&quot; for uploaded files, or a source identifier like &quot;web-crawler:https://example.com&quot;. |
+| <code>metadata_filter</code> | <code>query</code> | <code>string</code> | No | JSON-encoded metadata filter using Vectorize filter syntax. Examples: {&quot;folder&quot;:&quot;reports/&quot;}, {&quot;timestamp&quot;:{&quot;$gte&quot;:1700000000000}}, {&quot;folder&quot;:{&quot;$in&quot;:[&quot;docs/&quot;,&quot;reports/&quot;]}} |
+| <code>item_id</code> | <code>query</code> | <code>string</code> | No | Filter items by their unique ID. Returns at most one item. |
+| <code>key</code> | <code>query</code> | <code>string</code> | No | Filter items by their exact key (object key / filename). Keys are unique per source, so combine with <code>source</code> to disambiguate across data sources. |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-returns-the-ai-search-items" class="status" data-status="2xx">200: Returns the AI Search items</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].checksum</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].chunks_count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].error</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].file_size</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].last_seen_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Built-in, configured filterable, and retained source metadata for the item.</td>
+</tr>
+<tr>
+<td><code>result[].namespace</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].next_action</code></td>
+<td><code>enum: INDEX, DELETE, null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].source_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifies which data source this item belongs to. &quot;builtin&quot; for uploaded files, &quot;{type}:{source}&quot; for external sources, null for legacy items.</td>
+</tr>
+<tr>
+<td><code>result[].status</code></td>
+<td><code>enum: queued, running, completed, error, skipped, outdated</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.page</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.total_count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-metadata-filter-unknown-field" class="status" data-status="4xx">400: Metadata filter unknown field</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-ai-search-not-found-1" class="status" data-status="4xx">404: Ai search not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-unable-to-connect-to-ai-search" class="status" data-status="5xx">503: Unable to connect to ai search</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_idlogs" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/logs</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-logs-item</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>item_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>limit</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>cursor</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-returns-the-ai-search-item-logs" class="status" data-status="2xx">200: Returns the AI Search item logs</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].action</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].chunkCount</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].errorType</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].fileKey</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].processingTimeMs</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].timestamp</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.cursor</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.truncated</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-input-validation-error" class="status" data-status="4xx">400: Input Validation Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].path</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-item-not-found" class="status" data-status="4xx">404: Item not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-unable-to-connect-to-ai-search-1" class="status" data-status="5xx">503: Unable to connect to ai search</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_idchunks" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/chunks</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-list-item-chunks</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>item_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>limit</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>offset</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-returns-the-ai-search-item-chunks-with-text-content" class="status" data-status="2xx">200: Returns the AI Search item chunks with text content</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].end_byte</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].item</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].item.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].item.metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].item.timestamp</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].start_byte</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].text</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.limit</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.offset</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.total</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-input-validation-error-1" class="status" data-status="4xx">400: Input Validation Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].path</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-item-not-found-1" class="status" data-status="4xx">404: Item not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-unable-to-connect-to-ai-search-2" class="status" data-status="5xx">503: Unable to connect to ai search</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-get-item</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>item_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-returns-a-ai-search-item-detail" class="status" data-status="2xx">200: Returns a AI Search Item detail</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.checksum</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks_count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.error</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.file_size</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.last_seen_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Built-in, configured filterable, and retained source metadata for the item.</td>
+</tr>
+<tr>
+<td><code>result.namespace</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.next_action</code></td>
+<td><code>enum: INDEX, DELETE, null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.source_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifies which data source this item belongs to. &quot;builtin&quot; for uploaded files, &quot;{type}:{source}&quot; for external sources, null for legacy items.</td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>enum: queued, running, completed, error, skipped, outdated</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-job-not-found" class="status" data-status="4xx">404: Job not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-unable-to-connect-to-ai-search-3" class="status" data-status="5xx">503: Unable to connect to ai search</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_iddownload" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/download</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-get-item-content</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>item_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-raw-file-content" class="status" data-status="2xx">200: Raw file content</h5>
+<p><code>application/octet-stream</code></p>
+<p>The response is <code>string (binary)</code>.</p>
+<h5 id="400-content-download-not-available-for-external-source-items" class="status" data-status="4xx">400: Content download not available for external source items</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-items-in-this-instance-were-crawled-from-a-public-site-for-search-and-ai-input-only-full-page-content-isn39t-available-for-download-use-the-search-endpoint-to-retrieve-cited-excerpts" class="status" data-status="4xx">403: Items in this instance were crawled from a public site for search and AI input only. Full page content isn't available for download; use the search endpoint to retrieve cited excerpts</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-item-not-found-2" class="status" data-status="4xx">404: Item not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-unable-to-connect-to-ai-search-4" class="status" data-status="5xx">503: Unable to connect to ai search</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="patch">patch</h2>
+<h3 id="patch-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-sync-item</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>item_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>next_action</code></td>
+<td><code>enum: INDEX</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>wait_for_completion</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Wait for indexing to fully complete before responding. On RAGs with vector indexing enabled, this additionally waits for Vectorize ingestion confirmation (up to 40s) so the returned item reflects a queryable state. On timeout the item is returned in <code>running</code> state and the background alarm continues polling. Defaults to false.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-returns-a-ai-search-item-detail-1" class="status" data-status="2xx">200: Returns a AI Search Item detail</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.checksum</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks_count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.error</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.file_size</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.last_seen_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Built-in, configured filterable, and retained source metadata for the item.</td>
+</tr>
+<tr>
+<td><code>result.namespace</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.next_action</code></td>
+<td><code>enum: INDEX, DELETE, null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.source_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifies which data source this item belongs to. &quot;builtin&quot; for uploaded files, &quot;{type}:{source}&quot; for external sources, null for legacy items.</td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>enum: queued, running, completed, error, skipped, outdated</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-input-validation-error-2" class="status" data-status="4xx">400: Input Validation Error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].path</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-ai-search-not-found-2" class="status" data-status="4xx">404: Ai search not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-monthly-ingestion-quota-exceeded-monthly-storage-quota-exceeded-ai-search-instance-overloaded" class="status" data-status="4xx">429: Monthly ingestion quota exceeded; Monthly storage quota exceeded; Ai search instance overloaded</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-unable-to-sync-item" class="status" data-status="5xx">503: Unable to sync item</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idai-searchnamespacesnameinstancesiditemsitem_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-delete-item</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>item_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-item-deleted-successfully" class="status" data-status="2xx">200: Item deleted successfully</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-this-operation-requires-a-managed-instance" class="status" data-status="4xx">400: This operation requires a managed instance</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-item-not-found-3" class="status" data-status="4xx">404: Item not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-ai-search-instance-overloaded-a-retried-delete-may-return-404-if-the-earlier-attempt-completed-treat-that-as-deleted" class="status" data-status="4xx">429: AI Search instance overloaded. A retried DELETE may return 404 if the earlier attempt completed; treat that as deleted</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="put-accountsaccount_idai-searchnamespacesnameinstancesiditems" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items</h3>
+<p>Operation ID: <code>ai-search-namespace-instance-create-or-update-item</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>id</code> | <code>path</code> | <code>string</code> | Yes | AI Search instance ID. Lowercase alphanumeric, hyphens, and underscores. |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Item key / filename. Must not exceed 128 characters.</td>
+</tr>
+<tr>
+<td><code>next_action</code></td>
+<td><code>enum: INDEX</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>wait_for_completion</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Wait for indexing to fully complete before responding. On RAGs with vector indexing enabled, this additionally waits for Vectorize ingestion confirmation (up to 40s) so the returned item reflects a queryable state. On timeout the item is returned in <code>running</code> state and the background alarm continues polling. Defaults to false.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-returns-a-ai-search-item-detail-2" class="status" data-status="2xx">200: Returns a AI Search Item detail</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.checksum</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks_count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.error</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.file_size</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.last_seen_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Built-in, configured filterable, and retained source metadata for the item.</td>
+</tr>
+<tr>
+<td><code>result.namespace</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.next_action</code></td>
+<td><code>enum: INDEX, DELETE, null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.source_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifies which data source this item belongs to. &quot;builtin&quot; for uploaded files, &quot;{type}:{source}&quot; for external sources, null for legacy items.</td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>enum: queued, running, completed, error, skipped, outdated</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-filename-exceeds-maximum-length" class="status" data-status="4xx">400: Filename exceeds maximum length</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-ai-search-not-found-3" class="status" data-status="4xx">404: Ai search not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-item-key-already-exist-1" class="status" data-status="4xx">409: Item key already exist</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-monthly-ingestion-quota-exceeded-monthly-storage-quota-exceeded-ai-search-instance-overloaded-1" class="status" data-status="4xx">429: Monthly ingestion quota exceeded; Monthly storage quota exceeded; Ai search instance overloaded</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object or object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="503-unable-to-sync-item-1" class="status" data-status="5xx">503: Unable to sync item</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

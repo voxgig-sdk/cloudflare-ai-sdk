@@ -1,0 +1,86 @@
+{
+  "existing": {
+    "ai_gateway_custom_domain": {
+      "AI_GATEWAY_CUSTOM_DOMAIN00": {
+        "cname_target": "s6e",
+        "created_at": 111,
+        "domain": "s70",
+        "gateway_id": "GATEWAY01",
+        "hostname": "s72",
+        "id": "AI_GATEWAY_CUSTOM_DOMAIN00",
+        "minTLS": "s74",
+        "modified_at": 117,
+        "ssl_hostname_id": "SSL_HOSTNAME01",
+        "status": "s77",
+        "zone_id": "ZONE01",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_CUSTOM_DOMAIN01": {
+        "cname_target": "sdc",
+        "created_at": 221,
+        "domain": "sde",
+        "gateway_id": "GATEWAY01",
+        "hostname": "se0",
+        "id": "AI_GATEWAY_CUSTOM_DOMAIN01",
+        "minTLS": "se2",
+        "modified_at": 227,
+        "ssl_hostname_id": "SSL_HOSTNAME01",
+        "status": "se5",
+        "zone_id": "ZONE01",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_CUSTOM_DOMAIN02": {
+        "cname_target": "s14a",
+        "created_at": 331,
+        "domain": "s14c",
+        "gateway_id": "GATEWAY01",
+        "hostname": "s14e",
+        "id": "AI_GATEWAY_CUSTOM_DOMAIN02",
+        "minTLS": "s150",
+        "modified_at": 337,
+        "ssl_hostname_id": "SSL_HOSTNAME01",
+        "status": "s153",
+        "zone_id": "ZONE01",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway_custom_domain": {
+      "ai_gateway_custom_domain_ref01": {
+        "cname_target": "s1b8",
+        "created_at": 441,
+        "domain": "s1ba",
+        "gateway_id": "GATEWAY01",
+        "hostname": "s1bc",
+        "minTLS": "s1be",
+        "modified_at": 447,
+        "ssl_hostname_id": "SSL_HOSTNAME01",
+        "status": "s1c1",
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

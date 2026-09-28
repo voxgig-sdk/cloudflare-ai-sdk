@@ -1,0 +1,26 @@
+# BasicAigBillingGetUsageHistoryFlow
+
+main: kit: flow: BasicAigBillingGetUsageHistoryFlow:
+{
+  entity: "aig_billing_get_usage_history",
+  kind: "basic",
+  name: "BasicAigBillingGetUsageHistoryFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "aig_billing_get_usage_history_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAigBillingGetUsageHistoryFlow"
+}

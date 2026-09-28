@@ -1,0 +1,23 @@
+# BasicAiSearchAccountSearchFlow
+
+main: kit: flow: BasicAiSearchAccountSearchFlow:
+{
+  entity: "ai_search_account_search",
+  kind: "basic",
+  name: "BasicAiSearchAccountSearchFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_search_account_search_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        namespace_id: "namespace01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAiSearchAccountSearchFlow"
+}

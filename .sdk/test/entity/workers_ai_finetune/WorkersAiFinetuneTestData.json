@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "workers_ai_finetune": {
+      "WORKERS_AI_FINETUNE00": {
+        "created_at": "s50",
+        "description": "s51",
+        "id": "WORKERS_AI_FINETUNE00",
+        "model": "s53",
+        "modified_at": "s54",
+        "name": "s55",
+        "public": true,
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "finetune_id": "FINETUNE01"
+      },
+      "WORKERS_AI_FINETUNE01": {
+        "created_at": "sa0",
+        "description": "sa1",
+        "id": "WORKERS_AI_FINETUNE01",
+        "model": "sa3",
+        "modified_at": "sa4",
+        "name": "sa5",
+        "public": true,
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "finetune_id": "FINETUNE01"
+      },
+      "WORKERS_AI_FINETUNE02": {
+        "created_at": "sf0",
+        "description": "sf1",
+        "id": "WORKERS_AI_FINETUNE02",
+        "model": "sf3",
+        "modified_at": "sf4",
+        "name": "sf5",
+        "public": true,
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "finetune_id": "FINETUNE01"
+      }
+    }
+  },
+  "new": {
+    "workers_ai_finetune": {
+      "workers_ai_finetune_ref01": {
+        "created_at": "s140",
+        "description": "s141",
+        "model": "s143",
+        "modified_at": "s144",
+        "name": "s145",
+        "public": true,
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/ai/finetunes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai/finetunes/public": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai/finetunes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai/finetunes/{finetune_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

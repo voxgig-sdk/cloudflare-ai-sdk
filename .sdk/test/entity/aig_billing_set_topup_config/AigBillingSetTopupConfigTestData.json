@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "aig_billing_set_topup_config": {
+      "AIG_BILLING_SET_TOPUP_CONFIG00": {
+        "amount": 70,
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "threshold": 76,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_SET_TOPUP_CONFIG00"
+      },
+      "AIG_BILLING_SET_TOPUP_CONFIG01": {
+        "amount": 140,
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "threshold": 146,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_SET_TOPUP_CONFIG01"
+      },
+      "AIG_BILLING_SET_TOPUP_CONFIG02": {
+        "amount": 210,
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "threshold": 216,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_SET_TOPUP_CONFIG02"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_set_topup_config": {
+      "aig_billing_set_topup_config_ref01": {
+        "amount": 280,
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "threshold": 286
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/billing/topup/config": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

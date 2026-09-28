@@ -1,0 +1,70 @@
+<?php
+declare(strict_types=1);
+
+// CloudflareAi SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+CloudflareAiUtility::setRegistrar(function (CloudflareAiUtility $u): void {
+    $u->clean = [CloudflareAiClean::class, 'call'];
+    $u->done = [CloudflareAiDone::class, 'call'];
+    $u->make_error = [CloudflareAiMakeError::class, 'call'];
+    $u->feature_add = [CloudflareAiFeatureAdd::class, 'call'];
+    $u->feature_hook = [CloudflareAiFeatureHook::class, 'call'];
+    $u->feature_init = [CloudflareAiFeatureInit::class, 'call'];
+    $u->fetcher = [CloudflareAiFetcher::class, 'call'];
+    $u->make_fetch_def = [CloudflareAiMakeFetchDef::class, 'call'];
+    $u->make_context = [CloudflareAiMakeContext::class, 'call'];
+    $u->make_options = [CloudflareAiMakeOptions::class, 'call'];
+    $u->make_request = [CloudflareAiMakeRequest::class, 'call'];
+    $u->make_response = [CloudflareAiMakeResponse::class, 'call'];
+    $u->make_result = [CloudflareAiMakeResult::class, 'call'];
+    $u->make_point = [CloudflareAiMakePoint::class, 'call'];
+    $u->make_spec = [CloudflareAiMakeSpec::class, 'call'];
+    $u->make_url = [CloudflareAiMakeUrl::class, 'call'];
+    $u->param = [CloudflareAiParam::class, 'call'];
+    $u->prepare_auth = [CloudflareAiPrepareAuth::class, 'call'];
+    $u->prepare_body = [CloudflareAiPrepareBody::class, 'call'];
+    $u->prepare_headers = [CloudflareAiPrepareHeaders::class, 'call'];
+    $u->prepare_method = [CloudflareAiPrepareMethod::class, 'call'];
+    $u->prepare_params = [CloudflareAiPrepareParams::class, 'call'];
+    $u->prepare_path = [CloudflareAiPreparePath::class, 'call'];
+    $u->prepare_query = [CloudflareAiPrepareQuery::class, 'call'];
+    $u->graphql_body = [CloudflareAiGraphql::class, 'body'];
+    $u->graphql_errors = [CloudflareAiGraphql::class, 'errors'];
+    $u->result_basic = [CloudflareAiResultBasic::class, 'call'];
+    $u->result_body = [CloudflareAiResultBody::class, 'call'];
+    $u->result_headers = [CloudflareAiResultHeaders::class, 'call'];
+    $u->transform_request = [CloudflareAiTransformRequest::class, 'call'];
+    $u->transform_response = [CloudflareAiTransformResponse::class, 'call'];
+});

@@ -1,0 +1,166 @@
+{
+  "existing": {
+    "ai_gateway_log": {
+      "AI_GATEWAY_LOG00": {
+        "cached": true,
+        "cost": 271,
+        "created_at": "s110",
+        "custom_cost": false,
+        "duration": 274,
+        "feedback": 275,
+        "id": "AI_GATEWAY_LOG00",
+        "metadata": "s115",
+        "model": "s116",
+        "model_type": "s117",
+        "path": "s118",
+        "provider": "s119",
+        "request_content_type": "s11a",
+        "request_head": "s11b",
+        "request_head_complete": true,
+        "request_size": 285,
+        "request_type": "s11e",
+        "response_content_type": "s11f",
+        "response_head": "s120",
+        "response_head_complete": false,
+        "response_size": 290,
+        "score": 291,
+        "status_code": 292,
+        "step": 293,
+        "success": true,
+        "tokens_in": 295,
+        "tokens_out": 296,
+        "account_id": "ACCOUNT01",
+        "gateway_id": "GATEWAY01",
+        "log_id": "LOG01"
+      },
+      "AI_GATEWAY_LOG01": {
+        "cached": true,
+        "cost": 541,
+        "created_at": "s21e",
+        "custom_cost": false,
+        "duration": 544,
+        "feedback": 545,
+        "id": "AI_GATEWAY_LOG01",
+        "metadata": "s223",
+        "model": "s224",
+        "model_type": "s225",
+        "path": "s226",
+        "provider": "s227",
+        "request_content_type": "s228",
+        "request_head": "s229",
+        "request_head_complete": true,
+        "request_size": 555,
+        "request_type": "s22c",
+        "response_content_type": "s22d",
+        "response_head": "s22e",
+        "response_head_complete": false,
+        "response_size": 560,
+        "score": 561,
+        "status_code": 562,
+        "step": 563,
+        "success": true,
+        "tokens_in": 565,
+        "tokens_out": 566,
+        "account_id": "ACCOUNT01",
+        "gateway_id": "GATEWAY01",
+        "log_id": "LOG01"
+      },
+      "AI_GATEWAY_LOG02": {
+        "cached": true,
+        "cost": 811,
+        "created_at": "s32c",
+        "custom_cost": false,
+        "duration": 814,
+        "feedback": 815,
+        "id": "AI_GATEWAY_LOG02",
+        "metadata": "s331",
+        "model": "s332",
+        "model_type": "s333",
+        "path": "s334",
+        "provider": "s335",
+        "request_content_type": "s336",
+        "request_head": "s337",
+        "request_head_complete": true,
+        "request_size": 825,
+        "request_type": "s33a",
+        "response_content_type": "s33b",
+        "response_head": "s33c",
+        "response_head_complete": false,
+        "response_size": 830,
+        "score": 831,
+        "status_code": 832,
+        "step": 833,
+        "success": true,
+        "tokens_in": 835,
+        "tokens_out": 836,
+        "account_id": "ACCOUNT01",
+        "gateway_id": "GATEWAY01",
+        "log_id": "LOG01"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway_log": {
+      "ai_gateway_log_ref01": {
+        "cached": true,
+        "cost": 1081,
+        "created_at": "s43a",
+        "custom_cost": false,
+        "duration": 1084,
+        "feedback": 1085,
+        "metadata": "s43f",
+        "model": "s440",
+        "model_type": "s441",
+        "path": "s442",
+        "provider": "s443",
+        "request_content_type": "s444",
+        "request_head": "s445",
+        "request_head_complete": true,
+        "request_size": 1095,
+        "request_type": "s448",
+        "response_content_type": "s449",
+        "response_head": "s44a",
+        "response_head_complete": false,
+        "response_size": 1100,
+        "score": 1101,
+        "status_code": 1102,
+        "step": 1103,
+        "success": true,
+        "tokens_in": 1105,
+        "tokens_out": 1106
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}/request": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}/response": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

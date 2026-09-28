@@ -1,0 +1,677 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 39
+  metrics: count: path: 104
+  metrics: count: method: 161
+
+  entity: account: {
+    path: "/accounts/{account_id}/ai-gateway/logging-state": {
+      action: "ai_gateway_logging_state": {}
+      rename: param: "account_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_gateway: {
+    path: "/accounts/{account_id}/ai/websearch": {
+      op: create: method: *POST
+      op: create: transform: req: "byokAlias": *("`reqdata.byok_alia`")|top
+      op: create: transform: req: "limit": *("`reqdata.limit`")|top
+      op: create: transform: req: "options": *("`reqdata.option`")|top
+      op: create: transform: req: "provider": *("`reqdata.provider`")|top
+      op: create: transform: req: "query": *("`reqdata.query`")|top
+    }
+  }
+
+  entity: ai_gateway_custom_domain: {
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/custom-domains/{hostname}": {
+      rename: param: "hostname": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_gateway_custom_provider: {
+    path: "/accounts/{account_id}/ai-gateway/custom-providers": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/custom-providers/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_gateway_custom_provider_cost: {
+    path: "/accounts/{account_id}/ai-gateway/custom-providers/costs": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/custom-providers/costs/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_gateway_dataset: {
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_gateway_dynamic_route: {
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.route`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments": {
+      rename: param: "id": *"route_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions": {
+      rename: param: "id": *"route_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions/{version_id}": {
+      rename: param: "id": *"route_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_gateway_evaluation: {
+    path: "/accounts/{account_id}/ai-gateway/evaluation-types": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/evaluations": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/evaluations/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_gateway_gateway: {
+    path: "/accounts/{account_id}/ai-gateway/gateways": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/url/{provider}": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_gateway_log: {
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs": {
+      op: list: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}/request": {
+      rename: param: "id": *"log_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/logs/{id}/response": {
+      rename: param: "id": *"log_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: ai_gateway_provider_config: {
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}": {
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_search_account_search: {
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/chat/completions": {
+      rename: param: "name": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/search": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_search_instance: {
+    path: "/accounts/{account_id}/ai-search/instances": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/instances/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/instances/{id}/chat/completions": {
+      rename: param: "id": *"instance_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/ai-search/instances/{id}/search": {
+      action: "search": {}
+      rename: param: "id": *"instance_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/instances/{id}/stats": {
+      rename: param: "id": *"instance_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}": {
+      rename: param: "name": *"namespace_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/chat/completions": {
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/purge_cache": {
+      action: "purge_cache": {}
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/search": {
+      action: "search": {}
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/stats": {
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_search_instances_item: {
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items": {
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}": {
+      rename: param: "id": *"instance_id"
+      rename: param: "item_id": *"id"
+      rename: param: "name": *"namespace_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/chunks": {
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/download": {
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/items/{item_id}/logs": {
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: ai_search_instances_job: {
+    path: "/accounts/{account_id}/ai-search/instances/{id}/jobs": {
+      rename: param: "id": *"instance_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/instances/{id}/jobs/{job_id}": {
+      rename: param: "id": *"instance_id"
+      rename: param: "job_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/instances/{id}/jobs/{job_id}/logs": {
+      rename: param: "id": *"instance_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs": {
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs/{job_id}": {
+      rename: param: "id": *"instance_id"
+      rename: param: "job_id": *"id"
+      rename: param: "name": *"namespace_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs/{job_id}/logs": {
+      rename: param: "id": *"instance_id"
+      rename: param: "name": *"namespace_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: ai_search_namespace: {
+    path: "/accounts/{account_id}/ai-search/namespaces": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}": {
+      rename: param: "name": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}": {
+      rename: param: "name": *"namespace_id"
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: ai_search_token: {
+    path: "/accounts/{account_id}/ai-search/tokens": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai-search/tokens/{id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: aig_billing_create_topup: {
+    path: "/accounts/{account_id}/ai-gateway/billing/topup": {
+      op: create: method: *POST
+      op: create: transform: req: "amount": *("`reqdata.amount`")|top
+      op: create: transform: req: "payment_method_id": *("`reqdata.payment_method_id`")|top
+    }
+  }
+
+  entity: aig_billing_delete_spending_limit: {
+    path: "/accounts/{account_id}/ai-gateway/billing/spending-limit": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: aig_billing_delete_topup_config: {
+    path: "/accounts/{account_id}/ai-gateway/billing/topup/config": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: aig_billing_get_credit_balance: {
+    path: "/accounts/{account_id}/ai-gateway/billing/credit-balance": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: aig_billing_get_invoice_history: {
+    path: "/accounts/{account_id}/ai-gateway/billing/invoice-history": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: aig_billing_get_invoice_preview: {
+    path: "/accounts/{account_id}/ai-gateway/billing/invoice-preview": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: aig_billing_get_spending_limit: {
+    path: "/accounts/{account_id}/ai-gateway/billing/spending-limit": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: aig_billing_get_topup_config: {
+    path: "/accounts/{account_id}/ai-gateway/billing/topup/config": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: aig_billing_get_topup_eligibility: {
+    path: "/accounts/{account_id}/ai-gateway/billing/topup/eligibility": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: aig_billing_get_topup_limit: {
+    path: "/accounts/{account_id}/ai-gateway/billing/topup/limits": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: aig_billing_get_usage_history: {
+    path: "/accounts/{account_id}/ai-gateway/billing/usage-history": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: aig_billing_set_spending_limit: {
+    path: "/accounts/{account_id}/ai-gateway/billing/spending-limit": {
+      op: create: method: *POST
+      op: create: transform: req: "amount": *("`reqdata.amount`")|top
+      op: create: transform: req: "duration": *("`reqdata.duration`")|top
+      op: create: transform: req: "strategy": *("`reqdata.strategy`")|top
+    }
+  }
+
+  entity: aig_billing_set_topup_config: {
+    path: "/accounts/{account_id}/ai-gateway/billing/topup/config": {
+      op: create: method: *POST
+      op: create: transform: req: "amount": *("`reqdata.amount`")|top
+      op: create: transform: req: "threshold": *("`reqdata.threshold`")|top
+    }
+  }
+
+  entity: aig_billing_topup_status: {
+    path: "/accounts/{account_id}/ai-gateway/billing/topup/status": {
+      op: create: method: *POST
+      op: create: transform: req: "payment_intent_id": *("`reqdata.payment_intent_id`")|top
+    }
+  }
+
+  entity: auto_rag_job: {
+    path: "/accounts/{account_id}/autorag/rags/{id}/jobs": {
+      rename: param: "id": *"rag_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/autorag/rags/{id}/jobs/{job_id}": {
+      rename: param: "id": *"rag_id"
+      rename: param: "job_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/autorag/rags/{id}/jobs/{job_id}/logs": {
+      rename: param: "id": *"rag_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: auto_rag_rag: {
+    path: "/accounts/{account_id}/autorag/rags/{id}/files": {
+      rename: param: "id": *"rag_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/autorag/rags/{id}/sync": {
+      rename: param: "id": *"rag_id"
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: auto_rag_rag_search: {
+    path: "/accounts/{account_id}/autorag/rags/{id}/ai-search": {
+      rename: param: "id": *"rag_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/autorag/rags/{id}/search": {
+      rename: param: "id": *"rag_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: finetune_asset: {
+    path: "/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}": {
+      rename: param: "file_name": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: vectorize: {
+    path: "/accounts/{account_id}/vectorize/v2/indexes": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/delete_by_ids": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/get_by_ids": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/info": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/insert": {
+      action: "insert": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/list": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/create": {
+      rename: param: "index_name": *"index_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/delete": {
+      rename: param: "index_name": *"index_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/list": {
+      rename: param: "index_name": *"index_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/query": {
+      action: "query": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/upsert": {
+      action: "upsert": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: vectorize_beta__deprecated: {
+    path: "/accounts/{account_id}/vectorize/indexes": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/vectorize/indexes/{index_name}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/vectorize/indexes/{index_name}/delete-by-ids": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/indexes/{index_name}/get-by-ids": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/indexes/{index_name}/insert": {
+      action: "insert": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/indexes/{index_name}/query": {
+      action: "query": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/vectorize/indexes/{index_name}/upsert": {
+      action: "upsert": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: workers_ai: {
+    path: "/accounts/{account_id}/ai/authors/search": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai/models/schema": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai/models/search": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/ai/run": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/ai/run/{model_name}": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/ai/tasks/search": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/ai/tomarkdown": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/ai/tomarkdown/supported": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: workers_ai_finetune: {
+    path: "/accounts/{account_id}/ai/finetunes": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai/finetunes/public": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai/finetunes/{finetune_id}": {
+      rename: param: "finetune_id": *"id"
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets": {
+      op: create: method: *POST
+    }
+  }
+
+}

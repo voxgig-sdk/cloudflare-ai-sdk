@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "aig_billing_set_spending_limit": {
+      "AIG_BILLING_SET_SPENDING_LIMIT00": {
+        "amount": 30,
+        "duration": "s1f",
+        "strategy": "s20",
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_SET_SPENDING_LIMIT00"
+      },
+      "AIG_BILLING_SET_SPENDING_LIMIT01": {
+        "amount": 60,
+        "duration": "s3d",
+        "strategy": "s3e",
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_SET_SPENDING_LIMIT01"
+      },
+      "AIG_BILLING_SET_SPENDING_LIMIT02": {
+        "amount": 90,
+        "duration": "s5b",
+        "strategy": "s5c",
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_SET_SPENDING_LIMIT02"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_set_spending_limit": {
+      "aig_billing_set_spending_limit_ref01": {
+        "amount": 120,
+        "duration": "s79",
+        "strategy": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/billing/spending-limit": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

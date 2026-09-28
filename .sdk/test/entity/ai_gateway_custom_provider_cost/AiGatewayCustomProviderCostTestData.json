@@ -1,0 +1,99 @@
+{
+  "existing": {
+    "ai_gateway_custom_provider_cost": {
+      "AI_GATEWAY_CUSTOM_PROVIDER_COST00": {
+        "account_provider_id": "ACCOUNT_PROVIDER01",
+        "changed_by": "s83",
+        "cost_in": 132,
+        "cost_out": 133,
+        "cost_type": "s86",
+        "created_at": "s87",
+        "enable": true,
+        "id": "AI_GATEWAY_CUSTOM_PROVIDER_COST00",
+        "model": "s8a",
+        "model_rule": "s8b",
+        "modified_at": "s8c",
+        "token_pricing": "s8d",
+        "weight": 142,
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_CUSTOM_PROVIDER_COST01": {
+        "account_provider_id": "ACCOUNT_PROVIDER01",
+        "changed_by": "s105",
+        "cost_in": 262,
+        "cost_out": 263,
+        "cost_type": "s108",
+        "created_at": "s109",
+        "enable": true,
+        "id": "AI_GATEWAY_CUSTOM_PROVIDER_COST01",
+        "model": "s10c",
+        "model_rule": "s10d",
+        "modified_at": "s10e",
+        "token_pricing": "s10f",
+        "weight": 272,
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_CUSTOM_PROVIDER_COST02": {
+        "account_provider_id": "ACCOUNT_PROVIDER01",
+        "changed_by": "s187",
+        "cost_in": 392,
+        "cost_out": 393,
+        "cost_type": "s18a",
+        "created_at": "s18b",
+        "enable": true,
+        "id": "AI_GATEWAY_CUSTOM_PROVIDER_COST02",
+        "model": "s18e",
+        "model_rule": "s18f",
+        "modified_at": "s190",
+        "token_pricing": "s191",
+        "weight": 402,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway_custom_provider_cost": {
+      "ai_gateway_custom_provider_cost_ref01": {
+        "account_provider_id": "ACCOUNT_PROVIDER01",
+        "changed_by": "s209",
+        "cost_in": 522,
+        "cost_out": 523,
+        "cost_type": "s20c",
+        "created_at": "s20d",
+        "enable": true,
+        "model": "s210",
+        "model_rule": "s211",
+        "modified_at": "s212",
+        "token_pricing": "s213",
+        "weight": 532
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/custom-providers/costs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/custom-providers/costs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/custom-providers/costs/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-gateway/custom-providers/costs/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/ai-gateway/custom-providers/costs/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

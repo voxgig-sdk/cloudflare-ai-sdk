@@ -1,0 +1,403 @@
+# Entity: ai_gateway_provider_config
+
+main: kit: entity: ai_gateway_provider_config: {
+
+  alias: field: {}
+
+  fields: {
+    alias: {
+      h: "Alias"
+      n: "alias"
+      r: true
+      t: "`$STRING`"
+    }
+    default_config: {
+      h: "Default Config"
+      n: "default_config"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    gateway_id: {
+      h: "Gateway Id"
+      n: "gateway_id"
+      r: true
+      sh: "Unique identifier of the AI Gateway within the account."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    modified_at: {
+      fo: "date-time"
+      h: "Modified At"
+      n: "modified_at"
+      r: true
+      t: "`$STRING`"
+    }
+    provider_slug: {
+      h: "Provider Slug"
+      n: "provider_slug"
+      r: true
+      t: "`$STRING`"
+    }
+    rate_limit: {
+      h: "Rate Limit"
+      n: "rate_limit"
+      r: false
+      t: "`$NUMBER`"
+    }
+    rate_limit_period: {
+      h: "Rate Limit Period"
+      n: "rate_limit_period"
+      r: false
+      t: "`$NUMBER`"
+    }
+    secret: {
+      h: "Secret"
+      n: "secret"
+      op: {
+        update: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "Provider API key to store in the Secrets Store configured on the gateway."
+      t: "`$STRING`"
+    }
+    secret_id: {
+      h: "Secret Id"
+      n: "secret_id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      t: "`$STRING`"
+    }
+    secret_preview: {
+      h: "Secret Preview"
+      n: "secret_preview"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ai_gateway_provider_config"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "provider_configs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "provider_configs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "provider_configs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "3ebbcb006d4d46d7bb6a8c7f14676cb0"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-gateway"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "provider_configs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

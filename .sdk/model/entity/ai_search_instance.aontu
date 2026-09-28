@@ -1,0 +1,1972 @@
+# Entity: ai_search_instance
+
+main: kit: entity: ai_search_instance: {
+
+  alias: field: {}
+
+  fields: {
+    ai_gateway_id: {
+      h: "Ai Gateway Id"
+      n: "ai_gateway_id"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    ai_search_model: {
+      h: "Ai Search Model"
+      n: "ai_search_model"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "A Workers AI model ID or an AI Gateway model ID compatible with the OpenAI Chat Completions API."
+      t: "`$STRING`"
+    }
+    ai_search_options: {
+      h: "Ai Search Options"
+      n: "ai_search_options"
+      r: false
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 3
+      }
+    }
+    cache: {
+      h: "Cache"
+      n: "cache"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    cache_threshold: {
+      h: "Cache Threshold"
+      n: "cache_threshold"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    cache_ttl: {
+      h: "Cache Ttl"
+      n: "cache_ttl"
+      op: {
+        list: {
+          req: true
+          type: "`$ANY`"
+        }
+      }
+      r: false
+      sh: "Cache entry TTL in seconds."
+      t: "`$ANY`"
+      union: {
+        branches: 10
+        count: 1
+        depth: 0
+      }
+    }
+    choices: {
+      h: "Choices"
+      n: "choices"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 8
+      }
+    }
+    chunk: {
+      h: "Chunk"
+      n: "chunk"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    chunk_overlap: {
+      h: "Chunk Overlap"
+      n: "chunk_overlap"
+      op: {
+        list: {
+          req: true
+          type: "`$NUMBER`"
+        }
+      }
+      r: false
+      t: "`$INTEGER`"
+    }
+    chunk_size: {
+      h: "Chunk Size"
+      n: "chunk_size"
+      op: {
+        list: {
+          req: true
+          type: "`$NUMBER`"
+        }
+      }
+      r: false
+      t: "`$INTEGER`"
+    }
+    chunks: {
+      h: "Chunks"
+      n: "chunks"
+      r: true
+      t: "`$ARRAY`"
+    }
+    completed: {
+      h: "Completed"
+      n: "completed"
+      r: false
+      t: "`$INTEGER`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    created_by: {
+      h: "Created By"
+      n: "created_by"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    custom_metadata: {
+      h: "Custom Metadata"
+      n: "custom_metadata"
+      op: {
+        list: {
+          req: true
+          type: "`$ARRAY`"
+        }
+      }
+      r: false
+      t: "`$ARRAY`"
+    }
+    degraded: {
+      h: "Degraded"
+      n: "degraded"
+      r: false
+      sh: "True when status counts are unavailable (e.g."
+      t: "`$BOOLEAN`"
+    }
+    embedding_model: {
+      h: "Embedding Model"
+      n: "embedding_model"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    enable: {
+      h: "Enable"
+      n: "enable"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    engine: {
+      h: "Engine"
+      n: "engine"
+      r: false
+      sh: "Engine-specific metadata."
+      t: "`$OBJECT`"
+    }
+    engine_version: {
+      h: "Engine Version"
+      n: "engine_version"
+      op: {
+        list: {
+          req: true
+          type: "`$NUMBER`"
+        }
+      }
+      r: false
+      ro: true
+      t: "`$NUMBER`"
+    }
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      t: "`$INTEGER`"
+    }
+    file_embed_errors: {
+      h: "File Embed Errors"
+      n: "file_embed_errors"
+      r: false
+      t: "`$OBJECT`"
+    }
+    fusion_method: {
+      h: "Fusion Method"
+      n: "fusion_method"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    hybrid_search_enabled: {
+      de: true
+      h: "Hybrid Search Enabled"
+      n: "hybrid_search_enabled"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      sh: "Deprecated — use index_method instead."
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "AI Search instance ID."
+      t: "`$STRING`"
+    }
+    index_method: {
+      h: "Index Method"
+      n: "index_method"
+      r: true
+      sh: "Controls which storage backends are used during indexing."
+      t: "`$OBJECT`"
+    }
+    index_source_errors: {
+      h: "Index Source Errors"
+      n: "index_source_errors"
+      r: false
+      t: "`$OBJECT`"
+    }
+    indexing_options: {
+      h: "Indexing Options"
+      n: "indexing_options"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      r: false
+      t: "`$OBJECT`"
+    }
+    last_activity: {
+      fo: "date-time"
+      h: "Last Activity"
+      n: "last_activity"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    max_num_results: {
+      h: "Max Num Results"
+      n: "max_num_results"
+      op: {
+        list: {
+          req: true
+          type: "`$NUMBER`"
+        }
+      }
+      r: false
+      t: "`$INTEGER`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 6
+      }
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      r: false
+      t: "`$OBJECT`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: false
+      sh: "A Workers AI model ID or an AI Gateway model ID compatible with the OpenAI Chat Completions API."
+      t: "`$STRING`"
+    }
+    modified_at: {
+      fo: "date-time"
+      h: "Modified At"
+      n: "modified_at"
+      r: true
+      ro: true
+      t: "`$STRING`"
+    }
+    modified_by: {
+      h: "Modified By"
+      n: "modified_by"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    namespace: {
+      h: "Namespace"
+      n: "namespace"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      t: "`$STRING`"
+    }
+    outdated: {
+      h: "Outdated"
+      n: "outdated"
+      r: false
+      t: "`$INTEGER`"
+    }
+    paused: {
+      h: "Paused"
+      n: "paused"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    public_endpoint_id: {
+      h: "Public Endpoint Id"
+      n: "public_endpoint_id"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    public_endpoint_params: {
+      h: "Public Endpoint Params"
+      n: "public_endpoint_params"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      r: false
+      t: "`$OBJECT`"
+    }
+    queued: {
+      h: "Queued"
+      n: "queued"
+      r: false
+      t: "`$INTEGER`"
+    }
+    reranking: {
+      h: "Reranking"
+      n: "reranking"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    reranking_model: {
+      h: "Reranking Model"
+      n: "reranking_model"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    retrieval_options: {
+      h: "Retrieval Options"
+      n: "retrieval_options"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      r: false
+      t: "`$OBJECT`"
+    }
+    rewrite_model: {
+      h: "Rewrite Model"
+      n: "rewrite_model"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "A Workers AI model ID or an AI Gateway model ID compatible with the OpenAI Chat Completions API."
+      t: "`$STRING`"
+    }
+    rewrite_query: {
+      h: "Rewrite Query"
+      n: "rewrite_query"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    running: {
+      h: "Running"
+      n: "running"
+      r: false
+      t: "`$INTEGER`"
+    }
+    score_threshold: {
+      h: "Score Threshold"
+      n: "score_threshold"
+      op: {
+        list: {
+          req: true
+          type: "`$NUMBER`"
+        }
+      }
+      r: false
+      t: "`$NUMBER`"
+    }
+    skipped: {
+      h: "Skipped"
+      n: "skipped"
+      r: false
+      t: "`$INTEGER`"
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    source_params: {
+      h: "Source Params"
+      n: "source_params"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      r: false
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      ro: true
+      t: "`$STRING`"
+    }
+    stream: {
+      h: "Stream"
+      n: "stream"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    summarization: {
+      h: "Summarization"
+      n: "summarization"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    summarization_model: {
+      h: "Summarization Model"
+      n: "summarization_model"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    sync_interval: {
+      h: "Sync Interval"
+      n: "sync_interval"
+      op: {
+        list: {
+          req: true
+          type: "`$ANY`"
+        }
+      }
+      r: false
+      sh: "Interval between automatic syncs, in seconds."
+      t: "`$ANY`"
+      union: {
+        branches: 8
+        count: 1
+        depth: 0
+      }
+    }
+    system_prompt_ai_search: {
+      h: "System Prompt Ai Search"
+      n: "system_prompt_ai_search"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    system_prompt_index_summarization: {
+      h: "System Prompt Index Summarization"
+      n: "system_prompt_index_summarization"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    system_prompt_rewrite_query: {
+      h: "System Prompt Rewrite Query"
+      n: "system_prompt_rewrite_query"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    token_id: {
+      fo: "uuid"
+      h: "Token Id"
+      n: "token_id"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "Source type."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ai_search_instance"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/chat/completions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "instance_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/chat/completions"
+          q: {
+            exist: [
+              "account_id"
+              "instance_id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "instance_id"
+              name: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "instance_id"
+            }
+            {
+              lit: "chat"
+            }
+            {
+              lit: "completions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/purge_cache"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "instance_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/purge_cache"
+          q: {
+            "$action": "purge_cache"
+            exist: [
+              "account_id"
+              "instance_id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "instance_id"
+              name: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "instance_id"
+            }
+            {
+              lit: "purge_cache"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "instance_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/search"
+          q: {
+            "$action": "search"
+            exist: [
+              "account_id"
+              "instance_id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "instance_id"
+              name: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "instance_id"
+            }
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-search/instances/{id}/chat/completions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "instance_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-search/instances/{id}/chat/completions"
+          q: {
+            exist: [
+              "account_id"
+              "instance_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "instance_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "instance_id"
+            }
+            {
+              lit: "chat"
+            }
+            {
+              lit: "completions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-search/instances/{id}/search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "instance_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-search/instances/{id}/search"
+          q: {
+            "$action": "search"
+            exist: [
+              "account_id"
+              "instance_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "instance_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "instance_id"
+            }
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-search/namespaces/{name}/instances"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances"
+          q: {
+            exist: [
+              "account_id"
+              "name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "instances"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-search/instances"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-search/instances"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "instances"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "name"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "hostname"
+                or: "hostname"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "namespace"
+                or: "namespace"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "created_at"
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "desc"
+                k: "query"
+                n: "order_by_direction"
+                or: "order_by_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances"
+          q: {
+            exist: [
+              "account_id"
+              "hostname"
+              "name"
+              "namespace"
+              "order_by"
+              "order_by_direction"
+              "page"
+              "per_page"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "instances"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-search/instances"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "hostname"
+                or: "hostname"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "namespace"
+                or: "namespace"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "created_at"
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "desc"
+                k: "query"
+                n: "order_by_direction"
+                or: "order_by_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-search/instances"
+          q: {
+            exist: [
+              "account_id"
+              "hostname"
+              "namespace"
+              "order_by"
+              "order_by_direction"
+              "page"
+              "per_page"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "instances"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              name: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/stats"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "instance_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/stats"
+          q: {
+            exist: [
+              "account_id"
+              "instance_id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "instance_id"
+              name: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "instance_id"
+            }
+            {
+              lit: "stats"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-search/instances/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-search/instances/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-search/instances/{id}/stats"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "instance_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-search/instances/{id}/stats"
+          q: {
+            exist: [
+              "account_id"
+              "instance_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "instance_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "instance_id"
+            }
+            {
+              lit: "stats"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              name: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/ai-search/instances/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/ai-search/instances/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "namespace_id"
+            ]
+          }
+          r: {
+            param: {
+              name: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/ai-search/instances/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-ai-search"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/ai-search/instances/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-search"
+            }
+            {
+              lit: "instances"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

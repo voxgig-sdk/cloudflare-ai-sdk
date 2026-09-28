@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "aig_billing_get_invoice_preview": {
+      "AIG_BILLING_GET_INVOICE_PREVIEW00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "AIG_BILLING_GET_INVOICE_PREVIEW01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "AIG_BILLING_GET_INVOICE_PREVIEW02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_get_invoice_preview": {
+      "aig_billing_get_invoice_preview_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/ai-gateway/billing/invoice-preview": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

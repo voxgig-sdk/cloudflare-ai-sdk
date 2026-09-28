@@ -1,0 +1,83 @@
+{
+  "existing": {
+    "ai_search_namespace": {
+      "AI_SEARCH_NAMESPACE00": {
+        "created_at": "s46",
+        "description": "s47",
+        "id": "AI_SEARCH_NAMESPACE00",
+        "name": "s49",
+        "new_namespace": "s4a",
+        "public_endpoint_id": "PUBLIC_ENDPOINT01",
+        "public_endpoint_params": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01"
+      },
+      "AI_SEARCH_NAMESPACE01": {
+        "created_at": "s8c",
+        "description": "s8d",
+        "id": "AI_SEARCH_NAMESPACE01",
+        "name": "s8f",
+        "new_namespace": "s90",
+        "public_endpoint_id": "PUBLIC_ENDPOINT01",
+        "public_endpoint_params": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01"
+      },
+      "AI_SEARCH_NAMESPACE02": {
+        "created_at": "sd2",
+        "description": "sd3",
+        "id": "AI_SEARCH_NAMESPACE02",
+        "name": "sd5",
+        "new_namespace": "sd6",
+        "public_endpoint_id": "PUBLIC_ENDPOINT01",
+        "public_endpoint_params": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01"
+      }
+    }
+  },
+  "new": {
+    "ai_search_namespace": {
+      "ai_search_namespace_ref01": {
+        "created_at": "s118",
+        "description": "s119",
+        "name": "s11b",
+        "new_namespace": "s11c",
+        "public_endpoint_id": "PUBLIC_ENDPOINT01",
+        "public_endpoint_params": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-search/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-search/namespaces/{name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/ai-search/namespaces/{name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

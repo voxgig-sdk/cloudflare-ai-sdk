@@ -1,0 +1,22 @@
+# BasicAiGatewayFlow
+
+main: kit: flow: BasicAiGatewayFlow:
+{
+  entity: "ai_gateway",
+  kind: "basic",
+  name: "BasicAiGatewayFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_gateway_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAiGatewayFlow"
+}

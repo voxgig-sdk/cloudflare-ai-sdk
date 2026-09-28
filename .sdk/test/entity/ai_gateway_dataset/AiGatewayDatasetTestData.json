@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "ai_gateway_dataset": {
+      "AI_GATEWAY_DATASET00": {
+        "created_at": "s46",
+        "enable": false,
+        "filters": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_DATASET00",
+        "modified_at": "s4b",
+        "name": "s4c",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_DATASET01": {
+        "created_at": "s8c",
+        "enable": false,
+        "filters": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_DATASET01",
+        "modified_at": "s91",
+        "name": "s92",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_DATASET02": {
+        "created_at": "sd2",
+        "enable": false,
+        "filters": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_DATASET02",
+        "modified_at": "sd7",
+        "name": "sd8",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway_dataset": {
+      "ai_gateway_dataset_ref01": {
+        "created_at": "s118",
+        "enable": false,
+        "filters": [],
+        "gateway_id": "GATEWAY01",
+        "modified_at": "s11d",
+        "name": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/datasets/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

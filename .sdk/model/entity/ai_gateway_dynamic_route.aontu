@@ -1,0 +1,936 @@
+# Entity: ai_gateway_dynamic_route
+
+main: kit: entity: ai_gateway_dynamic_route: {
+
+  alias: field: {}
+
+  fields: {
+    account_tag: {
+      h: "Account Tag"
+      n: "account_tag"
+      r: true
+      t: "`$STRING`"
+    }
+    active: {
+      h: "Active"
+      n: "active"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    created_at: {
+      fo: "date-time"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      t: "`$STRING`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: true
+      t: "`$STRING`"
+    }
+    deployment: {
+      h: "Deployment"
+      n: "deployment"
+      r: true
+      t: "`$OBJECT`"
+    }
+    deployments: {
+      h: "Deployments"
+      n: "deployments"
+      r: true
+      t: "`$ARRAY`"
+    }
+    elements: {
+      h: "Elements"
+      n: "elements"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 6
+        count: 1
+        depth: 1
+      }
+    }
+    gateway_id: {
+      h: "Gateway Id"
+      n: "gateway_id"
+      r: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    is_valid: {
+      h: "Is Valid"
+      n: "is_valid"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    modified_at: {
+      fo: "date-time"
+      h: "Modified At"
+      n: "modified_at"
+      r: true
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    order_by: {
+      h: "Order By"
+      n: "order_by"
+      r: true
+      t: "`$STRING`"
+    }
+    order_by_direction: {
+      h: "Order By Direction"
+      n: "order_by_direction"
+      r: true
+      t: "`$STRING`"
+    }
+    page: {
+      h: "Page"
+      n: "page"
+      r: true
+      t: "`$NUMBER`"
+    }
+    per_page: {
+      h: "Per Page"
+      n: "per_page"
+      r: true
+      t: "`$NUMBER`"
+    }
+    routes: {
+      h: "Routes"
+      n: "routes"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 6
+        count: 1
+        depth: 4
+      }
+    }
+    version: {
+      h: "Version"
+      n: "version"
+      r: true
+      t: "`$OBJECT`"
+    }
+    version_id: {
+      h: "Version Id"
+      n: "version_id"
+      r: true
+      t: "`$STRING`"
+    }
+    versions: {
+      h: "Versions"
+      n: "versions"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ai_gateway_dynamic_route"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "route_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "route_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "route_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+            {
+              var: "route_id"
+            }
+            {
+              lit: "deployments"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "route_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "route_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "route_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+            {
+              var: "route_id"
+            }
+            {
+              lit: "versions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "page"
+              "per_page"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions/{version_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "route_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "version_id"
+                or: "version_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions/{version_id}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "route_id"
+              "version_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "route_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+            {
+              var: "route_id"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "version_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "route_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "route_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "route_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+            {
+              var: "route_id"
+            }
+            {
+              lit: "deployments"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "route_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "route_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "route_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+            {
+              var: "route_id"
+            }
+            {
+              lit: "versions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "0d37909e38d3e99c29fa2cd343ac421a"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "gateway_id"
+                or: "gateway_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "54442216"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}"
+          q: {
+            exist: [
+              "account_id"
+              "gateway_id"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "gateways"
+            }
+            {
+              var: "gateway_id"
+            }
+            {
+              lit: "routes"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.route`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

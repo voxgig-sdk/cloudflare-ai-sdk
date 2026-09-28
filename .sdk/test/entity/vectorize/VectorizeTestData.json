@@ -1,0 +1,142 @@
+{
+  "existing": {
+    "vectorize": {
+      "VECTORIZE00": {
+        "config": "s64",
+        "description": "s65",
+        "errors": [],
+        "ids": [],
+        "indexType": "s68",
+        "messages": [],
+        "name": "s6a",
+        "propertyName": "s6b",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "index_name": "INDEX_NAME01",
+        "index_id": "INDEX01",
+        "id": "VECTORIZE00"
+      },
+      "VECTORIZE01": {
+        "config": "sc8",
+        "description": "sc9",
+        "errors": [],
+        "ids": [],
+        "indexType": "scc",
+        "messages": [],
+        "name": "sce",
+        "propertyName": "scf",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "index_name": "INDEX_NAME01",
+        "index_id": "INDEX01",
+        "id": "VECTORIZE01"
+      },
+      "VECTORIZE02": {
+        "config": "s12c",
+        "description": "s12d",
+        "errors": [],
+        "ids": [],
+        "indexType": "s130",
+        "messages": [],
+        "name": "s132",
+        "propertyName": "s133",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "index_name": "INDEX_NAME01",
+        "index_id": "INDEX01",
+        "id": "VECTORIZE02"
+      }
+    }
+  },
+  "new": {
+    "vectorize": {
+      "vectorize_ref01": {
+        "config": "s190",
+        "description": "s191",
+        "errors": [],
+        "ids": [],
+        "indexType": "s194",
+        "messages": [],
+        "name": "s196",
+        "propertyName": "s197",
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/insert": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/upsert": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/create": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/delete": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/delete_by_ids": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/get_by_ids": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/query": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/v2/indexes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/vectorize/v2/indexes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/vectorize/v2/indexes/{index_name}/list": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/list": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/vectorize/v2/indexes/{index_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/vectorize/v2/indexes/{index_name}/info": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/vectorize/v2/indexes/{index_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

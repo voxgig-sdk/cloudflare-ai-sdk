@@ -1,0 +1,1185 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AiSearchAccountSearch | Cloudflare AI</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare AI<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-ai-sdk">voxgig-sdk/cloudflare-ai-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare AI</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/ai_gateway.html">AiGateway</a>
+<a href="../api/ai_gateway_custom_domain.html">AiGatewayCustomDomain</a>
+<a href="../api/ai_gateway_custom_provider.html">AiGatewayCustomProvider</a>
+<a href="../api/ai_gateway_custom_provider_cost.html">AiGatewayCustomProviderCost</a>
+<a href="../api/ai_gateway_dataset.html">AiGatewayDataset</a>
+<a href="../api/ai_gateway_dynamic_route.html">AiGatewayDynamicRoute</a>
+<a href="../api/ai_gateway_evaluation.html">AiGatewayEvaluation</a>
+<a href="../api/ai_gateway_gateway.html">AiGatewayGateway</a>
+<a href="../api/ai_gateway_log.html">AiGatewayLog</a>
+<a href="../api/ai_gateway_provider_config.html">AiGatewayProviderConfig</a>
+<a aria-current="page" href="../api/ai_search_account_search.html">AiSearchAccountSearch</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idai-searchnamespacesnamesearch">POST /accounts/{account_id}/ai-search/namespaces/{name}/search</a>
+<a class="nav-section" href="#post-accountsaccount_idai-searchnamespacesnamechatcompletions">POST /accounts/{account_id}/ai-search/namespaces/{name}/chat/completions</a></div>
+<a href="../api/ai_search_instance.html">AiSearchInstance</a>
+<a href="../api/ai_search_instances_item.html">AiSearchInstancesItem</a>
+<a href="../api/ai_search_instances_job.html">AiSearchInstancesJob</a>
+<a href="../api/ai_search_namespace.html">AiSearchNamespace</a>
+<a href="../api/ai_search_token.html">AiSearchToken</a>
+<a href="../api/aig_billing_create_topup.html">AigBillingCreateTopup</a>
+<a href="../api/aig_billing_delete_spending_limit.html">AigBillingDeleteSpendingLimit</a>
+<a href="../api/aig_billing_delete_topup_config.html">AigBillingDeleteTopupConfig</a>
+<a href="../api/aig_billing_get_credit_balance.html">AigBillingGetCreditBalance</a>
+<a href="../api/aig_billing_get_invoice_history.html">AigBillingGetInvoiceHistory</a>
+<a href="../api/aig_billing_get_invoice_preview.html">AigBillingGetInvoicePreview</a>
+<a href="../api/aig_billing_get_spending_limit.html">AigBillingGetSpendingLimit</a>
+<a href="../api/aig_billing_get_topup_config.html">AigBillingGetTopupConfig</a>
+<a href="../api/aig_billing_get_topup_eligibility.html">AigBillingGetTopupEligibility</a>
+<a href="../api/aig_billing_get_topup_limit.html">AigBillingGetTopupLimit</a>
+<a href="../api/aig_billing_get_usage_history.html">AigBillingGetUsageHistory</a>
+<a href="../api/aig_billing_set_spending_limit.html">AigBillingSetSpendingLimit</a>
+<a href="../api/aig_billing_set_topup_config.html">AigBillingSetTopupConfig</a>
+<a href="../api/aig_billing_topup_status.html">AigBillingTopupStatus</a>
+<a href="../api/auto_rag_job.html">AutoRagJob</a>
+<a href="../api/auto_rag_rag.html">AutoRagRag</a>
+<a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
+<a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a href="../api/vectorize.html">Vectorize</a>
+<a href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a>
+<a href="../api/workers_ai.html">WorkersAi</a>
+<a href="../api/workers_ai_finetune.html">WorkersAiFinetune</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="aisearchaccountsearch">AiSearchAccountSearch</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idai-searchnamespacesnamesearch"><code>/accounts/{account_id}/ai-search/namespaces/{name}/search</code></a></td>
+<td><code>create</code></td>
+<td>Returns the merged search results from all instances</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idai-searchnamespacesnamechatcompletions"><code>/accounts/{account_id}/ai-search/namespaces/{name}/chat/completions</code></a></td>
+<td><code>create</code></td>
+<td>Returns the chat completion result with merged chunks from all instances</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.AiSearchAccountSearch(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;ai_search_options&quot;: map[string]any{}, &quot;choices&quot;: []any{}, &quot;chunks&quot;: []any{}, &quot;query_kind&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:AiSearchAccountSearch():create({ account_id = &quot;example&quot;, ai_search_options = {}, choices = {}, chunks = {}, query_kind = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;AiSearchAccountSearch()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;ai_search_options&quot; =&gt; [], &quot;choices&quot; =&gt; [], &quot;chunks&quot; =&gt; [], &quot;query_kind&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.AiSearchAccountSearch().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;ai_search_options&quot;: {}, &quot;choices&quot;: [], &quot;chunks&quot;: [], &quot;query_kind&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">created = client.AiSearchAccountSearch.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;ai_search_options&quot; =&gt; {}, &quot;choices&quot; =&gt; [], &quot;chunks&quot; =&gt; [], &quot;query_kind&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.AiSearchAccountSearch().create({ account_id: &quot;example&quot;, ai_search_options: {}, choices: [], chunks: [], query_kind: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ai_search_options</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Ai Search Options</td>
+</tr>
+<tr>
+<td><code>choices</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Choices</td>
+</tr>
+<tr>
+<td><code>chunks</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Chunks</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>OpenAI-compatible message array.</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A Workers AI model ID or an AI Gateway model ID compatible with the OpenAI Chat Completions API.</td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>query</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A simple text query string.</td>
+</tr>
+<tr>
+<td><code>query_kind</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Query Kind</td>
+</tr>
+<tr>
+<td><code>search_query</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Search Query</td>
+</tr>
+<tr>
+<td><code>stream</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Stream</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idai-searchnamespacesnamesearch" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/ai-search/namespaces/{name}/search</h3>
+<p>Operation ID: <code>ai-search-namespace-multi-instance-search</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ai_search_options</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.cache</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.cache.cache_threshold</code></td>
+<td><code>enum: super_strict_match, close_enough, flexible_friend, anything_goes</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.cache.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.custom_metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Metadata added to AI Gateway logs for requests triggered by this operation. Accepts up to 2 string, number, or boolean entries. Keys 'ai-search', 'task', 'origin', and keys beginning with 'cf.' are reserved.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.instance_ids</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.query_rewrite</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.query_rewrite.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.query_rewrite.model</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A Workers AI model ID or an AI Gateway model ID compatible with the OpenAI Chat Completions API. An empty string uses the configured or default model.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.query_rewrite.rewrite_prompt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.reranking</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.reranking.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.reranking.match_threshold</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.reranking.model</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.boost_by</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Metadata fields to boost search results by. Overrides the instance-level <code>boost_by</code> config. Direction defaults to 'asc' for numeric/datetime fields, 'exists' for text/boolean fields. Fields must match 'timestamp' or a defined <code>custom_metadata</code> field.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.boost_by[].direction</code></td>
+<td><code>enum: asc, desc, exists, not_exists</code></td>
+<td>No</td>
+<td>Boost direction. 'desc' = higher values rank higher (for example newer timestamps). 'asc' = lower values rank higher. 'exists' = boost chunks that have the field. '<code>not_exists</code>' = boost chunks that lack the field. Optional, defaults to 'asc' for numeric/datetime fields, 'exists' for text/boolean fields.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.boost_by[].field</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Metadata field name to boost by. Use 'timestamp' for document freshness, or any <code>custom_metadata</code> field. Numeric and datetime fields support all four directions (asc, desc, exists, <code>not_exists</code>); text/boolean fields only support exists/<code>not_exists</code>.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.context_expansion</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.filters</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.fusion_method</code></td>
+<td><code>enum: max, rrf</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.keyword_match_mode</code></td>
+<td><code>enum: and, or</code></td>
+<td>No</td>
+<td>Controls which documents are candidates for BM25 scoring. 'and' restricts candidates to documents containing all query terms; 'or' includes any document containing at least one term, ranked by BM25 relevance. When omitted, falls back to the instance-level <code>retrieval_options</code>.<code>keyword_match_mode</code>, then to 'and'.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.match_threshold</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.max_num_results</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.retrieval_type</code></td>
+<td><code>enum: vector, keyword, hybrid</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.return_on_failure</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>OpenAI-compatible message array. For multimodal queries, set the last user message's <code>content</code> to an array of typed parts: <code>[&amp;#123;type:&amp;#39;text&amp;#39;, text:&amp;#39;…&amp;#39;&amp;#125;, &amp;#123;type:&amp;#39;</code>image_url<code>&amp;#39;, </code>image_url<code>:&amp;#123;url:&amp;#39;…&amp;#39;&amp;#125;&amp;#125;]</code>. Image inputs require the RAG's <code>embedding_model</code> to declare 'image' in <code>supported_modalities</code>.</td>
+</tr>
+<tr>
+<td><code>messages[].content</code></td>
+<td><code>string or array of object or object or object or enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].role</code></td>
+<td><code>enum: system, developer, user, assistant, tool</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>query</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A simple text query string. Alternative to 'messages', provide either this or 'messages', not both.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-returns-the-merged-search-results-from-all-instances" class="status" data-status="2xx">200: Returns the merged search results from all instances</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].instance_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].item</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].item.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].item.metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].item.timestamp</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].score</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].scoring_details</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].scoring_details.fusion_method</code></td>
+<td><code>enum: rrf, max</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].scoring_details.keyword_rank</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].scoring_details.keyword_score</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].scoring_details.reranking_score</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].scoring_details.vector_rank</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].scoring_details.vector_score</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].text</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.chunks[].type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.errors[].instance_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.query_kind</code></td>
+<td><code>enum: text, image, multimodal</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.search_query</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-metadata-filter-unknown-field" class="status" data-status="4xx">400: Metadata filter unknown field</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found" class="status" data-status="4xx">404: Not Found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-monthly-query-quota-exceeded" class="status" data-status="4xx">429: Monthly query quota exceeded</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idai-searchnamespacesnamechatcompletions" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/ai-search/namespaces/{name}/chat/completions</h3>
+<p>Operation ID: <code>ai-search-namespace-multi-instance-chat-completion</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>name</code> | <code>path</code> | <code>string</code> | Yes | Namespace name |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ai_search_options</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.cache</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.cache.cache_threshold</code></td>
+<td><code>enum: super_strict_match, close_enough, flexible_friend, anything_goes</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.cache.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.custom_metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Metadata added to AI Gateway logs for requests triggered by this operation. Accepts up to 2 string, number, or boolean entries. Keys 'ai-search', 'task', 'origin', and keys beginning with 'cf.' are reserved.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.instance_ids</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.query_rewrite</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.query_rewrite.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.query_rewrite.model</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A Workers AI model ID or an AI Gateway model ID compatible with the OpenAI Chat Completions API. An empty string uses the configured or default model.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.query_rewrite.rewrite_prompt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.reranking</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.reranking.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.reranking.match_threshold</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.reranking.model</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.boost_by</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Metadata fields to boost search results by. Overrides the instance-level <code>boost_by</code> config. Direction defaults to 'asc' for numeric/datetime fields, 'exists' for text/boolean fields. Fields must match 'timestamp' or a defined <code>custom_metadata</code> field.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.boost_by[].direction</code></td>
+<td><code>enum: asc, desc, exists, not_exists</code></td>
+<td>No</td>
+<td>Boost direction. 'desc' = higher values rank higher (for example newer timestamps). 'asc' = lower values rank higher. 'exists' = boost chunks that have the field. '<code>not_exists</code>' = boost chunks that lack the field. Optional, defaults to 'asc' for numeric/datetime fields, 'exists' for text/boolean fields.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.boost_by[].field</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Metadata field name to boost by. Use 'timestamp' for document freshness, or any <code>custom_metadata</code> field. Numeric and datetime fields support all four directions (asc, desc, exists, <code>not_exists</code>); text/boolean fields only support exists/<code>not_exists</code>.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.context_expansion</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.filters</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.fusion_method</code></td>
+<td><code>enum: max, rrf</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.keyword_match_mode</code></td>
+<td><code>enum: and, or</code></td>
+<td>No</td>
+<td>Controls which documents are candidates for BM25 scoring. 'and' restricts candidates to documents containing all query terms; 'or' includes any document containing at least one term, ranked by BM25 relevance. When omitted, falls back to the instance-level <code>retrieval_options</code>.<code>keyword_match_mode</code>, then to 'and'.</td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.match_threshold</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.max_num_results</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.retrieval_type</code></td>
+<td><code>enum: vector, keyword, hybrid</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ai_search_options.retrieval.return_on_failure</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].content</code></td>
+<td><code>string or array of object or object or object or enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].role</code></td>
+<td><code>enum: system, developer, user, assistant, tool</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>A Workers AI model ID or an AI Gateway model ID compatible with the OpenAI Chat Completions API. An empty string uses the configured or default model.</td>
+</tr>
+<tr>
+<td><code>stream</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-returns-the-chat-completion-result-with-merged-chunks-from-all-instances" class="status" data-status="2xx">200: Returns the chat completion result with merged chunks from all instances</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>choices</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>choices[].index</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>choices[].message</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>choices[].message.content</code></td>
+<td><code>string or array of object or object or object or enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>choices[].message.role</code></td>
+<td><code>enum: system, developer, user, assistant, tool</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].instance_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].item</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].item.key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].item.metadata</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].item.timestamp</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].score</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].scoring_details</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].scoring_details.fusion_method</code></td>
+<td><code>enum: rrf, max</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].scoring_details.keyword_rank</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].scoring_details.keyword_score</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].scoring_details.reranking_score</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].scoring_details.vector_rank</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].scoring_details.vector_score</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].text</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>chunks[].type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].instance_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>object</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-metadata-filter-unknown-field-1" class="status" data-status="4xx">400: Metadata filter unknown field</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-not-found-1" class="status" data-status="4xx">404: Not Found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-monthly-query-quota-exceeded-1" class="status" data-status="4xx">429: Monthly query quota exceeded</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

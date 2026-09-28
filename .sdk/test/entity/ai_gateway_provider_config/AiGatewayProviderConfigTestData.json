@@ -1,0 +1,86 @@
+{
+  "existing": {
+    "ai_gateway_provider_config": {
+      "AI_GATEWAY_PROVIDER_CONFIG00": {
+        "alias": "s6e",
+        "default_config": false,
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_PROVIDER_CONFIG00",
+        "modified_at": "s72",
+        "provider_slug": "s73",
+        "rate_limit": 116,
+        "rate_limit_period": 117,
+        "secret": "s76",
+        "secret_id": "SECRET01",
+        "secret_preview": "s78",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_PROVIDER_CONFIG01": {
+        "alias": "sdc",
+        "default_config": false,
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_PROVIDER_CONFIG01",
+        "modified_at": "se0",
+        "provider_slug": "se1",
+        "rate_limit": 226,
+        "rate_limit_period": 227,
+        "secret": "se4",
+        "secret_id": "SECRET01",
+        "secret_preview": "se6",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_PROVIDER_CONFIG02": {
+        "alias": "s14a",
+        "default_config": false,
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_PROVIDER_CONFIG02",
+        "modified_at": "s14e",
+        "provider_slug": "s14f",
+        "rate_limit": 336,
+        "rate_limit_period": 337,
+        "secret": "s152",
+        "secret_id": "SECRET01",
+        "secret_preview": "s154",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway_provider_config": {
+      "ai_gateway_provider_config_ref01": {
+        "alias": "s1b8",
+        "default_config": false,
+        "gateway_id": "GATEWAY01",
+        "modified_at": "s1bc",
+        "provider_slug": "s1bd",
+        "rate_limit": 446,
+        "rate_limit_period": 447,
+        "secret": "s1c0",
+        "secret_id": "SECRET01",
+        "secret_preview": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/provider_configs/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

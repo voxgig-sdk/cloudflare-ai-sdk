@@ -1,0 +1,9 @@
+# BasicAigBillingDeleteTopupConfigFlow
+
+main: kit: flow: BasicAigBillingDeleteTopupConfigFlow:
+{
+  entity: "aig_billing_delete_topup_config",
+  kind: "basic",
+  name: "BasicAigBillingDeleteTopupConfigFlow",
+  "key$": "BasicAigBillingDeleteTopupConfigFlow"
+}

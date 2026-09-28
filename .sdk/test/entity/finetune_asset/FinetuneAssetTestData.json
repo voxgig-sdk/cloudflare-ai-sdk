@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "finetune_asset": {
+      "FINETUNE_ASSET00": {
+        "file_name": "s1e",
+        "file_url": "s1f",
+        "id": "FINETUNE_ASSET00",
+        "account_id": "ACCOUNT01",
+        "finetune_id": "FINETUNE01"
+      },
+      "FINETUNE_ASSET01": {
+        "file_name": "s3c",
+        "file_url": "s3d",
+        "id": "FINETUNE_ASSET01",
+        "account_id": "ACCOUNT01",
+        "finetune_id": "FINETUNE01"
+      },
+      "FINETUNE_ASSET02": {
+        "file_name": "s5a",
+        "file_url": "s5b",
+        "id": "FINETUNE_ASSET02",
+        "account_id": "ACCOUNT01",
+        "finetune_id": "FINETUNE01"
+      }
+    }
+  },
+  "new": {
+    "finetune_asset": {
+      "finetune_asset_ref01": {
+        "file_name": "s78",
+        "file_url": "s79"
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicAigBillingGetCreditBalanceFlow
+
+main: kit: flow: BasicAigBillingGetCreditBalanceFlow:
+{
+  entity: "aig_billing_get_credit_balance",
+  kind: "basic",
+  name: "BasicAigBillingGetCreditBalanceFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "aig_billing_get_credit_balance_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAigBillingGetCreditBalanceFlow"
+}

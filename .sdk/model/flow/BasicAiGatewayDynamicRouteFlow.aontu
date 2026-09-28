@@ -1,0 +1,87 @@
+# BasicAiGatewayDynamicRouteFlow
+
+main: kit: flow: BasicAiGatewayDynamicRouteFlow:
+{
+  entity: "ai_gateway_dynamic_route",
+  kind: "basic",
+  name: "BasicAiGatewayDynamicRouteFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_gateway_dynamic_route_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01",
+        route_id: "route01"
+      }
+
+      o: "create"
+    }
+
+    {
+      d: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      i: {
+        ref: "ai_gateway_dynamic_route_ref01",
+        srcdatavar: "ai_gateway_dynamic_route_ref01_data",
+        suffix: "_up0",
+        textfield: "account_tag"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_gateway_dynamic_route_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_gateway_dynamic_route_ref01",
+        srcdatavar: "ai_gateway_dynamic_route_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01",
+        id: "ai_gateway_dynamic_route01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_gateway_dynamic_route_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_gateway_dynamic_route_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01",
+        id: "ai_gateway_dynamic_route01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicAiGatewayDynamicRouteFlow"
+}

@@ -1,0 +1,99 @@
+{
+  "existing": {
+    "auto_rag_rag_search": {
+      "AUTO_RAG_RAG_SEARCH00": {
+        "data": [],
+        "filters": "s97",
+        "has_more": true,
+        "max_num_results": 153,
+        "model": "s9a",
+        "next_page": "s9b",
+        "object": "s9c",
+        "query": "s9d",
+        "ranking_options": {},
+        "reranking": {},
+        "response": "sa0",
+        "rewrite_query": false,
+        "search_query": "sa2",
+        "stream": false,
+        "system_prompt": "sa4",
+        "account_id": "ACCOUNT01",
+        "rag_id": "RAG01",
+        "id": "AUTO_RAG_RAG_SEARCH00"
+      },
+      "AUTO_RAG_RAG_SEARCH01": {
+        "data": [],
+        "filters": "s12d",
+        "has_more": true,
+        "max_num_results": 303,
+        "model": "s130",
+        "next_page": "s131",
+        "object": "s132",
+        "query": "s133",
+        "ranking_options": {},
+        "reranking": {},
+        "response": "s136",
+        "rewrite_query": false,
+        "search_query": "s138",
+        "stream": false,
+        "system_prompt": "s13a",
+        "account_id": "ACCOUNT01",
+        "rag_id": "RAG01",
+        "id": "AUTO_RAG_RAG_SEARCH01"
+      },
+      "AUTO_RAG_RAG_SEARCH02": {
+        "data": [],
+        "filters": "s1c3",
+        "has_more": true,
+        "max_num_results": 453,
+        "model": "s1c6",
+        "next_page": "s1c7",
+        "object": "s1c8",
+        "query": "s1c9",
+        "ranking_options": {},
+        "reranking": {},
+        "response": "s1cc",
+        "rewrite_query": false,
+        "search_query": "s1ce",
+        "stream": false,
+        "system_prompt": "s1d0",
+        "account_id": "ACCOUNT01",
+        "rag_id": "RAG01",
+        "id": "AUTO_RAG_RAG_SEARCH02"
+      }
+    }
+  },
+  "new": {
+    "auto_rag_rag_search": {
+      "auto_rag_rag_search_ref01": {
+        "data": [],
+        "filters": "s259",
+        "has_more": true,
+        "max_num_results": 603,
+        "model": "s25c",
+        "next_page": "s25d",
+        "object": "s25e",
+        "query": "s25f",
+        "ranking_options": {},
+        "reranking": {},
+        "response": "s262",
+        "rewrite_query": false,
+        "search_query": "s264",
+        "stream": false,
+        "system_prompt": "s266"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/autorag/rags/{id}/ai-search": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/autorag/rags/{id}/search": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

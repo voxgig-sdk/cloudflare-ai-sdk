@@ -1,0 +1,107 @@
+{
+  "existing": {
+    "ai_gateway_evaluation": {
+      "AI_GATEWAY_EVALUATION00": {
+        "created_at": "s96",
+        "dataset_ids": [],
+        "datasets": [],
+        "description": "s99",
+        "enable": true,
+        "evaluation_type_ids": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_EVALUATION00",
+        "mandatory": true,
+        "modified_at": "s9f",
+        "name": "sa0",
+        "processed": false,
+        "results": [],
+        "total_logs": 163,
+        "type": "sa4",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_EVALUATION01": {
+        "created_at": "s12c",
+        "dataset_ids": [],
+        "datasets": [],
+        "description": "s12f",
+        "enable": true,
+        "evaluation_type_ids": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_EVALUATION01",
+        "mandatory": true,
+        "modified_at": "s135",
+        "name": "s136",
+        "processed": false,
+        "results": [],
+        "total_logs": 313,
+        "type": "s13a",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_GATEWAY_EVALUATION02": {
+        "created_at": "s1c2",
+        "dataset_ids": [],
+        "datasets": [],
+        "description": "s1c5",
+        "enable": true,
+        "evaluation_type_ids": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_EVALUATION02",
+        "mandatory": true,
+        "modified_at": "s1cb",
+        "name": "s1cc",
+        "processed": false,
+        "results": [],
+        "total_logs": 463,
+        "type": "s1d0",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway_evaluation": {
+      "ai_gateway_evaluation_ref01": {
+        "created_at": "s258",
+        "dataset_ids": [],
+        "datasets": [],
+        "description": "s25b",
+        "enable": true,
+        "evaluation_type_ids": [],
+        "gateway_id": "GATEWAY01",
+        "mandatory": true,
+        "modified_at": "s261",
+        "name": "s262",
+        "processed": false,
+        "results": [],
+        "total_logs": 613,
+        "type": "s266"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/evaluations": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/evaluations": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/evaluation-types": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/evaluations/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/evaluations/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

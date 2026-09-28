@@ -1,0 +1,87 @@
+{
+  "existing": {
+    "ai_search_token": {
+      "AI_SEARCH_TOKEN00": {
+        "cf_api_id": "CF_API01",
+        "cf_api_key": "s65",
+        "created_at": "s66",
+        "created_by": "s67",
+        "enabled": true,
+        "id": "AI_SEARCH_TOKEN00",
+        "legacy": true,
+        "modified_at": "s6b",
+        "modified_by": "s6c",
+        "name": "s6d",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_SEARCH_TOKEN01": {
+        "cf_api_id": "CF_API01",
+        "cf_api_key": "sc9",
+        "created_at": "sca",
+        "created_by": "scb",
+        "enabled": true,
+        "id": "AI_SEARCH_TOKEN01",
+        "legacy": true,
+        "modified_at": "scf",
+        "modified_by": "sd0",
+        "name": "sd1",
+        "account_id": "ACCOUNT01"
+      },
+      "AI_SEARCH_TOKEN02": {
+        "cf_api_id": "CF_API01",
+        "cf_api_key": "s12d",
+        "created_at": "s12e",
+        "created_by": "s12f",
+        "enabled": true,
+        "id": "AI_SEARCH_TOKEN02",
+        "legacy": true,
+        "modified_at": "s133",
+        "modified_by": "s134",
+        "name": "s135",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "ai_search_token": {
+      "ai_search_token_ref01": {
+        "cf_api_id": "CF_API01",
+        "cf_api_key": "s191",
+        "created_at": "s192",
+        "created_by": "s193",
+        "enabled": true,
+        "legacy": true,
+        "modified_at": "s197",
+        "modified_by": "s198",
+        "name": "s199"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-search/tokens": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/tokens": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/tokens/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-search/tokens/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/ai-search/tokens/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

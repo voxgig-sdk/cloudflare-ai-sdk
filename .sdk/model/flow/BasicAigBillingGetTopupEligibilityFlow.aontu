@@ -1,0 +1,22 @@
+# BasicAigBillingGetTopupEligibilityFlow
+
+main: kit: flow: BasicAigBillingGetTopupEligibilityFlow:
+{
+  entity: "aig_billing_get_topup_eligibility",
+  kind: "basic",
+  name: "BasicAigBillingGetTopupEligibilityFlow",
+  step: [
+    {
+      i: {
+        ref: "aig_billing_get_topup_eligibility_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAigBillingGetTopupEligibilityFlow"
+}

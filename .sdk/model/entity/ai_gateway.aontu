@@ -1,0 +1,116 @@
+# Entity: ai_gateway
+
+main: kit: entity: ai_gateway: {
+
+  alias: field: {}
+
+  fields: {
+    byokAlias: {
+      h: "Byok Alias"
+      n: "byokAlias"
+      r: false
+      t: "`$STRING`"
+    }
+    items: {
+      h: "Items"
+      n: "items"
+      r: true
+      t: "`$ARRAY`"
+    }
+    limit: {
+      h: "Limit"
+      n: "limit"
+      r: false
+      t: "`$INTEGER`"
+    }
+    metadata: {
+      h: "Metadata"
+      n: "metadata"
+      r: true
+      t: "`$OBJECT`"
+    }
+    options: {
+      h: "Options"
+      n: "options"
+      r: true
+      t: "`$OBJECT`"
+    }
+    provider: {
+      h: "Provider"
+      n: "provider"
+      r: false
+      t: "`$STRING`"
+    }
+    query: {
+      h: "Query"
+      n: "query"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "ai_gateway"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/ai/websearch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/ai/websearch"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai"
+            }
+            {
+              lit: "websearch"
+            }
+          ]
+          t: {
+            req: {
+              byokAlias: "`reqdata.byok_alia`"
+              limit: "`reqdata.limit`"
+              options: "`reqdata.option`"
+              provider: "`reqdata.provider`"
+              query: "`reqdata.query`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

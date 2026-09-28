@@ -1,0 +1,50 @@
+# BasicAutoRagRagFlow
+
+main: kit: flow: BasicAutoRagRagFlow:
+{
+  entity: "auto_rag_rag",
+  kind: "basic",
+  name: "BasicAutoRagRagFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        rag_id: "rag01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "auto_rag_rag_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "auto_rag_rag_ref01",
+        srcdatavar: "auto_rag_rag_ref01_data",
+        suffix: "_up0",
+        textfield: "error"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-auto_rag_rag_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAutoRagRagFlow"
+}

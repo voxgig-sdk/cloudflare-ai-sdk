@@ -1,0 +1,111 @@
+{
+  "existing": {
+    "vectorize_beta__deprecated": {
+      "VECTORIZE_BETA__DEPRECATED00": {
+        "config": "s50",
+        "description": "s51",
+        "errors": [],
+        "ids": [],
+        "messages": [],
+        "name": "s55",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "index_name": "INDEX_NAME01",
+        "id": "VECTORIZE_BETA__DEPRECATED00"
+      },
+      "VECTORIZE_BETA__DEPRECATED01": {
+        "config": "sa0",
+        "description": "sa1",
+        "errors": [],
+        "ids": [],
+        "messages": [],
+        "name": "sa5",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "index_name": "INDEX_NAME01",
+        "id": "VECTORIZE_BETA__DEPRECATED01"
+      },
+      "VECTORIZE_BETA__DEPRECATED02": {
+        "config": "sf0",
+        "description": "sf1",
+        "errors": [],
+        "ids": [],
+        "messages": [],
+        "name": "sf5",
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "index_name": "INDEX_NAME01",
+        "id": "VECTORIZE_BETA__DEPRECATED02"
+      }
+    }
+  },
+  "new": {
+    "vectorize_beta__deprecated": {
+      "vectorize_beta__deprecated_ref01": {
+        "config": "s140",
+        "description": "s141",
+        "errors": [],
+        "ids": [],
+        "messages": [],
+        "name": "s145",
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/vectorize/indexes/{index_name}/delete-by-ids": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/indexes/{index_name}/get-by-ids": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/indexes/{index_name}/insert": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/indexes/{index_name}/query": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/indexes/{index_name}/upsert": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/vectorize/indexes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/vectorize/indexes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/vectorize/indexes/{index_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/vectorize/indexes/{index_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/vectorize/indexes/{index_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

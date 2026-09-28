@@ -1,0 +1,60 @@
+# BasicWorkersAiFlow
+
+main: kit: flow: BasicWorkersAiFlow:
+{
+  entity: "workers_ai",
+  kind: "basic",
+  name: "BasicWorkersAiFlow",
+  step: [
+    {
+      i: {
+        ref: "workers_ai_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_ai_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workers_ai_ref01",
+        srcdatavar: "workers_ai_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "workers_ai01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_ai_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersAiFlow"
+}

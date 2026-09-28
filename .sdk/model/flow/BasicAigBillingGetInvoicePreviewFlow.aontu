@@ -1,0 +1,26 @@
+# BasicAigBillingGetInvoicePreviewFlow
+
+main: kit: flow: BasicAigBillingGetInvoicePreviewFlow:
+{
+  entity: "aig_billing_get_invoice_preview",
+  kind: "basic",
+  name: "BasicAigBillingGetInvoicePreviewFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "aig_billing_get_invoice_preview_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAigBillingGetInvoicePreviewFlow"
+}

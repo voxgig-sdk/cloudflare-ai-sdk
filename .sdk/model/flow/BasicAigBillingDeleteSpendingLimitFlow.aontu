@@ -1,0 +1,9 @@
+# BasicAigBillingDeleteSpendingLimitFlow
+
+main: kit: flow: BasicAigBillingDeleteSpendingLimitFlow:
+{
+  entity: "aig_billing_delete_spending_limit",
+  kind: "basic",
+  name: "BasicAigBillingDeleteSpendingLimitFlow",
+  "key$": "BasicAigBillingDeleteSpendingLimitFlow"
+}

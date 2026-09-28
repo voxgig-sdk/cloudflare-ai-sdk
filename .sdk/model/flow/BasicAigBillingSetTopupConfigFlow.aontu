@@ -1,0 +1,22 @@
+# BasicAigBillingSetTopupConfigFlow
+
+main: kit: flow: BasicAigBillingSetTopupConfigFlow:
+{
+  entity: "aig_billing_set_topup_config",
+  kind: "basic",
+  name: "BasicAigBillingSetTopupConfigFlow",
+  step: [
+    {
+      i: {
+        ref: "aig_billing_set_topup_config_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAigBillingSetTopupConfigFlow"
+}

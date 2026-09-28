@@ -1,0 +1,94 @@
+# BasicWorkersAiFinetuneFlow
+
+main: kit: flow: BasicWorkersAiFinetuneFlow:
+{
+  entity: "workers_ai_finetune",
+  kind: "basic",
+  name: "BasicWorkersAiFinetuneFlow",
+  step: [
+    {
+      i: {
+        ref: "workers_ai_finetune_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_ai_finetune_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workers_ai_finetune_ref01",
+        srcdatavar: "workers_ai_finetune_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "workers_ai_finetune01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_ai_finetune_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workers_ai_finetune_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "workers_ai_finetune01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "workers_ai_finetune_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersAiFinetuneFlow"
+}

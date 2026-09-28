@@ -1,0 +1,155 @@
+{
+  "existing": {
+    "ai_gateway_dynamic_route": {
+      "AI_GATEWAY_DYNAMIC_ROUTE00": {
+        "account_tag": "sc8",
+        "active": false,
+        "created_at": "sca",
+        "data": "scb",
+        "deployment": {},
+        "deployments": [],
+        "elements": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_DYNAMIC_ROUTE00",
+        "is_valid": false,
+        "modified_at": "sd2",
+        "name": "sd3",
+        "order_by": "sd4",
+        "order_by_direction": "sd5",
+        "page": 214,
+        "per_page": 215,
+        "routes": [],
+        "version": {},
+        "version_id": "VERSION01",
+        "versions": [],
+        "account_id": "ACCOUNT01",
+        "route_id": "ROUTE01"
+      },
+      "AI_GATEWAY_DYNAMIC_ROUTE01": {
+        "account_tag": "s190",
+        "active": false,
+        "created_at": "s192",
+        "data": "s193",
+        "deployment": {},
+        "deployments": [],
+        "elements": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_DYNAMIC_ROUTE01",
+        "is_valid": false,
+        "modified_at": "s19a",
+        "name": "s19b",
+        "order_by": "s19c",
+        "order_by_direction": "s19d",
+        "page": 414,
+        "per_page": 415,
+        "routes": [],
+        "version": {},
+        "version_id": "VERSION01",
+        "versions": [],
+        "account_id": "ACCOUNT01",
+        "route_id": "ROUTE01"
+      },
+      "AI_GATEWAY_DYNAMIC_ROUTE02": {
+        "account_tag": "s258",
+        "active": false,
+        "created_at": "s25a",
+        "data": "s25b",
+        "deployment": {},
+        "deployments": [],
+        "elements": [],
+        "gateway_id": "GATEWAY01",
+        "id": "AI_GATEWAY_DYNAMIC_ROUTE02",
+        "is_valid": false,
+        "modified_at": "s262",
+        "name": "s263",
+        "order_by": "s264",
+        "order_by_direction": "s265",
+        "page": 614,
+        "per_page": 615,
+        "routes": [],
+        "version": {},
+        "version_id": "VERSION01",
+        "versions": [],
+        "account_id": "ACCOUNT01",
+        "route_id": "ROUTE01"
+      }
+    }
+  },
+  "new": {
+    "ai_gateway_dynamic_route": {
+      "ai_gateway_dynamic_route_ref01": {
+        "account_tag": "s320",
+        "active": false,
+        "created_at": "s322",
+        "data": "s323",
+        "deployment": {},
+        "deployments": [],
+        "elements": [],
+        "gateway_id": "GATEWAY01",
+        "is_valid": false,
+        "modified_at": "s32a",
+        "name": "s32b",
+        "order_by": "s32c",
+        "order_by_direction": "s32d",
+        "page": 814,
+        "per_page": 815,
+        "routes": [],
+        "version": {},
+        "version_id": "VERSION01",
+        "versions": []
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions/{version_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/deployments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/ai-gateway/gateways/{gateway_id}/routes/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

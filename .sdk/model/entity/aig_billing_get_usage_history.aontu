@@ -1,0 +1,129 @@
+# Entity: aig_billing_get_usage_history
+
+main: kit: entity: aig_billing_get_usage_history: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$OBJECT`"
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: true
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "aig_billing_get_usage_history"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai-gateway/billing/usage-history"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1700086400000
+                k: "query"
+                n: "end_time"
+                or: "end_time"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 1700000000000
+                k: "query"
+                n: "start_time"
+                or: "start_time"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "day"
+                k: "query"
+                n: "value_grouping_window"
+                or: "value_grouping_window"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai-gateway/billing/usage-history"
+          q: {
+            exist: [
+              "account_id"
+              "end_time"
+              "start_time"
+              "value_grouping_window"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai-gateway"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "usage-history"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

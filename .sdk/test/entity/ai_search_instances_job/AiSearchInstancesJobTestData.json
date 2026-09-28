@@ -1,0 +1,125 @@
+{
+  "existing": {
+    "ai_search_instances_job": {
+      "AI_SEARCH_INSTANCES_JOB00": {
+        "action": "s6e",
+        "created_at": 111,
+        "description": "s70",
+        "end_reason": "s71",
+        "ended_at": "s72",
+        "id": "AI_SEARCH_INSTANCES_JOB00",
+        "last_seen_at": "s74",
+        "message": "s75",
+        "message_type": 118,
+        "source": "s77",
+        "started_at": "s78",
+        "account_id": "ACCOUNT01",
+        "instance_id": "INSTANCE01",
+        "namespace_id": "NAMESPACE01",
+        "job_id": "JOB01"
+      },
+      "AI_SEARCH_INSTANCES_JOB01": {
+        "action": "sdc",
+        "created_at": 221,
+        "description": "sde",
+        "end_reason": "sdf",
+        "ended_at": "se0",
+        "id": "AI_SEARCH_INSTANCES_JOB01",
+        "last_seen_at": "se2",
+        "message": "se3",
+        "message_type": 228,
+        "source": "se5",
+        "started_at": "se6",
+        "account_id": "ACCOUNT01",
+        "instance_id": "INSTANCE01",
+        "namespace_id": "NAMESPACE01",
+        "job_id": "JOB01"
+      },
+      "AI_SEARCH_INSTANCES_JOB02": {
+        "action": "s14a",
+        "created_at": 331,
+        "description": "s14c",
+        "end_reason": "s14d",
+        "ended_at": "s14e",
+        "id": "AI_SEARCH_INSTANCES_JOB02",
+        "last_seen_at": "s150",
+        "message": "s151",
+        "message_type": 338,
+        "source": "s153",
+        "started_at": "s154",
+        "account_id": "ACCOUNT01",
+        "instance_id": "INSTANCE01",
+        "namespace_id": "NAMESPACE01",
+        "job_id": "JOB01"
+      }
+    }
+  },
+  "new": {
+    "ai_search_instances_job": {
+      "ai_search_instances_job_ref01": {
+        "action": "s1b8",
+        "created_at": 441,
+        "description": "s1ba",
+        "end_reason": "s1bb",
+        "ended_at": "s1bc",
+        "last_seen_at": "s1be",
+        "message": "s1bf",
+        "message_type": 448,
+        "source": "s1c1",
+        "started_at": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/ai-search/instances/{id}/jobs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs/{job_id}/logs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/instances/{id}/jobs/{job_id}/logs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/instances/{id}/jobs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs/{job_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/ai-search/instances/{id}/jobs/{job_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/ai-search/namespaces/{name}/instances/{id}/jobs/{job_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/ai-search/instances/{id}/jobs/{job_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

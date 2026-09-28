@@ -1,0 +1,90 @@
+# BasicAiSearchInstancesJobFlow
+
+main: kit: flow: BasicAiSearchInstancesJobFlow:
+{
+  entity: "ai_search_instances_job",
+  kind: "basic",
+  name: "BasicAiSearchInstancesJobFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_search_instances_job_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        instance_id: "instance01",
+        job_id: "job01",
+        namespace_id: "namespace01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01",
+        instance_id: "instance01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ai_search_instances_job_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01",
+        instance_id: "instance01"
+      }
+
+      i: {
+        ref: "ai_search_instances_job_ref01",
+        srcdatavar: "ai_search_instances_job_ref01_data",
+        suffix: "_up0",
+        textfield: "action"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_search_instances_job_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_search_instances_job_ref01",
+        srcdatavar: "ai_search_instances_job_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "ai_search_instances_job01",
+        instance_id: "instance01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_search_instances_job_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAiSearchInstancesJobFlow"
+}

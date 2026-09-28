@@ -1,0 +1,100 @@
+# BasicAiGatewayCustomDomainFlow
+
+main: kit: flow: BasicAiGatewayCustomDomainFlow:
+{
+  entity: "ai_gateway_custom_domain",
+  kind: "basic",
+  name: "BasicAiGatewayCustomDomainFlow",
+  step: [
+    {
+      i: {
+        ref: "ai_gateway_custom_domain_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ai_gateway_custom_domain_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_gateway_custom_domain_ref01",
+        srcdatavar: "ai_gateway_custom_domain_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01",
+        id: "ai_gateway_custom_domain01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ai_gateway_custom_domain_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "ai_gateway_custom_domain_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01",
+        id: "ai_gateway_custom_domain01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01",
+        gateway_id: "gateway01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "ai_gateway_custom_domain_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAiGatewayCustomDomainFlow"
+}

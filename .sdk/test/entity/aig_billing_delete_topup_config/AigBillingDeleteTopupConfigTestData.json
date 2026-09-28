@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "aig_billing_delete_topup_config": {
+      "AIG_BILLING_DELETE_TOPUP_CONFIG00": {
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_DELETE_TOPUP_CONFIG00"
+      },
+      "AIG_BILLING_DELETE_TOPUP_CONFIG01": {
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_DELETE_TOPUP_CONFIG01"
+      },
+      "AIG_BILLING_DELETE_TOPUP_CONFIG02": {
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_DELETE_TOPUP_CONFIG02"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_delete_topup_config": {
+      "aig_billing_delete_topup_config_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/ai-gateway/billing/topup/config": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

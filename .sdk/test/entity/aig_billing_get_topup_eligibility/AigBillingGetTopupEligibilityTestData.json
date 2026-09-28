@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "aig_billing_get_topup_eligibility": {
+      "AIG_BILLING_GET_TOPUP_ELIGIBILITY00": {
+        "errors": [],
+        "messages": [],
+        "payment_methods": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_GET_TOPUP_ELIGIBILITY00"
+      },
+      "AIG_BILLING_GET_TOPUP_ELIGIBILITY01": {
+        "errors": [],
+        "messages": [],
+        "payment_methods": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_GET_TOPUP_ELIGIBILITY01"
+      },
+      "AIG_BILLING_GET_TOPUP_ELIGIBILITY02": {
+        "errors": [],
+        "messages": [],
+        "payment_methods": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_GET_TOPUP_ELIGIBILITY02"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_get_topup_eligibility": {
+      "aig_billing_get_topup_eligibility_ref01": {
+        "errors": [],
+        "messages": [],
+        "payment_methods": [],
+        "result": {},
+        "result_info": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/billing/topup/eligibility": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

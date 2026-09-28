@@ -1,0 +1,123 @@
+# Entity: finetune_asset
+
+main: kit: entity: finetune_asset: {
+
+  alias: field: {}
+
+  fields: {
+    file_name: {
+      h: "File Name"
+      n: "file_name"
+      r: true
+      t: "`$STRING`"
+    }
+    file_url: {
+      h: "File Url"
+      n: "file_url"
+      r: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "finetune_asset"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "bc451aef-f723-4b26-a6b2-901afd2e7a8a"
+                k: "param"
+                n: "finetune_id"
+                or: "finetune_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "adapter_model.safetensors"
+                k: "param"
+                n: "id"
+                or: "file_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}"
+          q: {
+            exist: [
+              "account_id"
+              "finetune_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              file_name: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "ai"
+            }
+            {
+              lit: "finetunes"
+            }
+            {
+              var: "finetune_id"
+            }
+            {
+              lit: "finetune-assets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

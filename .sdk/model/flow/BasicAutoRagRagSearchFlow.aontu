@@ -1,0 +1,23 @@
+# BasicAutoRagRagSearchFlow
+
+main: kit: flow: BasicAutoRagRagSearchFlow:
+{
+  entity: "auto_rag_rag_search",
+  kind: "basic",
+  name: "BasicAutoRagRagSearchFlow",
+  step: [
+    {
+      i: {
+        ref: "auto_rag_rag_search_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        rag_id: "rag01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicAutoRagRagSearchFlow"
+}

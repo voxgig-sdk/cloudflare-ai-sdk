@@ -1,0 +1,118 @@
+# BasicVectorizeBetaDeprecatedFlow
+
+main: kit: flow: BasicVectorizeBetaDeprecatedFlow:
+{
+  entity: "vectorize_beta__deprecated",
+  kind: "basic",
+  name: "BasicVectorizeBetaDeprecatedFlow",
+  step: [
+    {
+      i: {
+        ref: "vectorize_beta__deprecated_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "vectorize_beta__deprecated_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "vectorize_beta__deprecated_ref01",
+        srcdatavar: "vectorize_beta__deprecated_ref01_data",
+        suffix: "_up0",
+        textfield: "description"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-vectorize_beta__deprecated_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "vectorize_beta__deprecated_ref01",
+        srcdatavar: "vectorize_beta__deprecated_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "vectorize_beta__deprecated01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-vectorize_beta__deprecated_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "vectorize_beta__deprecated_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "vectorize_beta__deprecated01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "vectorize_beta__deprecated_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicVectorizeBetaDeprecatedFlow"
+}

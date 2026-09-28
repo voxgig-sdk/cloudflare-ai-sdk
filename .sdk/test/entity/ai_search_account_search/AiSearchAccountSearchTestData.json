@@ -1,0 +1,86 @@
+{
+  "existing": {
+    "ai_search_account_search": {
+      "AI_SEARCH_ACCOUNT_SEARCH00": {
+        "ai_search_options": {},
+        "choices": [],
+        "chunks": [],
+        "errors": [],
+        "id": "AI_SEARCH_ACCOUNT_SEARCH00",
+        "messages": [],
+        "model": "s7e",
+        "object": "s7f",
+        "query": "s80",
+        "query_kind": "s81",
+        "search_query": "s82",
+        "stream": false,
+        "account_id": "ACCOUNT01",
+        "name": "NAME01",
+        "namespace_id": "NAMESPACE01"
+      },
+      "AI_SEARCH_ACCOUNT_SEARCH01": {
+        "ai_search_options": {},
+        "choices": [],
+        "chunks": [],
+        "errors": [],
+        "id": "AI_SEARCH_ACCOUNT_SEARCH01",
+        "messages": [],
+        "model": "sf6",
+        "object": "sf7",
+        "query": "sf8",
+        "query_kind": "sf9",
+        "search_query": "sfa",
+        "stream": false,
+        "account_id": "ACCOUNT01",
+        "name": "NAME01",
+        "namespace_id": "NAMESPACE01"
+      },
+      "AI_SEARCH_ACCOUNT_SEARCH02": {
+        "ai_search_options": {},
+        "choices": [],
+        "chunks": [],
+        "errors": [],
+        "id": "AI_SEARCH_ACCOUNT_SEARCH02",
+        "messages": [],
+        "model": "s16e",
+        "object": "s16f",
+        "query": "s170",
+        "query_kind": "s171",
+        "search_query": "s172",
+        "stream": false,
+        "account_id": "ACCOUNT01",
+        "name": "NAME01",
+        "namespace_id": "NAMESPACE01"
+      }
+    }
+  },
+  "new": {
+    "ai_search_account_search": {
+      "ai_search_account_search_ref01": {
+        "ai_search_options": {},
+        "choices": [],
+        "chunks": [],
+        "errors": [],
+        "messages": [],
+        "model": "s1e6",
+        "object": "s1e7",
+        "query": "s1e8",
+        "query_kind": "s1e9",
+        "search_query": "s1ea",
+        "stream": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-search/namespaces/{name}/search": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/ai-search/namespaces/{name}/chat/completions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "aig_billing_delete_spending_limit": {
+      "AIG_BILLING_DELETE_SPENDING_LIMIT00": {
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_DELETE_SPENDING_LIMIT00"
+      },
+      "AIG_BILLING_DELETE_SPENDING_LIMIT01": {
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_DELETE_SPENDING_LIMIT01"
+      },
+      "AIG_BILLING_DELETE_SPENDING_LIMIT02": {
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_DELETE_SPENDING_LIMIT02"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_delete_spending_limit": {
+      "aig_billing_delete_spending_limit_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/ai-gateway/billing/spending-limit": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

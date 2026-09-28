@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "aig_billing_get_credit_balance": {
+      "AIG_BILLING_GET_CREDIT_BALANCE00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "AIG_BILLING_GET_CREDIT_BALANCE01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "AIG_BILLING_GET_CREDIT_BALANCE02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_get_credit_balance": {
+      "aig_billing_get_credit_balance_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/ai-gateway/billing/credit-balance": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

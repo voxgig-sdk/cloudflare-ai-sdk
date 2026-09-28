@@ -1,0 +1,1621 @@
+-- Typed models for the CloudflareAi SDK (LuaLS annotations).
+--
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
+-- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
+-- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
+-- edit by hand.
+
+---@class Account
+---@field id? string
+
+---@class AccountLoadMatch
+---@field id string
+
+---@class AccountUpdateData
+---@field id string
+
+---@class AiGateway
+---@field byokAlias? string
+---@field items table
+---@field limit? number
+---@field metadata table
+---@field options table
+---@field provider? string
+---@field query string
+
+---@class AiGatewayCreateData
+---@field account_id string
+---@field byokAlias? string
+---@field items table
+---@field limit? number
+---@field metadata table
+---@field options table
+---@field provider? string
+---@field query string
+
+---@class AiGatewayCustomDomain
+---@field cname_target string
+---@field created_at number
+---@field domain string
+---@field gateway_id string
+---@field hostname string
+---@field id? string
+---@field minTLS? string
+---@field modified_at number
+---@field ssl_hostname_id string
+---@field status string
+---@field zone_id string
+
+---@class AiGatewayCustomDomainLoadMatch
+---@field account_id string
+---@field gateway_id string
+---@field id string
+
+---@class AiGatewayCustomDomainListMatch
+---@field account_id string
+---@field gateway_id string
+---@field page? number
+---@field per_page? number
+---@field search? string
+---@field status? string
+
+---@class AiGatewayCustomDomainCreateData
+---@field account_id string
+---@field gateway_id string
+---@field cname_target string
+---@field created_at number
+---@field domain string
+---@field hostname string
+---@field id? string
+---@field minTLS? string
+---@field modified_at number
+---@field ssl_hostname_id string
+---@field status string
+---@field zone_id string
+
+---@class AiGatewayCustomDomainRemoveMatch
+---@field account_id string
+---@field gateway_id string
+---@field id string
+
+---@class AiGatewayCustomProvider
+---@field base_url string
+---@field beta? boolean
+---@field created_at string
+---@field curl_example? string
+---@field description? string
+---@field enable? boolean
+---@field headers? string
+---@field id string
+---@field js_example? string
+---@field link? string
+---@field logo? string
+---@field modified_at string
+---@field name string
+---@field position? number
+---@field slug string
+
+---@class AiGatewayCustomProviderLoadMatch
+---@field account_id string
+---@field id string
+
+---@class AiGatewayCustomProviderListMatch
+---@field account_id string
+---@field beta? boolean
+---@field enable? boolean
+---@field page? number
+---@field per_page? number
+---@field search? string
+
+---@class AiGatewayCustomProviderCreateData
+---@field account_id string
+---@field base_url string
+---@field beta? boolean
+---@field created_at string
+---@field curl_example? string
+---@field description? string
+---@field enable? boolean
+---@field headers? string
+---@field id string
+---@field js_example? string
+---@field link? string
+---@field logo? string
+---@field modified_at string
+---@field name string
+---@field position? number
+---@field slug string
+
+---@class AiGatewayCustomProviderUpdateData
+---@field account_id string
+---@field id string
+---@field base_url? string
+---@field beta? boolean
+---@field created_at? string
+---@field curl_example? string
+---@field description? string
+---@field enable? boolean
+---@field headers? string
+---@field js_example? string
+---@field link? string
+---@field logo? string
+---@field modified_at? string
+---@field name? string
+---@field position? number
+---@field slug? string
+
+---@class AiGatewayCustomProviderRemoveMatch
+---@field account_id string
+---@field id string
+
+---@class AiGatewayCustomProviderCost
+---@field account_provider_id string
+---@field changed_by? string
+---@field cost_in? number
+---@field cost_out? number
+---@field cost_type? string
+---@field created_at string
+---@field enable? boolean
+---@field id string
+---@field model string
+---@field model_rule? string
+---@field modified_at string
+---@field token_pricing? string
+---@field weight? number
+
+---@class AiGatewayCustomProviderCostLoadMatch
+---@field account_id string
+---@field id string
+
+---@class AiGatewayCustomProviderCostListMatch
+---@field account_id string
+---@field account_provider_id? string
+---@field cost_type? string
+---@field enable? boolean
+---@field model_rule? string
+---@field page? number
+---@field per_page? number
+---@field search? string
+
+---@class AiGatewayCustomProviderCostCreateData
+---@field account_id string
+---@field account_provider_id string
+---@field changed_by? string
+---@field cost_in? number
+---@field cost_out? number
+---@field cost_type? string
+---@field created_at string
+---@field enable? boolean
+---@field id string
+---@field model string
+---@field model_rule? string
+---@field modified_at string
+---@field token_pricing? string
+---@field weight? number
+
+---@class AiGatewayCustomProviderCostUpdateData
+---@field account_id string
+---@field id string
+---@field account_provider_id? string
+---@field changed_by? string
+---@field cost_in? number
+---@field cost_out? number
+---@field cost_type? string
+---@field created_at? string
+---@field enable? boolean
+---@field model? string
+---@field model_rule? string
+---@field modified_at? string
+---@field token_pricing? string
+---@field weight? number
+
+---@class AiGatewayCustomProviderCostRemoveMatch
+---@field account_id string
+---@field id string
+
+---@class AiGatewayDataset
+---@field created_at string
+---@field enable boolean
+---@field filters table
+---@field gateway_id string
+---@field id string
+---@field modified_at string
+---@field name string
+
+---@class AiGatewayDatasetLoadMatch
+---@field account_id string
+---@field gateway_id string
+---@field id string
+
+---@class AiGatewayDatasetListMatch
+---@field account_id string
+---@field gateway_id string
+---@field enable? boolean
+---@field name? string
+---@field page? number
+---@field per_page? number
+---@field search? string
+
+---@class AiGatewayDatasetCreateData
+---@field account_id string
+---@field gateway_id string
+---@field created_at string
+---@field enable boolean
+---@field filters table
+---@field id string
+---@field modified_at string
+---@field name string
+
+---@class AiGatewayDatasetUpdateData
+---@field account_id string
+---@field gateway_id string
+---@field id string
+---@field created_at? string
+---@field enable? boolean
+---@field filters? table
+---@field modified_at? string
+---@field name? string
+
+---@class AiGatewayDatasetRemoveMatch
+---@field account_id string
+---@field gateway_id string
+---@field id string
+
+---@class AiGatewayDynamicRoute
+---@field account_tag string
+---@field active boolean
+---@field created_at string
+---@field data string
+---@field deployment table
+---@field deployments table
+---@field elements table
+---@field gateway_id string
+---@field id string
+---@field is_valid? boolean
+---@field modified_at string
+---@field name string
+---@field order_by string
+---@field order_by_direction string
+---@field page number
+---@field per_page number
+---@field routes table
+---@field version table
+---@field version_id string
+---@field versions table
+
+---@class AiGatewayDynamicRouteLoadMatch
+---@field account_id string
+---@field gateway_id string
+---@field page? number
+---@field per_page? number
+---@field route_id? string
+---@field version_id? string
+---@field id? string
+
+---@class AiGatewayDynamicRouteCreateData
+---@field account_id string
+---@field gateway_id string
+---@field route_id? string
+---@field account_tag string
+---@field active boolean
+---@field created_at string
+---@field data string
+---@field deployment table
+---@field deployments table
+---@field elements table
+---@field id string
+---@field is_valid? boolean
+---@field modified_at string
+---@field name string
+---@field order_by string
+---@field order_by_direction string
+---@field page number
+---@field per_page number
+---@field routes table
+---@field version table
+---@field version_id string
+---@field versions table
+
+---@class AiGatewayDynamicRouteUpdateData
+---@field account_id string
+---@field gateway_id string
+---@field id string
+---@field account_tag? string
+---@field active? boolean
+---@field created_at? string
+---@field data? string
+---@field deployment? table
+---@field deployments? table
+---@field elements? table
+---@field is_valid? boolean
+---@field modified_at? string
+---@field name? string
+---@field order_by? string
+---@field order_by_direction? string
+---@field page? number
+---@field per_page? number
+---@field routes? table
+---@field version? table
+---@field version_id? string
+---@field versions? table
+
+---@class AiGatewayDynamicRouteRemoveMatch
+---@field account_id string
+---@field gateway_id string
+---@field id string
+
+---@class AiGatewayEvaluation
+---@field created_at string
+---@field dataset_ids table
+---@field datasets table
+---@field description string
+---@field enable boolean
+---@field evaluation_type_ids table
+---@field gateway_id string
+---@field id string
+---@field mandatory boolean
+---@field modified_at string
+---@field name string
+---@field processed boolean
+---@field results table
+---@field total_logs number
+---@field type string
+
+---@class AiGatewayEvaluationLoadMatch
+---@field account_id string
+---@field gateway_id string
+---@field id string
+
+---@class AiGatewayEvaluationListMatch
+---@field account_id string
+---@field gateway_id? string
+---@field name? string
+---@field page? number
+---@field per_page? number
+---@field processed? boolean
+---@field search? string
+---@field order_by? string
+---@field order_by_direction? string
+
+---@class AiGatewayEvaluationCreateData
+---@field account_id string
+---@field gateway_id string
+---@field created_at string
+---@field dataset_ids table
+---@field datasets table
+---@field description string
+---@field enable boolean
+---@field evaluation_type_ids table
+---@field id string
+---@field mandatory boolean
+---@field modified_at string
+---@field name string
+---@field processed boolean
+---@field results table
+---@field total_logs number
+---@field type string
+
+---@class AiGatewayEvaluationRemoveMatch
+---@field account_id string
+---@field gateway_id string
+---@field id string
+
+---@class AiGatewayGateway
+---@field authentication? boolean
+---@field byok_only? boolean
+---@field cache_invalidate_on_update boolean
+---@field cache_ttl number
+---@field collect_logs boolean
+---@field created_at string
+---@field dlp? any
+---@field guardrails table
+---@field id string
+---@field is_default? boolean
+---@field log_classification? boolean
+---@field log_management? number
+---@field log_management_strategy? string
+---@field logpush? boolean
+---@field logpush_public_key? string
+---@field modified_at string
+---@field otel? table
+---@field rate_limiting_interval number
+---@field rate_limiting_limit number
+---@field rate_limiting_technique? string
+---@field result string
+---@field retry_backoff? string
+---@field retry_delay? number
+---@field retry_max_attempts? number
+---@field spend_limits? table
+---@field store_id? string
+---@field stripe table
+---@field success boolean
+---@field workers_ai_billing_mode? string
+---@field zdr? boolean
+
+---@class AiGatewayGatewayLoadMatch
+---@field account_id string
+---@field gateway_id? string
+---@field provider? string
+---@field id? string
+
+---@class AiGatewayGatewayListMatch
+---@field account_id string
+---@field page? number
+---@field per_page? number
+---@field search? string
+
+---@class AiGatewayGatewayCreateData
+---@field account_id string
+---@field authentication? boolean
+---@field byok_only? boolean
+---@field cache_invalidate_on_update boolean
+---@field cache_ttl number
+---@field collect_logs boolean
+---@field created_at string
+---@field dlp? any
+---@field guardrails table
+---@field id string
+---@field is_default? boolean
+---@field log_classification? boolean
+---@field log_management? number
+---@field log_management_strategy? string
+---@field logpush? boolean
+---@field logpush_public_key? string
+---@field modified_at string
+---@field otel? table
+---@field rate_limiting_interval number
+---@field rate_limiting_limit number
+---@field rate_limiting_technique? string
+---@field result string
+---@field retry_backoff? string
+---@field retry_delay? number
+---@field retry_max_attempts? number
+---@field spend_limits? table
+---@field store_id? string
+---@field stripe table
+---@field success boolean
+---@field workers_ai_billing_mode? string
+---@field zdr? boolean
+
+---@class AiGatewayGatewayUpdateData
+---@field account_id string
+---@field id string
+---@field authentication? boolean
+---@field byok_only? boolean
+---@field cache_invalidate_on_update? boolean
+---@field cache_ttl? number
+---@field collect_logs? boolean
+---@field created_at? string
+---@field dlp? any
+---@field guardrails? table
+---@field is_default? boolean
+---@field log_classification? boolean
+---@field log_management? number
+---@field log_management_strategy? string
+---@field logpush? boolean
+---@field logpush_public_key? string
+---@field modified_at? string
+---@field otel? table
+---@field rate_limiting_interval? number
+---@field rate_limiting_limit? number
+---@field rate_limiting_technique? string
+---@field result? string
+---@field retry_backoff? string
+---@field retry_delay? number
+---@field retry_max_attempts? number
+---@field spend_limits? table
+---@field store_id? string
+---@field stripe? table
+---@field success? boolean
+---@field workers_ai_billing_mode? string
+---@field zdr? boolean
+
+---@class AiGatewayGatewayRemoveMatch
+---@field account_id string
+---@field id string
+
+---@class AiGatewayLog
+---@field cached boolean
+---@field cost? number
+---@field created_at string
+---@field custom_cost? boolean
+---@field duration number
+---@field feedback? number
+---@field id string
+---@field metadata? string
+---@field model string
+---@field model_type? string
+---@field path string
+---@field provider string
+---@field request_content_type? string
+---@field request_head? string
+---@field request_head_complete? boolean
+---@field request_size? number
+---@field request_type? string
+---@field response_content_type? string
+---@field response_head? string
+---@field response_head_complete? boolean
+---@field response_size? number
+---@field score? number
+---@field status_code? number
+---@field step? number
+---@field success boolean
+---@field tokens_in number
+---@field tokens_out number
+
+---@class AiGatewayLogLoadMatch
+---@field account_id string
+---@field gateway_id string
+---@field id? string
+---@field log_id? string
+
+---@class AiGatewayLogListMatch
+---@field account_id string
+---@field gateway_id string
+---@field cached? boolean
+---@field direction? string
+---@field end_date? string
+---@field feedback? any
+---@field filter? table
+---@field max_cost? number
+---@field max_duration? number
+---@field max_tokens_in? number
+---@field max_tokens_out? number
+---@field max_total_token? number
+---@field meta_info? boolean
+---@field min_cost? number
+---@field min_duration? number
+---@field min_tokens_in? number
+---@field min_tokens_out? number
+---@field min_total_token? number
+---@field model? string
+---@field model_type? string
+---@field order_by? string
+---@field order_by_direction? string
+---@field page? number
+---@field per_page? number
+---@field provider? string
+---@field request_content_type? string
+---@field response_content_type? string
+---@field search? string
+---@field start_date? string
+---@field success? boolean
+
+---@class AiGatewayLogUpdateData
+---@field account_id string
+---@field gateway_id string
+---@field id string
+---@field cached? boolean
+---@field cost? number
+---@field created_at? string
+---@field custom_cost? boolean
+---@field duration? number
+---@field feedback? number
+---@field metadata? string
+---@field model? string
+---@field model_type? string
+---@field path? string
+---@field provider? string
+---@field request_content_type? string
+---@field request_head? string
+---@field request_head_complete? boolean
+---@field request_size? number
+---@field request_type? string
+---@field response_content_type? string
+---@field response_head? string
+---@field response_head_complete? boolean
+---@field response_size? number
+---@field score? number
+---@field status_code? number
+---@field step? number
+---@field success? boolean
+---@field tokens_in? number
+---@field tokens_out? number
+
+---@class AiGatewayLogRemoveMatch
+---@field account_id string
+---@field gateway_id string
+---@field filter? table
+---@field limit? number
+---@field order_by? string
+---@field order_by_direction? string
+
+---@class AiGatewayProviderConfig
+---@field alias string
+---@field default_config boolean
+---@field gateway_id string
+---@field id string
+---@field modified_at string
+---@field provider_slug string
+---@field rate_limit? number
+---@field rate_limit_period? number
+---@field secret? string
+---@field secret_id string
+---@field secret_preview string
+
+---@class AiGatewayProviderConfigListMatch
+---@field account_id string
+---@field gateway_id string
+---@field page? number
+---@field per_page? number
+
+---@class AiGatewayProviderConfigCreateData
+---@field account_id string
+---@field gateway_id string
+---@field alias string
+---@field default_config boolean
+---@field id string
+---@field modified_at string
+---@field provider_slug string
+---@field rate_limit? number
+---@field rate_limit_period? number
+---@field secret? string
+---@field secret_id string
+---@field secret_preview string
+
+---@class AiGatewayProviderConfigUpdateData
+---@field account_id string
+---@field gateway_id string
+---@field id string
+---@field alias? string
+---@field default_config? boolean
+---@field modified_at? string
+---@field provider_slug? string
+---@field rate_limit? number
+---@field rate_limit_period? number
+---@field secret? string
+---@field secret_id? string
+---@field secret_preview? string
+
+---@class AiGatewayProviderConfigRemoveMatch
+---@field account_id string
+---@field gateway_id string
+---@field id string
+
+---@class AiSearchAccountSearch
+---@field ai_search_options table
+---@field choices table
+---@field chunks table
+---@field errors? table
+---@field id? string
+---@field messages? table
+---@field model? string
+---@field object? string
+---@field query? string
+---@field query_kind string
+---@field search_query? string
+---@field stream? boolean
+
+---@class AiSearchAccountSearchCreateData
+---@field account_id string
+---@field name? string
+---@field namespace_id? string
+---@field ai_search_options table
+---@field choices table
+---@field chunks table
+---@field errors? table
+---@field id? string
+---@field messages? table
+---@field model? string
+---@field object? string
+---@field query? string
+---@field query_kind string
+---@field search_query? string
+---@field stream? boolean
+
+---@class AiSearchInstance
+---@field ai_gateway_id? string
+---@field ai_search_model? string
+---@field ai_search_options? table
+---@field cache? boolean
+---@field cache_threshold? string
+---@field cache_ttl? any
+---@field choices table
+---@field chunk? boolean
+---@field chunk_overlap? number
+---@field chunk_size? number
+---@field chunks table
+---@field completed? number
+---@field created_at string
+---@field created_by? string
+---@field custom_metadata? table
+---@field degraded? boolean
+---@field embedding_model? string
+---@field enable? boolean
+---@field engine? table
+---@field engine_version? number
+---@field error? number
+---@field file_embed_errors? table
+---@field fusion_method? string
+---@field hybrid_search_enabled? boolean
+---@field id string
+---@field index_method table
+---@field index_source_errors? table
+---@field indexing_options? table
+---@field last_activity? string
+---@field max_num_results? number
+---@field messages table
+---@field metadata? table
+---@field model? string
+---@field modified_at string
+---@field modified_by? string
+---@field namespace? string
+---@field object? string
+---@field outdated? number
+---@field paused? boolean
+---@field public_endpoint_id? string
+---@field public_endpoint_params? table
+---@field queued? number
+---@field reranking? boolean
+---@field reranking_model? string
+---@field retrieval_options? table
+---@field rewrite_model? string
+---@field rewrite_query? boolean
+---@field running? number
+---@field score_threshold? number
+---@field skipped? number
+---@field source? string
+---@field source_params? table
+---@field status? string
+---@field stream? boolean
+---@field summarization? boolean
+---@field summarization_model? string
+---@field sync_interval? any
+---@field system_prompt_ai_search? string
+---@field system_prompt_index_summarization? string
+---@field system_prompt_rewrite_query? string
+---@field token_id? string
+---@field type? string
+
+---@class AiSearchInstanceLoadMatch
+---@field account_id string
+---@field id? string
+---@field namespace_id? string
+---@field instance_id? string
+
+---@class AiSearchInstanceListMatch
+---@field account_id string
+---@field name? string
+---@field hostname? string
+---@field namespace? string
+---@field order_by? string
+---@field order_by_direction? string
+---@field page? number
+---@field per_page? number
+---@field search? string
+
+---@class AiSearchInstanceCreateData
+---@field account_id string
+---@field instance_id? string
+---@field namespace_id? string
+---@field name? string
+---@field ai_gateway_id? string
+---@field ai_search_model? string
+---@field ai_search_options? table
+---@field cache? boolean
+---@field cache_threshold? string
+---@field cache_ttl? any
+---@field choices table
+---@field chunk? boolean
+---@field chunk_overlap? number
+---@field chunk_size? number
+---@field chunks table
+---@field completed? number
+---@field created_at string
+---@field created_by? string
+---@field custom_metadata? table
+---@field degraded? boolean
+---@field embedding_model? string
+---@field enable? boolean
+---@field engine? table
+---@field engine_version? number
+---@field error? number
+---@field file_embed_errors? table
+---@field fusion_method? string
+---@field hybrid_search_enabled? boolean
+---@field id string
+---@field index_method table
+---@field index_source_errors? table
+---@field indexing_options? table
+---@field last_activity? string
+---@field max_num_results? number
+---@field messages table
+---@field metadata? table
+---@field model? string
+---@field modified_at string
+---@field modified_by? string
+---@field namespace? string
+---@field object? string
+---@field outdated? number
+---@field paused? boolean
+---@field public_endpoint_id? string
+---@field public_endpoint_params? table
+---@field queued? number
+---@field reranking? boolean
+---@field reranking_model? string
+---@field retrieval_options? table
+---@field rewrite_model? string
+---@field rewrite_query? boolean
+---@field running? number
+---@field score_threshold? number
+---@field skipped? number
+---@field source? string
+---@field source_params? table
+---@field status? string
+---@field stream? boolean
+---@field summarization? boolean
+---@field summarization_model? string
+---@field sync_interval? any
+---@field system_prompt_ai_search? string
+---@field system_prompt_index_summarization? string
+---@field system_prompt_rewrite_query? string
+---@field token_id? string
+---@field type? string
+
+---@class AiSearchInstanceUpdateData
+---@field account_id string
+---@field id string
+---@field namespace_id? string
+---@field ai_gateway_id? string
+---@field ai_search_model? string
+---@field ai_search_options? table
+---@field cache? boolean
+---@field cache_threshold? string
+---@field cache_ttl? any
+---@field choices? table
+---@field chunk? boolean
+---@field chunk_overlap? number
+---@field chunk_size? number
+---@field chunks? table
+---@field completed? number
+---@field created_at? string
+---@field created_by? string
+---@field custom_metadata? table
+---@field degraded? boolean
+---@field embedding_model? string
+---@field enable? boolean
+---@field engine? table
+---@field engine_version? number
+---@field error? number
+---@field file_embed_errors? table
+---@field fusion_method? string
+---@field hybrid_search_enabled? boolean
+---@field index_method? table
+---@field index_source_errors? table
+---@field indexing_options? table
+---@field last_activity? string
+---@field max_num_results? number
+---@field messages? table
+---@field metadata? table
+---@field model? string
+---@field modified_at? string
+---@field modified_by? string
+---@field namespace? string
+---@field object? string
+---@field outdated? number
+---@field paused? boolean
+---@field public_endpoint_id? string
+---@field public_endpoint_params? table
+---@field queued? number
+---@field reranking? boolean
+---@field reranking_model? string
+---@field retrieval_options? table
+---@field rewrite_model? string
+---@field rewrite_query? boolean
+---@field running? number
+---@field score_threshold? number
+---@field skipped? number
+---@field source? string
+---@field source_params? table
+---@field status? string
+---@field stream? boolean
+---@field summarization? boolean
+---@field summarization_model? string
+---@field sync_interval? any
+---@field system_prompt_ai_search? string
+---@field system_prompt_index_summarization? string
+---@field system_prompt_rewrite_query? string
+---@field token_id? string
+---@field type? string
+
+---@class AiSearchInstanceRemoveMatch
+---@field account_id string
+---@field id string
+---@field namespace_id? string
+
+---@class AiSearchInstancesItem
+---@field action string
+---@field checksum string
+---@field chunkCount number
+---@field chunks_count number
+---@field created_at string
+---@field end_byte? number
+---@field error? string
+---@field errorType string
+---@field fileKey string
+---@field file_size number
+---@field id string
+---@field item table
+---@field key string
+---@field last_seen_at string
+---@field message string
+---@field metadata table
+---@field namespace string
+---@field next_action string
+---@field processingTimeMs number
+---@field source_id string
+---@field start_byte? number
+---@field status string
+---@field text string
+---@field timestamp string
+---@field wait_for_completion? boolean
+---@field warnings? table
+
+---@class AiSearchInstancesItemLoadMatch
+---@field account_id string
+---@field id? string
+---@field instance_id string
+---@field namespace_id string
+---@field item_id? string
+
+---@class AiSearchInstancesItemListMatch
+---@field account_id string
+---@field instance_id string
+---@field namespace_id string
+---@field item_id? string
+---@field key? string
+---@field metadata_filter? string
+---@field page? number
+---@field per_page? number
+---@field search? string
+---@field sort_by? string
+---@field source? string
+---@field status? string
+---@field cursor? string
+---@field limit? number
+---@field offset? number
+
+---@class AiSearchInstancesItemCreateData
+---@field account_id string
+---@field instance_id string
+---@field namespace_id string
+---@field action string
+---@field checksum string
+---@field chunkCount number
+---@field chunks_count number
+---@field created_at string
+---@field end_byte? number
+---@field error? string
+---@field errorType string
+---@field fileKey string
+---@field file_size number
+---@field id string
+---@field item table
+---@field key string
+---@field last_seen_at string
+---@field message string
+---@field metadata table
+---@field namespace string
+---@field next_action string
+---@field processingTimeMs number
+---@field source_id string
+---@field start_byte? number
+---@field status string
+---@field text string
+---@field timestamp string
+---@field wait_for_completion? boolean
+---@field warnings? table
+
+---@class AiSearchInstancesItemUpdateData
+---@field account_id string
+---@field instance_id string
+---@field namespace_id string
+---@field action? string
+---@field checksum? string
+---@field chunkCount? number
+---@field chunks_count? number
+---@field created_at? string
+---@field end_byte? number
+---@field error? string
+---@field errorType? string
+---@field fileKey? string
+---@field file_size? number
+---@field id? string
+---@field item? table
+---@field key? string
+---@field last_seen_at? string
+---@field message? string
+---@field metadata? table
+---@field namespace? string
+---@field next_action? string
+---@field processingTimeMs? number
+---@field source_id? string
+---@field start_byte? number
+---@field status? string
+---@field text? string
+---@field timestamp? string
+---@field wait_for_completion? boolean
+---@field warnings? table
+
+---@class AiSearchInstancesItemRemoveMatch
+---@field account_id string
+---@field id string
+---@field instance_id string
+---@field namespace_id string
+
+---@class AiSearchInstancesJob
+---@field action string
+---@field created_at number
+---@field description? string
+---@field end_reason? string
+---@field ended_at? string
+---@field id string
+---@field last_seen_at? string
+---@field message string
+---@field message_type number
+---@field source string
+---@field started_at? string
+
+---@class AiSearchInstancesJobLoadMatch
+---@field account_id string
+---@field id string
+---@field instance_id string
+---@field namespace_id? string
+
+---@class AiSearchInstancesJobListMatch
+---@field account_id string
+---@field instance_id string
+---@field job_id? string
+---@field namespace_id? string
+---@field page? number
+---@field per_page? number
+
+---@class AiSearchInstancesJobCreateData
+---@field account_id string
+---@field instance_id string
+---@field namespace_id? string
+---@field action string
+---@field created_at number
+---@field description? string
+---@field end_reason? string
+---@field ended_at? string
+---@field id string
+---@field last_seen_at? string
+---@field message string
+---@field message_type number
+---@field source string
+---@field started_at? string
+
+---@class AiSearchInstancesJobUpdateData
+---@field account_id string
+---@field id string
+---@field instance_id string
+---@field namespace_id? string
+---@field action? string
+---@field created_at? number
+---@field description? string
+---@field end_reason? string
+---@field ended_at? string
+---@field last_seen_at? string
+---@field message? string
+---@field message_type? number
+---@field source? string
+---@field started_at? string
+
+---@class AiSearchNamespace
+---@field created_at string
+---@field description? string
+---@field id? string
+---@field name string
+---@field new_namespace string
+---@field public_endpoint_id? string
+---@field public_endpoint_params? table
+
+---@class AiSearchNamespaceLoadMatch
+---@field account_id string
+---@field id string
+
+---@class AiSearchNamespaceListMatch
+---@field account_id string
+---@field page? number
+---@field per_page? number
+---@field search? string
+
+---@class AiSearchNamespaceCreateData
+---@field account_id string
+---@field created_at string
+---@field description? string
+---@field id? string
+---@field name string
+---@field new_namespace string
+---@field public_endpoint_id? string
+---@field public_endpoint_params? table
+
+---@class AiSearchNamespaceUpdateData
+---@field account_id string
+---@field id string
+---@field created_at? string
+---@field description? string
+---@field name? string
+---@field new_namespace? string
+---@field public_endpoint_id? string
+---@field public_endpoint_params? table
+
+---@class AiSearchNamespaceRemoveMatch
+---@field account_id string
+---@field id string
+
+---@class AiSearchToken
+---@field cf_api_id string
+---@field cf_api_key string
+---@field created_at string
+---@field created_by? string
+---@field enabled? boolean
+---@field id string
+---@field legacy? boolean
+---@field modified_at string
+---@field modified_by? string
+---@field name string
+
+---@class AiSearchTokenLoadMatch
+---@field account_id string
+---@field id string
+
+---@class AiSearchTokenListMatch
+---@field account_id string
+---@field page? number
+---@field per_page? number
+---@field search? string
+
+---@class AiSearchTokenCreateData
+---@field account_id string
+---@field cf_api_id string
+---@field cf_api_key string
+---@field created_at string
+---@field created_by? string
+---@field enabled? boolean
+---@field id string
+---@field legacy? boolean
+---@field modified_at string
+---@field modified_by? string
+---@field name string
+
+---@class AiSearchTokenUpdateData
+---@field account_id string
+---@field id string
+---@field cf_api_id? string
+---@field cf_api_key? string
+---@field created_at? string
+---@field created_by? string
+---@field enabled? boolean
+---@field legacy? boolean
+---@field modified_at? string
+---@field modified_by? string
+---@field name? string
+
+---@class AiSearchTokenRemoveMatch
+---@field account_id string
+---@field id string
+
+---@class AigBillingCreateTopup
+---@field amount number
+---@field errors table
+---@field messages table
+---@field payment_method_id? string
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingCreateTopupCreateData
+---@field account_id string
+---@field amount number
+---@field errors table
+---@field messages table
+---@field payment_method_id? string
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingDeleteSpendingLimit
+
+---@class AigBillingDeleteSpendingLimitRemoveMatch
+---@field account_id string
+
+---@class AigBillingDeleteTopupConfig
+
+---@class AigBillingDeleteTopupConfigRemoveMatch
+---@field account_id string
+
+---@class AigBillingGetCreditBalance
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetCreditBalanceListMatch
+---@field account_id string
+
+---@class AigBillingGetInvoiceHistory
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetInvoiceHistoryListMatch
+---@field account_id string
+---@field type? string
+
+---@class AigBillingGetInvoicePreview
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetInvoicePreviewListMatch
+---@field account_id string
+
+---@class AigBillingGetSpendingLimit
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetSpendingLimitListMatch
+---@field account_id string
+
+---@class AigBillingGetTopupConfig
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetTopupConfigListMatch
+---@field account_id string
+
+---@class AigBillingGetTopupEligibility
+---@field errors table
+---@field messages table
+---@field payment_methods? table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetTopupEligibilityCreateData
+---@field account_id string
+---@field errors table
+---@field messages table
+---@field payment_methods? table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetTopupLimit
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetTopupLimitListMatch
+---@field account_id string
+
+---@class AigBillingGetUsageHistory
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingGetUsageHistoryListMatch
+---@field account_id string
+---@field end_time? number
+---@field start_time? number
+---@field value_grouping_window string
+
+---@class AigBillingSetSpendingLimit
+---@field amount number
+---@field duration string
+---@field strategy string
+
+---@class AigBillingSetSpendingLimitCreateData
+---@field account_id string
+---@field amount number
+---@field duration string
+---@field strategy string
+
+---@class AigBillingSetTopupConfig
+---@field amount number
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+---@field threshold number
+
+---@class AigBillingSetTopupConfigCreateData
+---@field account_id string
+---@field amount number
+---@field errors table
+---@field messages table
+---@field result table
+---@field result_info table
+---@field success boolean
+---@field threshold number
+
+---@class AigBillingTopupStatus
+---@field errors table
+---@field messages table
+---@field payment_intent_id string
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AigBillingTopupStatusCreateData
+---@field account_id string
+---@field errors table
+---@field messages table
+---@field payment_intent_id string
+---@field result table
+---@field result_info table
+---@field success boolean
+
+---@class AutoRagJob
+---@field created_at number
+---@field end_reason? string
+---@field ended_at? string
+---@field id string
+---@field last_seen_at? string
+---@field message string
+---@field message_type number
+---@field source string
+---@field started_at? string
+
+---@class AutoRagJobLoadMatch
+---@field account_id string
+---@field id string
+---@field rag_id string
+
+---@class AutoRagJobListMatch
+---@field account_id string
+---@field job_id? string
+---@field rag_id string
+---@field page? number
+---@field per_page? number
+
+---@class AutoRagRag
+---@field error string
+---@field job_id string
+---@field key string
+
+---@class AutoRagRagListMatch
+---@field account_id string
+---@field rag_id string
+---@field page? number
+---@field per_page? number
+---@field search? string
+---@field status? string
+
+---@class AutoRagRagUpdateData
+---@field account_id string
+---@field rag_id string
+---@field error? string
+---@field job_id? string
+---@field key? string
+
+---@class AutoRagRagSearch
+---@field data? table
+---@field filters? any
+---@field has_more? boolean
+---@field max_num_results? number
+---@field model? any
+---@field next_page? string
+---@field object? string
+---@field query string
+---@field ranking_options? table
+---@field reranking? table
+---@field response string
+---@field rewrite_query? boolean
+---@field search_query string
+---@field stream? boolean
+---@field system_prompt? string
+
+---@class AutoRagRagSearchCreateData
+---@field account_id string
+---@field rag_id string
+---@field data? table
+---@field filters? any
+---@field has_more? boolean
+---@field max_num_results? number
+---@field model? any
+---@field next_page? string
+---@field object? string
+---@field query string
+---@field ranking_options? table
+---@field reranking? table
+---@field response string
+---@field rewrite_query? boolean
+---@field search_query string
+---@field stream? boolean
+---@field system_prompt? string
+
+---@class FinetuneAsset
+---@field file_name string
+---@field file_url string
+---@field id? string
+
+---@class FinetuneAssetLoadMatch
+---@field account_id string
+---@field finetune_id string
+---@field id string
+
+---@class Vectorize
+---@field config any
+---@field description? string
+---@field errors table
+---@field ids? table
+---@field indexType string
+---@field messages table
+---@field name string
+---@field propertyName string
+---@field result table
+---@field success boolean
+
+---@class VectorizeLoadMatch
+---@field account_id string
+---@field index_name? string
+---@field count? number
+---@field cursor? string
+---@field index_id? string
+
+---@class VectorizeListMatch
+---@field account_id string
+
+---@class VectorizeCreateData
+---@field account_id string
+---@field index_id? string
+---@field index_name? string
+---@field config any
+---@field description? string
+---@field errors table
+---@field ids? table
+---@field indexType string
+---@field messages table
+---@field name string
+---@field propertyName string
+---@field result table
+---@field success boolean
+
+---@class VectorizeRemoveMatch
+---@field account_id string
+---@field index_name string
+
+---@class VectorizeBetaDeprecated
+---@field config any
+---@field description? string
+---@field errors table
+---@field ids? table
+---@field messages table
+---@field name string
+---@field result? table
+---@field success boolean
+
+---@class VectorizeBetaDeprecatedLoadMatch
+---@field account_id string
+---@field index_name string
+
+---@class VectorizeBetaDeprecatedListMatch
+---@field account_id string
+
+---@class VectorizeBetaDeprecatedCreateData
+---@field account_id string
+---@field index_name? string
+---@field config any
+---@field description? string
+---@field errors table
+---@field ids? table
+---@field messages table
+---@field name string
+---@field result? table
+---@field success boolean
+
+---@class VectorizeBetaDeprecatedUpdateData
+---@field account_id string
+---@field index_name string
+---@field config? any
+---@field description? string
+---@field errors? table
+---@field ids? table
+---@field messages? table
+---@field name? string
+---@field result? table
+---@field success? boolean
+
+---@class VectorizeBetaDeprecatedRemoveMatch
+---@field account_id string
+---@field index_name string
+
+---@class WorkersAi
+---@field errors table
+---@field extension string
+---@field input table
+---@field messages table
+---@field mimeType string
+---@field model string
+---@field options? table
+---@field output table
+---@field result? table
+---@field success boolean
+
+---@class WorkersAiLoadMatch
+---@field account_id string
+---@field author? string
+---@field format? string
+---@field hide_experimental? boolean
+---@field include_deprecated? boolean
+---@field page? number
+---@field per_page? number
+---@field search? string
+---@field source? number
+---@field task? string
+---@field model? string
+
+---@class WorkersAiListMatch
+---@field account_id string
+
+---@class WorkersAiCreateData
+---@field account_id string
+---@field model_name? string
+---@field errors table
+---@field extension string
+---@field input table
+---@field messages table
+---@field mimeType string
+---@field model string
+---@field options? table
+---@field output table
+---@field result? table
+---@field success boolean
+
+---@class WorkersAiFinetune
+---@field created_at string
+---@field description? string
+---@field id string
+---@field model string
+---@field modified_at string
+---@field name string
+---@field public boolean
+---@field success boolean
+
+---@class WorkersAiFinetuneLoadMatch
+---@field account_id string
+
+---@class WorkersAiFinetuneListMatch
+---@field account_id string
+---@field limit? number
+---@field offset? number
+---@field order_by? string
+
+---@class WorkersAiFinetuneCreateData
+---@field account_id string
+---@field finetune_id? string
+---@field created_at string
+---@field description? string
+---@field id string
+---@field model string
+---@field modified_at string
+---@field name string
+---@field public boolean
+---@field success boolean
+
+---@class WorkersAiFinetuneRemoveMatch
+---@field account_id string
+---@field id string
+
+local M = {}
+
+return M

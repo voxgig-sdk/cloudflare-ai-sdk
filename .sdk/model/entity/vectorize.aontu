@@ -1,0 +1,1019 @@
+# Entity: vectorize
+
+main: kit: entity: vectorize: {
+
+  alias: field: {}
+
+  fields: {
+    config: {
+      h: "Config"
+      n: "config"
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Specifies the description of the index."
+      t: "`$STRING`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    ids: {
+      h: "Ids"
+      n: "ids"
+      r: false
+      sh: "A list of vector identifiers to delete from the index indicated by the path."
+      t: "`$ARRAY`"
+    }
+    indexType: {
+      h: "Index Type"
+      n: "indexType"
+      r: true
+      sh: "Specifies the type of metadata property to index."
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    propertyName: {
+      h: "Property Name"
+      n: "propertyName"
+      r: true
+      sh: "Specifies the metadata property to index."
+      t: "`$STRING`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        list: {
+          req: false
+          type: "`$ARRAY`"
+        }
+        load: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Whether the API call was successful"
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "vectorize"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/insert"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "unparsable_behavior"
+                or: "unparsable_behavior"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/insert"
+          q: {
+            "$action": "insert"
+            exist: [
+              "account_id"
+              "index_name"
+              "unparsable_behavior"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+            {
+              lit: "insert"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/upsert"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "unparsable_behavior"
+                or: "unparsable_behavior"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/upsert"
+          q: {
+            "$action": "upsert"
+            exist: [
+              "account_id"
+              "index_name"
+              "unparsable_behavior"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+            {
+              lit: "upsert"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/create"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_id"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/create"
+          q: {
+            exist: [
+              "account_id"
+              "index_id"
+            ]
+          }
+          r: {
+            param: {
+              index_name: "index_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_id"
+            }
+            {
+              lit: "metadata_index"
+            }
+            {
+              lit: "create"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/delete"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_id"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/delete"
+          q: {
+            exist: [
+              "account_id"
+              "index_id"
+            ]
+          }
+          r: {
+            param: {
+              index_name: "index_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_id"
+            }
+            {
+              lit: "metadata_index"
+            }
+            {
+              lit: "delete"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/delete_by_ids"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/delete_by_ids"
+          q: {
+            exist: [
+              "account_id"
+              "index_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+            {
+              lit: "delete_by_ids"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/get_by_ids"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/get_by_ids"
+          q: {
+            exist: [
+              "account_id"
+              "index_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+            {
+              lit: "get_by_ids"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/query"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/query"
+          q: {
+            "$action": "query"
+            exist: [
+              "account_id"
+              "index_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+            {
+              lit: "query"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/vectorize/v2/indexes"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/vectorize/v2/indexes"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/vectorize/v2/indexes"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/vectorize/v2/indexes"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/vectorize/v2/indexes/{index_name}/list"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "count"
+                or: "count"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "suUTaDY5PFUiRweVccnzyt9n75suNPbXHPshvCzue5mHjtj7Letjvzlza9eGj099"
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/list"
+          q: {
+            exist: [
+              "account_id"
+              "count"
+              "cursor"
+              "index_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+            {
+              lit: "list"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/list"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_id"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/list"
+          q: {
+            exist: [
+              "account_id"
+              "index_id"
+            ]
+          }
+          r: {
+            param: {
+              index_name: "index_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_id"
+            }
+            {
+              lit: "metadata_index"
+            }
+            {
+              lit: "list"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/vectorize/v2/indexes/{index_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}"
+          q: {
+            exist: [
+              "account_id"
+              "index_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/vectorize/v2/indexes/{index_name}/info"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/info"
+          q: {
+            exist: [
+              "account_id"
+              "index_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+            {
+              lit: "info"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/vectorize/v2/indexes/{index_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "example-index"
+                k: "param"
+                n: "index_name"
+                or: "index_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/vectorize/v2/indexes/{index_name}"
+          q: {
+            exist: [
+              "account_id"
+              "index_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "vectorize"
+            }
+            {
+              lit: "v2"
+            }
+            {
+              lit: "indexes"
+            }
+            {
+              var: "index_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "aig_billing_topup_status": {
+      "AIG_BILLING_TOPUP_STATUS00": {
+        "errors": [],
+        "messages": [],
+        "payment_intent_id": "PAYMENT_INTENT01",
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_TOPUP_STATUS00"
+      },
+      "AIG_BILLING_TOPUP_STATUS01": {
+        "errors": [],
+        "messages": [],
+        "payment_intent_id": "PAYMENT_INTENT01",
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_TOPUP_STATUS01"
+      },
+      "AIG_BILLING_TOPUP_STATUS02": {
+        "errors": [],
+        "messages": [],
+        "payment_intent_id": "PAYMENT_INTENT01",
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "AIG_BILLING_TOPUP_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "aig_billing_topup_status": {
+      "aig_billing_topup_status_ref01": {
+        "errors": [],
+        "messages": [],
+        "payment_intent_id": "PAYMENT_INTENT01",
+        "result": {},
+        "result_info": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/ai-gateway/billing/topup/status": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

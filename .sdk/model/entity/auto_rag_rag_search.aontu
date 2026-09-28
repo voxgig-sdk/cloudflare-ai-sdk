@@ -1,0 +1,257 @@
+# Entity: auto_rag_rag_search
+
+main: kit: entity: auto_rag_rag_search: {
+
+  alias: field: {}
+
+  fields: {
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      t: "`$ARRAY`"
+    }
+    filters: {
+      h: "Filters"
+      n: "filters"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 3
+        depth: 7
+      }
+    }
+    has_more: {
+      h: "Has More"
+      n: "has_more"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    max_num_results: {
+      h: "Max Num Results"
+      n: "max_num_results"
+      r: false
+      t: "`$INTEGER`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    next_page: {
+      h: "Next Page"
+      n: "next_page"
+      r: false
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      t: "`$STRING`"
+    }
+    query: {
+      h: "Query"
+      n: "query"
+      r: true
+      t: "`$STRING`"
+    }
+    ranking_options: {
+      h: "Ranking Options"
+      n: "ranking_options"
+      r: false
+      t: "`$OBJECT`"
+    }
+    reranking: {
+      h: "Reranking"
+      n: "reranking"
+      r: false
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    response: {
+      h: "Response"
+      n: "response"
+      r: true
+      t: "`$STRING`"
+    }
+    rewrite_query: {
+      h: "Rewrite Query"
+      n: "rewrite_query"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    search_query: {
+      h: "Search Query"
+      n: "search_query"
+      r: true
+      t: "`$STRING`"
+    }
+    stream: {
+      h: "Stream"
+      n: "stream"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    system_prompt: {
+      h: "System Prompt"
+      n: "system_prompt"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "auto_rag_rag_search"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/autorag/rags/{id}/ai-search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-rag"
+                k: "param"
+                n: "rag_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/autorag/rags/{id}/ai-search"
+          q: {
+            exist: [
+              "account_id"
+              "rag_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "rag_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "autorag"
+            }
+            {
+              lit: "rags"
+            }
+            {
+              var: "rag_id"
+            }
+            {
+              lit: "ai-search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/autorag/rags/{id}/search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "c3dc5f0b34a14ff8e1b3ec04895e1b22"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-rag"
+                k: "param"
+                n: "rag_id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/autorag/rags/{id}/search"
+          q: {
+            exist: [
+              "account_id"
+              "rag_id"
+            ]
+          }
+          r: {
+            param: {
+              id: "rag_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "autorag"
+            }
+            {
+              lit: "rags"
+            }
+            {
+              var: "rag_id"
+            }
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}
