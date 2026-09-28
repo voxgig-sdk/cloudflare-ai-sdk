@@ -469,6 +469,30 @@ Create a new `FinetuneAsset` entity instance.
 
 **Returns:** `FinetuneAssetEntity` instance.
 
+#### `Memory(data?: object)`
+
+Create a new `Memory` entity instance.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `data` | `object` | Initial entity data. |
+
+**Returns:** `MemoryEntity` instance.
+
+#### `Namespace(data?: object)`
+
+Create a new `Namespace` entity instance.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `data` | `object` | Initial entity data. |
+
+**Returns:** `NamespaceEntity` instance.
+
 #### `Vectorize(data?: object)`
 
 Create a new `Vectorize` entity instance.
@@ -3509,6 +3533,203 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `FinetuneAssetEntity` instance with the same client and
+options.
+
+#### `client()`
+
+Return the parent `CloudflareAiSDK` instance.
+
+#### `entopts()`
+
+Return a copy of the entity options.
+
+
+---
+
+## MemoryEntity
+
+```ts
+const memory = client.Memory()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `any[]` | Yes | Always empty for a successful response. |
+| `id` | `string` | No |  |
+| `messages` | `any[]` | Yes | Informational, non-error messages, if any. |
+| `result` | `Record<string, any>` | Yes |  |
+| `result_info` | `Record<string, any>` | No |  |
+| `success` | `boolean` | Yes | Always true for a successful response. |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `ingest` | `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest` | `client.Memory().create({ $action: 'ingest', ... })` |
+| `recall` | `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall` | `client.Memory().create({ $action: 'recall', ... })` |
+| `remember` | `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember` | `client.Memory().create({ $action: 'remember', ... })` |
+| `summary` | `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary` | `client.Memory().create({ $action: 'summary', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Memory record — check the API definition for its shape.
+
+```ts
+const result = await client.Memory().create({
+  $action: 'ingest',
+  /* ...the action's own arguments */
+})
+```
+
+### Operations
+
+#### `create(data: object, ctrl?: object)`
+
+Create a new entity with the given data.
+
+```ts
+const result = await client.Memory().create({
+  account_id: 'example_account_id',
+  namespace_id: 'example_namespace_id',
+  profile_name: 'example_profile_name',
+  errors: [],
+  messages: [],
+  result: {},
+  success: true,
+})
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Memory().list({ account_id: "example" })
+```
+
+#### `load(match: object, ctrl?: object)`
+
+Load a single entity matching the given criteria.
+
+```ts
+const result = await client.Memory().load({ id: 'memory_id', account_id: 'account_id', namespace_id: 'namespace_id', profile_id: 'profile_id' })
+```
+
+#### `remove(match: object, ctrl?: object)`
+
+Remove the entity matching the given criteria.
+
+```ts
+const result = await client.Memory().remove({ id: 'memory_id', account_id: 'account_id', namespace_id: 'namespace_id' })
+```
+
+### Common Methods
+
+#### `data(data?: object)`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `match(match?: object)`
+
+Get or set the entity match criteria. Works the same as `data()`.
+
+#### `make()`
+
+Create a new `MemoryEntity` instance with the same client and
+options.
+
+#### `client()`
+
+Return the parent `CloudflareAiSDK` instance.
+
+#### `entopts()`
+
+Return a copy of the entity options.
+
+
+---
+
+## NamespaceEntity
+
+```ts
+const namespace = client.Namespace()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `any[]` | Yes | Always empty for a successful response. |
+| `id` | `string` | No |  |
+| `messages` | `any[]` | Yes | Informational, non-error messages, if any. |
+| `name` | `string` | Yes | Namespace name. |
+| `result` | `Record<string, any>` | Yes |  |
+| `result_info` | `Record<string, any>` | No |  |
+| `success` | `boolean` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(data: object, ctrl?: object)`
+
+Create a new entity with the given data.
+
+```ts
+const result = await client.Namespace().create({
+  account_id: 'example_account_id',
+  errors: [],
+  messages: [],
+  name: 'example_name',
+  result: {},
+  success: true,
+})
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Namespace().list({ account_id: "example" })
+```
+
+#### `load(match: object, ctrl?: object)`
+
+Load a single entity matching the given criteria.
+
+```ts
+const result = await client.Namespace().load({ id: 'namespace_id', account_id: 'account_id' })
+```
+
+#### `remove(match: object, ctrl?: object)`
+
+Remove the entity matching the given criteria.
+
+```ts
+const result = await client.Namespace().remove({ id: 'namespace_id', account_id: 'account_id' })
+```
+
+### Common Methods
+
+#### `data(data?: object)`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `match(match?: object)`
+
+Get or set the entity match criteria. Works the same as `data()`.
+
+#### `make()`
+
+Create a new `NamespaceEntity` instance with the same client and
 options.
 
 #### `client()`

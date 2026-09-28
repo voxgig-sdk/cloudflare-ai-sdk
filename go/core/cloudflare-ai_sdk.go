@@ -606,6 +606,22 @@ func (sdk *CloudflareAiSDK) FinetuneAsset(data map[string]any) CloudflareAiEntit
 }
 
 
+// Memory returns a Memory entity bound to this client.
+// Idiomatic usage: client.Memory(nil).List(nil, nil) or
+// client.Memory(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *CloudflareAiSDK) Memory(data map[string]any) CloudflareAiEntity {
+	return NewMemoryEntityFunc(sdk, data)
+}
+
+
+// Namespace returns a Namespace entity bound to this client.
+// Idiomatic usage: client.Namespace(nil).List(nil, nil) or
+// client.Namespace(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *CloudflareAiSDK) Namespace(data map[string]any) CloudflareAiEntity {
+	return NewNamespaceEntityFunc(sdk, data)
+}
+
+
 // Vectorize returns a Vectorize entity bound to this client.
 // Idiomatic usage: client.Vectorize(nil).List(nil, nil) or
 // client.Vectorize(nil).Load(map[string]any{"id": ...}, nil).

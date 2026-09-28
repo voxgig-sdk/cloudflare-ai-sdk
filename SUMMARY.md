@@ -6,7 +6,7 @@ Cloudflare AI: Workers AI inference, AI Gateway, AI Search, AutoRAG, and Vectori
 
 This guide introduces the API, the client libraries, and the companion tools in this repository. Start with the API capabilities, choose a client for your application, and use the linked reference when you need exact request and response details.
 
-The selected API surface contains 39 entities and 161 HTTP routes. There are 6 SDK targets and 2 companion tools.
+The selected API surface contains 41 entities and 175 HTTP routes. There are 6 SDK targets and 2 companion tools.
 
 An entity groups related API operations. An operation can have several routes with different inputs or authentication requirements. The SDK exposes the entity and its operations using the conventions of the selected language.
 
@@ -309,6 +309,34 @@ Results: Pre-signed download URL.
 
 SDK operations: `load`.
 
+### [Memory](docs/api/memory.html)
+
+Results: Conversation ingested.; Recall result.; Memory stored.; Profile summary.; A page of memory metadata.; A page of profiles.; The requested memory.; The deleted memory.; Session deleted.; Profile deleted.
+
+SDK operations: `create`, `list`, `load`, `remove`.
+
+Key fields to recognise:
+
+- `errors`: Always empty for a successful response.
+- `id`: Unique identifier of the memory.
+- `messages`: Informational, non-error messages, if any.
+- `result`: Always null for an error response.
+- `success`: Always true for a successful response.
+
+### [Namespace](docs/api/namespace.html)
+
+Results: Namespace created.; A List of namespaces.; The requested namespace.; Namespace deleted.
+
+SDK operations: `create`, `list`, `load`, `remove`.
+
+Key fields to recognise:
+
+- `errors`: Always empty for a successful response.
+- `id`: Unique identifier of the namespace.
+- `messages`: Informational, non-error messages, if any.
+- `name`: Namespace name.
+- `result`: Always null for an error response.
+
 ### [Vectorize](docs/api/vectorize.html)
 
 Results: Insert Vectors Response; Upsert Vectors Response; Create Metadata Index Response; Delete Metadata Index Response; Delete Vector Identifiers Response; Get Vectors By Identifier Response; Query Vectors Response; Create Vectorize Index Response; List Vectorize Index Response; List Vectors Response; List Metadata Index Response; Get Vectorize Index Response; Get Vectorize Index Info Response; Delete Vectorize Index Response.
@@ -484,6 +512,20 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | [AutoRagRagSearch](docs/api/auto_rag_rag_search.html) | `create` | `POST /accounts/{account_id}/autorag/rags/{id}/ai-search` | Required |
 | [AutoRagRagSearch](docs/api/auto_rag_rag_search.html) | `create` | `POST /accounts/{account_id}/autorag/rags/{id}/search` | Required |
 | [FinetuneAsset](docs/api/finetune_asset.html) | `load` | `GET /accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}` | Required |
+| [Memory](docs/api/memory.html) | `create` | `POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest` | Required |
+| [Memory](docs/api/memory.html) | `create` | `POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall` | Required |
+| [Memory](docs/api/memory.html) | `create` | `POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember` | Required |
+| [Memory](docs/api/memory.html) | `create` | `POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary` | Required |
+| [Memory](docs/api/memory.html) | `list` | `GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories` | Required |
+| [Memory](docs/api/memory.html) | `list` | `GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles` | Required |
+| [Memory](docs/api/memory.html) | `load` | `GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}` | Required |
+| [Memory](docs/api/memory.html) | `remove` | `DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}` | Required |
+| [Memory](docs/api/memory.html) | `remove` | `DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}` | Required |
+| [Memory](docs/api/memory.html) | `remove` | `DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}` | Required |
+| [Namespace](docs/api/namespace.html) | `create` | `POST /accounts/{account_id}/agent-memory/namespaces` | Required |
+| [Namespace](docs/api/namespace.html) | `list` | `GET /accounts/{account_id}/agent-memory/namespaces` | Required |
+| [Namespace](docs/api/namespace.html) | `load` | `GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}` | Required |
+| [Namespace](docs/api/namespace.html) | `remove` | `DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}` | Required |
 | [Vectorize](docs/api/vectorize.html) | `create` | `POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/insert` | Required |
 | [Vectorize](docs/api/vectorize.html) | `create` | `POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/upsert` | Required |
 | [Vectorize](docs/api/vectorize.html) | `create` | `POST /accounts/{account_id}/vectorize/v2/indexes/{index_name}/metadata_index/create` | Required |
@@ -570,8 +612,8 @@ Use the MCP server to expose supported API operations to an MCP client.
 
 Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
-- `cloudflare-ai_list`: List records for an entity. Supported entities: `ai_gateway_custom_domain`, `ai_gateway_custom_provider`, `ai_gateway_custom_provider_cost`, `ai_gateway_dataset`, `ai_gateway_evaluation`, `ai_gateway_gateway`, `ai_gateway_log`, `ai_gateway_provider_config`, `ai_search_instance`, `ai_search_instances_item`, `ai_search_instances_job`, `ai_search_namespace`, `ai_search_token`, `aig_billing_get_credit_balance`, `aig_billing_get_invoice_history`, `aig_billing_get_invoice_preview`, `aig_billing_get_spending_limit`, `aig_billing_get_topup_config`, `aig_billing_get_topup_limit`, `aig_billing_get_usage_history`, `auto_rag_job`, `auto_rag_rag`, `vectorize`, `vectorize_beta__deprecated`, `workers_ai`, `workers_ai_finetune`.
-- `cloudflare-ai_load`: Load one record for an entity. Supported entities: `account`, `ai_gateway_custom_domain`, `ai_gateway_custom_provider`, `ai_gateway_custom_provider_cost`, `ai_gateway_dataset`, `ai_gateway_dynamic_route`, `ai_gateway_evaluation`, `ai_gateway_gateway`, `ai_gateway_log`, `ai_search_instance`, `ai_search_instances_item`, `ai_search_instances_job`, `ai_search_namespace`, `ai_search_token`, `auto_rag_job`, `finetune_asset`, `vectorize`, `vectorize_beta__deprecated`, `workers_ai`, `workers_ai_finetune`.
+- `cloudflare-ai_list`: List records for an entity. Supported entities: `ai_gateway_custom_domain`, `ai_gateway_custom_provider`, `ai_gateway_custom_provider_cost`, `ai_gateway_dataset`, `ai_gateway_evaluation`, `ai_gateway_gateway`, `ai_gateway_log`, `ai_gateway_provider_config`, `ai_search_instance`, `ai_search_instances_item`, `ai_search_instances_job`, `ai_search_namespace`, `ai_search_token`, `aig_billing_get_credit_balance`, `aig_billing_get_invoice_history`, `aig_billing_get_invoice_preview`, `aig_billing_get_spending_limit`, `aig_billing_get_topup_config`, `aig_billing_get_topup_limit`, `aig_billing_get_usage_history`, `auto_rag_job`, `auto_rag_rag`, `memory`, `namespace`, `vectorize`, `vectorize_beta__deprecated`, `workers_ai`, `workers_ai_finetune`.
+- `cloudflare-ai_load`: Load one record for an entity. Supported entities: `account`, `ai_gateway_custom_domain`, `ai_gateway_custom_provider`, `ai_gateway_custom_provider_cost`, `ai_gateway_dataset`, `ai_gateway_dynamic_route`, `ai_gateway_evaluation`, `ai_gateway_gateway`, `ai_gateway_log`, `ai_search_instance`, `ai_search_instances_item`, `ai_search_instances_job`, `ai_search_namespace`, `ai_search_token`, `auto_rag_job`, `finetune_asset`, `memory`, `namespace`, `vectorize`, `vectorize_beta__deprecated`, `workers_ai`, `workers_ai_finetune`.
 
 ## Operational features
 

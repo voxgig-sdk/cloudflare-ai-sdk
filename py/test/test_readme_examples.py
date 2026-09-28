@@ -111,6 +111,8 @@ _ENTITIES = {
     "AutoRagRag": "auto_rag_rag",
     "AutoRagRagSearch": "auto_rag_rag_search",
     "FinetuneAsset": "finetune_asset",
+    "Memory": "memory",
+    "Namespace": "namespace",
     "Vectorize": "vectorize",
     "VectorizeBetaDeprecated": "vectorize_beta__deprecated",
     "WorkersAi": "workers_ai",

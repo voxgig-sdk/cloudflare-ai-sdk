@@ -1807,6 +1807,114 @@ class FinetuneAssetLoadMatch(TypedDict):
     id: str
 
 
+class MemoryRequired(TypedDict):
+    errors: list
+    messages: list
+    result: dict
+    success: bool
+
+
+class Memory(MemoryRequired, total=False):
+    id: str
+    result_info: dict
+
+
+class MemoryLoadMatch(TypedDict):
+    account_id: str
+    id: str
+    namespace_id: str
+    profile_id: str
+
+
+class MemoryListMatchRequired(TypedDict):
+    account_id: str
+
+
+class MemoryListMatch(MemoryListMatchRequired, total=False):
+    namespace_id: str
+    profile_name: str
+    cursor: str
+    per_page: int
+    session_id: str
+    type: str
+    namespace_name: str
+
+
+class MemoryCreateDataRequired(TypedDict):
+    account_id: str
+    namespace_id: str
+    profile_name: str
+    errors: list
+    messages: list
+    result: dict
+    success: bool
+
+
+class MemoryCreateData(MemoryCreateDataRequired, total=False):
+    id: str
+    result_info: dict
+
+
+class MemoryRemoveMatchRequired(TypedDict):
+    account_id: str
+    namespace_id: str
+
+
+class MemoryRemoveMatch(MemoryRemoveMatchRequired, total=False):
+    id: str
+    profile_id: str
+    session_id: str
+    profile_name: str
+
+
+class NamespaceRequired(TypedDict):
+    errors: list
+    messages: list
+    name: str
+    result: dict
+    success: bool
+
+
+class Namespace(NamespaceRequired, total=False):
+    id: str
+    result_info: dict
+
+
+class NamespaceLoadMatch(TypedDict):
+    account_id: str
+    id: str
+
+
+class NamespaceListMatchRequired(TypedDict):
+    account_id: str
+
+
+class NamespaceListMatch(NamespaceListMatchRequired, total=False):
+    cursor: str
+    direction: str
+    order: str
+    per_page: int
+
+
+class NamespaceCreateDataRequired(TypedDict):
+    account_id: str
+    errors: list
+    messages: list
+    name: str
+    result: dict
+    success: bool
+
+
+class NamespaceCreateData(NamespaceCreateDataRequired, total=False):
+    id: str
+    result_info: dict
+
+
+class NamespaceRemoveMatch(TypedDict):
+    account_id: str
+    id: str
+
+
 class VectorizeRequired(TypedDict):
     config: Any
     errors: list

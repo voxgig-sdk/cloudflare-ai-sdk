@@ -1326,6 +1326,90 @@ type FinetuneAssetLoadMatch struct {
 	Id string `json:"id"`
 }
 
+// Memory is the typed data model for the memory entity.
+type Memory struct {
+}
+
+// MemoryLoadMatch is the typed request payload for Memory.LoadTyped.
+type MemoryLoadMatch struct {
+	AccountId string `json:"account_id"`
+	Id string `json:"id"`
+	NamespaceId string `json:"namespace_id"`
+	ProfileId string `json:"profile_id"`
+}
+
+// MemoryListMatch is the typed request payload for Memory.ListTyped.
+type MemoryListMatch struct {
+	AccountId string `json:"account_id"`
+	NamespaceId *string `json:"namespace_id,omitempty"`
+	ProfileName *string `json:"profile_name,omitempty"`
+	Cursor *string `json:"cursor,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
+	SessionId *string `json:"session_id,omitempty"`
+	Type *string `json:"type,omitempty"`
+	NamespaceName *string `json:"namespace_name,omitempty"`
+}
+
+// MemoryCreateData is the typed request payload for Memory.CreateTyped.
+type MemoryCreateData struct {
+	AccountId string `json:"account_id"`
+	NamespaceId string `json:"namespace_id"`
+	ProfileName string `json:"profile_name"`
+	Errors []any `json:"errors"`
+	Id *string `json:"id,omitempty"`
+	Messages []any `json:"messages"`
+	Result map[string]any `json:"result"`
+	ResultInfo *map[string]any `json:"result_info,omitempty"`
+	Success bool `json:"success"`
+}
+
+// MemoryRemoveMatch is the typed request payload for Memory.RemoveTyped.
+type MemoryRemoveMatch struct {
+	AccountId string `json:"account_id"`
+	Id *string `json:"id,omitempty"`
+	NamespaceId string `json:"namespace_id"`
+	ProfileId *string `json:"profile_id,omitempty"`
+	SessionId *string `json:"session_id,omitempty"`
+	ProfileName *string `json:"profile_name,omitempty"`
+}
+
+// Namespace is the typed data model for the namespace entity.
+type Namespace struct {
+}
+
+// NamespaceLoadMatch is the typed request payload for Namespace.LoadTyped.
+type NamespaceLoadMatch struct {
+	AccountId string `json:"account_id"`
+	Id string `json:"id"`
+}
+
+// NamespaceListMatch is the typed request payload for Namespace.ListTyped.
+type NamespaceListMatch struct {
+	AccountId string `json:"account_id"`
+	Cursor *string `json:"cursor,omitempty"`
+	Direction *string `json:"direction,omitempty"`
+	Order *string `json:"order,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
+}
+
+// NamespaceCreateData is the typed request payload for Namespace.CreateTyped.
+type NamespaceCreateData struct {
+	AccountId string `json:"account_id"`
+	Errors []any `json:"errors"`
+	Id *string `json:"id,omitempty"`
+	Messages []any `json:"messages"`
+	Name string `json:"name"`
+	Result map[string]any `json:"result"`
+	ResultInfo *map[string]any `json:"result_info,omitempty"`
+	Success bool `json:"success"`
+}
+
+// NamespaceRemoveMatch is the typed request payload for Namespace.RemoveTyped.
+type NamespaceRemoveMatch struct {
+	AccountId string `json:"account_id"`
+	Id string `json:"id"`
+}
+
 // Vectorize is the typed data model for the vectorize entity.
 type Vectorize struct {
 }

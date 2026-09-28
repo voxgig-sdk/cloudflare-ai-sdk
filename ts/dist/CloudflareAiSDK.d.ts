@@ -33,6 +33,8 @@ import { AutoRagJobEntity } from './entity/AutoRagJobEntity';
 import { AutoRagRagEntity } from './entity/AutoRagRagEntity';
 import { AutoRagRagSearchEntity } from './entity/AutoRagRagSearchEntity';
 import { FinetuneAssetEntity } from './entity/FinetuneAssetEntity';
+import { MemoryEntity } from './entity/MemoryEntity';
+import { NamespaceEntity } from './entity/NamespaceEntity';
 import { VectorizeEntity } from './entity/VectorizeEntity';
 import { VectorizeBetaDeprecatedEntity } from './entity/VectorizeBetaDeprecatedEntity';
 import { WorkersAiEntity } from './entity/WorkersAiEntity';
@@ -117,6 +119,8 @@ declare class CloudflareAiSDK {
     AutoRagRag(entopts?: Record<string, any>): AutoRagRagEntity;
     AutoRagRagSearch(entopts?: Record<string, any>): AutoRagRagSearchEntity;
     FinetuneAsset(entopts?: Record<string, any>): FinetuneAssetEntity;
+    Memory(entopts?: Record<string, any>): MemoryEntity;
+    Namespace(entopts?: Record<string, any>): NamespaceEntity;
     Vectorize(entopts?: Record<string, any>): VectorizeEntity;
     VectorizeBetaDeprecated(entopts?: Record<string, any>): VectorizeBetaDeprecatedEntity;
     WorkersAi(entopts?: Record<string, any>): WorkersAiEntity;

@@ -67,8 +67,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    aisearchinstancesjobs = client.AiSearchInstancesJob().list()
-    print(aisearchinstancesjobs)
+    workersaifinetunes = client.WorkersAiFinetune().list()
+    print(workersaifinetunes)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -136,8 +136,8 @@ client = CloudflareAiSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-aisearchinstancesjob = client.AiSearchInstancesJob().list()
-# aisearchinstancesjob contains the mock response record
+workersaifinetune = client.WorkersAiFinetune().list()
+# workersaifinetune contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -250,6 +250,8 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `AutoRagRag` | `(data) -> AutoRagRagEntity` | Create an AutoRagRag entity instance. |
 | `AutoRagRagSearch` | `(data) -> AutoRagRagSearchEntity` | Create an AutoRagRagSearch entity instance. |
 | `FinetuneAsset` | `(data) -> FinetuneAssetEntity` | Create a FinetuneAsset entity instance. |
+| `Memory` | `(data) -> MemoryEntity` | Create a Memory entity instance. |
+| `Namespace` | `(data) -> NamespaceEntity` | Create a Namespace entity instance. |
 | `Vectorize` | `(data) -> VectorizeEntity` | Create a Vectorize entity instance. |
 | `VectorizeBetaDeprecated` | `(data) -> VectorizeBetaDeprecatedEntity` | Create a VectorizeBetaDeprecated entity instance. |
 | `WorkersAi` | `(data) -> WorkersAiEntity` | Create a WorkersAi entity instance. |
@@ -986,6 +988,37 @@ API path: `/accounts/{account_id}/autorag/rags/{id}/ai-search`
 Operations: Load.
 
 API path: `/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}`
+
+#### Memory
+
+| Field | Description |
+| --- | --- |
+| `errors` | Always empty for a successful response. |
+| `id` |  |
+| `messages` | Informational, non-error messages, if any. |
+| `result` |  |
+| `result_info` |  |
+| `success` | Always true for a successful response. |
+
+Operations: Create, List, Load, Remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest`
+
+#### Namespace
+
+| Field | Description |
+| --- | --- |
+| `errors` | Always empty for a successful response. |
+| `id` |  |
+| `messages` | Informational, non-error messages, if any. |
+| `name` | Namespace name. |
+| `result` |  |
+| `result_info` |  |
+| `success` | Always true for a successful response. |
+
+Operations: Create, List, Load, Remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces`
 
 #### Vectorize
 
@@ -2608,6 +2641,108 @@ finetune_asset = client.FinetuneAsset().load({"id": "finetune_asset_id", "accoun
 ```
 
 
+### Memory
+
+Create an instance: `memory = client.Memory()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list()` | List entities, optionally matching the given criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `list` | Always empty for a successful response. |
+| `id` | `str` |  |
+| `messages` | `list` | Informational, non-error messages, if any. |
+| `result` | `dict` |  |
+| `result_info` | `dict` |  |
+| `success` | `bool` | Always true for a successful response. |
+
+#### Example: Load
+
+```python
+memory = client.Memory().load({"id": "memory_id", "account_id": "account_id", "namespace_id": "namespace_id", "profile_id": "profile_id"})
+```
+
+#### Example: List
+
+```python
+memorys = client.Memory().list({"account_id": "example"})
+```
+
+#### Example: Create
+
+```python
+memory = client.Memory().create({
+    "account_id": "example_account_id",  # str
+    "namespace_id": "example_namespace_id",  # str
+    "profile_name": "example_profile_name",  # str
+    "errors": [],  # list
+    "messages": [],  # list
+    "result": {},  # dict
+    "success": True,  # bool
+})
+```
+
+
+### Namespace
+
+Create an instance: `namespace = client.Namespace()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list()` | List entities, optionally matching the given criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `list` | Always empty for a successful response. |
+| `id` | `str` |  |
+| `messages` | `list` | Informational, non-error messages, if any. |
+| `name` | `str` | Namespace name. |
+| `result` | `dict` |  |
+| `result_info` | `dict` |  |
+| `success` | `bool` | Always true for a successful response. |
+
+#### Example: Load
+
+```python
+namespace = client.Namespace().load({"id": "namespace_id", "account_id": "account_id"})
+```
+
+#### Example: List
+
+```python
+namespaces = client.Namespace().list({"account_id": "example"})
+```
+
+#### Example: Create
+
+```python
+namespace = client.Namespace().create({
+    "account_id": "example_account_id",  # str
+    "errors": [],  # list
+    "messages": [],  # list
+    "name": "example_name",  # str
+    "result": {},  # dict
+    "success": True,  # bool
+})
+```
+
+
 ### Vectorize
 
 Create an instance: `vectorize = client.Vectorize()`
@@ -2959,11 +3094,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-aisearchinstancesjob = client.AiSearchInstancesJob()
-aisearchinstancesjob.list()
+workersaifinetune = client.WorkersAiFinetune()
+workersaifinetune.list()
 
-# aisearchinstancesjob.data_get() now returns the aisearchinstancesjob data from the last list
-# aisearchinstancesjob.match_get() returns the last match criteria
+# workersaifinetune.data_get() now returns the workersaifinetune data from the last list
+# workersaifinetune.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

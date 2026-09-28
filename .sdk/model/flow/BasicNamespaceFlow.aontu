@@ -1,0 +1,95 @@
+# BasicNamespaceFlow
+
+main: kit: flow: BasicNamespaceFlow:
+{
+  entity: "namespace",
+  kind: "basic",
+  name: "BasicNamespaceFlow",
+  step: [
+    {
+      i: {
+        ref: "namespace_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "namespace_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "namespace_ref01",
+        srcdatavar: "namespace_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "namespace01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-namespace_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "namespace_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "namespace01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "namespace_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNamespaceFlow"
+}

@@ -117,7 +117,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 39 entities.
+below — this SDK exposes 41 entities.
 
 ## Reference
 
@@ -172,9 +172,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 39 entities this SDK exposes (any is valid as `<entity>`):
+The 41 entities this SDK exposes (any is valid as `<entity>`):
 
-account ai_gateway ai_gateway_custom_domain ai_gateway_custom_provider ai_gateway_custom_provider_cost ai_gateway_dataset ai_gateway_dynamic_route ai_gateway_evaluation ai_gateway_gateway ai_gateway_log ai_gateway_provider_config ai_search_account_search ai_search_instance ai_search_instances_item ai_search_instances_job ai_search_namespace ai_search_token aig_billing_create_topup aig_billing_delete_spending_limit aig_billing_delete_topup_config aig_billing_get_credit_balance aig_billing_get_invoice_history aig_billing_get_invoice_preview aig_billing_get_spending_limit aig_billing_get_topup_config aig_billing_get_topup_eligibility aig_billing_get_topup_limit aig_billing_get_usage_history aig_billing_set_spending_limit aig_billing_set_topup_config aig_billing_topup_status auto_rag_job auto_rag_rag auto_rag_rag_search finetune_asset vectorize vectorize_beta__deprecated workers_ai workers_ai_finetune
+account ai_gateway ai_gateway_custom_domain ai_gateway_custom_provider ai_gateway_custom_provider_cost ai_gateway_dataset ai_gateway_dynamic_route ai_gateway_evaluation ai_gateway_gateway ai_gateway_log ai_gateway_provider_config ai_search_account_search ai_search_instance ai_search_instances_item ai_search_instances_job ai_search_namespace ai_search_token aig_billing_create_topup aig_billing_delete_spending_limit aig_billing_delete_topup_config aig_billing_get_credit_balance aig_billing_get_invoice_history aig_billing_get_invoice_preview aig_billing_get_spending_limit aig_billing_get_topup_config aig_billing_get_topup_eligibility aig_billing_get_topup_limit aig_billing_get_usage_history aig_billing_set_spending_limit aig_billing_set_topup_config aig_billing_topup_status auto_rag_job auto_rag_rag auto_rag_rag_search finetune_asset memory namespace vectorize vectorize_beta__deprecated workers_ai workers_ai_finetune
 
 ## Explanation
 

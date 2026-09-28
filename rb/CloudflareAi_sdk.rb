@@ -534,6 +534,20 @@ class CloudflareAiSDK
   end
 
 
+  # Canonical facade: client.Memory.list / client.Memory.load({ "id" => ... })
+  def Memory(data = nil)
+    require_relative 'entity/memory_entity'
+    MemoryEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.Namespace.list / client.Namespace.load({ "id" => ... })
+  def Namespace(data = nil)
+    require_relative 'entity/namespace_entity'
+    NamespaceEntity.new(self, data)
+  end
+
+
   # Canonical facade: client.Vectorize.list / client.Vectorize.load({ "id" => ... })
   def Vectorize(data = nil)
     require_relative 'entity/vectorize_entity'

@@ -68,7 +68,7 @@ function ai_search_account_search_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["ai_search_account_search01", "ai_search_account_search02", "ai_search_account_search03", "account01", "account02", "account03", "namespace01"] as $k) {
+    foreach (["ai_search_account_search01", "ai_search_account_search02", "ai_search_account_search03", "account01", "account02", "account03", "namespace01", "namespace02", "namespace03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

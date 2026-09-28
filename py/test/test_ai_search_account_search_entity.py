@@ -68,7 +68,7 @@ def _ai_search_account_search_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["ai_search_account_search01", "ai_search_account_search02", "ai_search_account_search03", "account01", "account02", "account03", "namespace01"],
+        ["ai_search_account_search01", "ai_search_account_search02", "ai_search_account_search03", "account01", "account02", "account03", "namespace01", "namespace02", "namespace03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

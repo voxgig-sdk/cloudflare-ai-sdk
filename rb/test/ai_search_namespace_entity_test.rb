@@ -152,7 +152,7 @@ def ai_search_namespace_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["ai_search_namespace01", "ai_search_namespace02", "ai_search_namespace03", "account01", "account02", "account03"],
+    ["ai_search_namespace01", "ai_search_namespace02", "ai_search_namespace03", "account01", "account02", "account03", "namespace01", "namespace02", "namespace03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

@@ -137,6 +137,12 @@ func init() {
 	core.NewFinetuneAssetEntityFunc = func(client *core.CloudflareAiSDK, entopts map[string]any) core.CloudflareAiEntity {
 		return entity.NewFinetuneAssetEntity(client, entopts)
 	}
+	core.NewMemoryEntityFunc = func(client *core.CloudflareAiSDK, entopts map[string]any) core.CloudflareAiEntity {
+		return entity.NewMemoryEntity(client, entopts)
+	}
+	core.NewNamespaceEntityFunc = func(client *core.CloudflareAiSDK, entopts map[string]any) core.CloudflareAiEntity {
+		return entity.NewNamespaceEntity(client, entopts)
+	}
 	core.NewVectorizeEntityFunc = func(client *core.CloudflareAiSDK, entopts map[string]any) core.CloudflareAiEntity {
 		return entity.NewVectorizeEntity(client, entopts)
 	}

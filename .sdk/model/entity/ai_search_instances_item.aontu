@@ -1148,8 +1148,8 @@ main: kit: entity: ai_search_instances_item: {
 
 
   relations: ancestors: [
-    [path("$.main.kit.entity.account")]
-    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace")]
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace")]
   ]
 
 }

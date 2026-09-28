@@ -41,6 +41,8 @@
 <a href="../api/auto_rag_rag.html">AutoRagRag</a>
 <a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
 <a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a href="../api/memory.html">Memory</a>
+<a href="../api/namespace.html">Namespace</a>
 <a href="../api/vectorize.html">Vectorize</a>
 <a href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a>
 <a href="../api/workers_ai.html">WorkersAi</a>
@@ -213,6 +215,14 @@
 <td><code>load</code></td>
 </tr>
 <tr>
+<td><a href="../api/memory.html">Memory</a></td>
+<td><code>create</code>, <code>list</code>, <code>load</code>, <code>remove</code></td>
+</tr>
+<tr>
+<td><a href="../api/namespace.html">Namespace</a></td>
+<td><code>create</code>, <code>list</code>, <code>load</code>, <code>remove</code></td>
+</tr>
+<tr>
 <td><a href="../api/vectorize.html">Vectorize</a></td>
 <td><code>create</code>, <code>list</code>, <code>load</code>, <code>remove</code></td>
 </tr>
@@ -286,6 +296,8 @@ client = CloudflareAiSDK.new({&quot;apikey&quot; =&gt; ENV[&quot;CLOUDFLARE_AI_A
     &quot;auto_rag_rag&quot;: {},
     &quot;auto_rag_rag_search&quot;: {},
     &quot;finetune_asset&quot;: {},
+    &quot;memory&quot;: {},
+    &quot;namespace&quot;: {},
     &quot;vectorize&quot;: {},
     &quot;vectorize_beta__deprecated&quot;: {},
     &quot;workers_ai&quot;: {},

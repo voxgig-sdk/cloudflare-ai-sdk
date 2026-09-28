@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "namespace": {
+      "NAMESPACE00": {
+        "errors": [],
+        "id": "NAMESPACE00",
+        "messages": [],
+        "name": "s49",
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "NAMESPACE01": {
+        "errors": [],
+        "id": "NAMESPACE01",
+        "messages": [],
+        "name": "s8f",
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "NAMESPACE02": {
+        "errors": [],
+        "id": "NAMESPACE02",
+        "messages": [],
+        "name": "sd5",
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "namespace": {
+      "namespace_ref01": {
+        "errors": [],
+        "messages": [],
+        "name": "s11b",
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/agent-memory/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/agent-memory/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

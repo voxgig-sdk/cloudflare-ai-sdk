@@ -1453,6 +1453,83 @@
 ---@field finetune_id string
 ---@field id string
 
+---@class Memory
+---@field errors table
+---@field id? string
+---@field messages table
+---@field result table
+---@field result_info? table
+---@field success boolean
+
+---@class MemoryLoadMatch
+---@field account_id string
+---@field id string
+---@field namespace_id string
+---@field profile_id string
+
+---@class MemoryListMatch
+---@field account_id string
+---@field namespace_id? string
+---@field profile_name? string
+---@field cursor? string
+---@field per_page? number
+---@field session_id? string
+---@field type? string
+---@field namespace_name? string
+
+---@class MemoryCreateData
+---@field account_id string
+---@field namespace_id string
+---@field profile_name string
+---@field errors table
+---@field id? string
+---@field messages table
+---@field result table
+---@field result_info? table
+---@field success boolean
+
+---@class MemoryRemoveMatch
+---@field account_id string
+---@field id? string
+---@field namespace_id string
+---@field profile_id? string
+---@field session_id? string
+---@field profile_name? string
+
+---@class Namespace
+---@field errors table
+---@field id? string
+---@field messages table
+---@field name string
+---@field result table
+---@field result_info? table
+---@field success boolean
+
+---@class NamespaceLoadMatch
+---@field account_id string
+---@field id string
+
+---@class NamespaceListMatch
+---@field account_id string
+---@field cursor? string
+---@field direction? string
+---@field order? string
+---@field per_page? number
+
+---@class NamespaceCreateData
+---@field account_id string
+---@field errors table
+---@field id? string
+---@field messages table
+---@field name string
+---@field result table
+---@field result_info? table
+---@field success boolean
+
+---@class NamespaceRemoveMatch
+---@field account_id string
+---@field id string
+
 ---@class Vectorize
 ---@field config any
 ---@field description? string

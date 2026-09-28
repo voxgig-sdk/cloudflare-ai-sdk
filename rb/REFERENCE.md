@@ -182,6 +182,14 @@ Create a new `AutoRagRagSearch` entity instance. Pass `nil` for no initial data.
 
 Create a new `FinetuneAsset` entity instance. Pass `nil` for no initial data.
 
+#### `Memory(data = nil)`
+
+Create a new `Memory` entity instance. Pass `nil` for no initial data.
+
+#### `Namespace(data = nil)`
+
+Create a new `Namespace` entity instance. Pass `nil` for no initial data.
+
 #### `Vectorize(data = nil)`
 
 Create a new `Vectorize` entity instance. Pass `nil` for no initial data.
@@ -3213,6 +3221,184 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `FinetuneAssetEntity` instance with the same client and
+options.
+
+#### `get_name -> String`
+
+Return the entity name.
+
+
+---
+
+## MemoryEntity
+
+```ruby
+memory = client.Memory
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `Array` | Yes | Always empty for a successful response. |
+| `id` | `String` | No |  |
+| `messages` | `Array` | Yes | Informational, non-error messages, if any. |
+| `result` | `Hash` | Yes |  |
+| `result_info` | `Hash` | No |  |
+| `success` | `Boolean` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(reqdata, ctrl = nil) -> result`
+
+Create a new entity with the given data. Raises on error.
+
+```ruby
+result = client.Memory.create({
+  "account_id" => "example_account_id", # String
+  "namespace_id" => "example_namespace_id", # String
+  "profile_name" => "example_profile_name", # String
+  "errors" => [], # Array
+  "messages" => [], # Array
+  "result" => {}, # Hash
+  "success" => true, # Boolean
+})
+```
+
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
+
+```ruby
+results = client.Memory.list
+```
+
+#### `load(reqmatch, ctrl = nil) -> result`
+
+Load a single entity matching the given criteria. Raises on error.
+
+```ruby
+result = client.Memory.load({ "id" => "memory_id", "account_id" => "account_id", "namespace_id" => "namespace_id", "profile_id" => "profile_id" })
+```
+
+#### `remove(reqmatch, ctrl = nil) -> result`
+
+Remove the entity matching the given criteria. Raises on error.
+
+```ruby
+result = client.Memory.remove({ "id" => "memory_id", "account_id" => "account_id", "namespace_id" => "namespace_id" })
+```
+
+### Common Methods
+
+#### `data_get -> Hash`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get -> Hash`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make -> Entity`
+
+Create a new `MemoryEntity` instance with the same client and
+options.
+
+#### `get_name -> String`
+
+Return the entity name.
+
+
+---
+
+## NamespaceEntity
+
+```ruby
+namespace = client.Namespace
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `Array` | Yes | Always empty for a successful response. |
+| `id` | `String` | No |  |
+| `messages` | `Array` | Yes | Informational, non-error messages, if any. |
+| `name` | `String` | Yes | Namespace name. |
+| `result` | `Hash` | Yes |  |
+| `result_info` | `Hash` | No |  |
+| `success` | `Boolean` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(reqdata, ctrl = nil) -> result`
+
+Create a new entity with the given data. Raises on error.
+
+```ruby
+result = client.Namespace.create({
+  "account_id" => "example_account_id", # String
+  "errors" => [], # Array
+  "messages" => [], # Array
+  "name" => "example_name", # String
+  "result" => {}, # Hash
+  "success" => true, # Boolean
+})
+```
+
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
+
+```ruby
+results = client.Namespace.list
+```
+
+#### `load(reqmatch, ctrl = nil) -> result`
+
+Load a single entity matching the given criteria. Raises on error.
+
+```ruby
+result = client.Namespace.load({ "id" => "namespace_id", "account_id" => "account_id" })
+```
+
+#### `remove(reqmatch, ctrl = nil) -> result`
+
+Remove the entity matching the given criteria. Raises on error.
+
+```ruby
+result = client.Namespace.remove({ "id" => "namespace_id", "account_id" => "account_id" })
+```
+
+### Common Methods
+
+#### `data_get -> Hash`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get -> Hash`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make -> Entity`
+
+Create a new `NamespaceEntity` instance with the same client and
 options.
 
 #### `get_name -> String`

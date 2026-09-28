@@ -1,0 +1,111 @@
+{
+  "existing": {
+    "memory": {
+      "MEMORY00": {
+        "errors": [],
+        "id": "MEMORY00",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "profile_name": "PROFILE_NAME01",
+        "namespace_name": "NAMESPACE_NAME01",
+        "profile_id": "PROFILE01",
+        "session_id": "SESSION01"
+      },
+      "MEMORY01": {
+        "errors": [],
+        "id": "MEMORY01",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "profile_name": "PROFILE_NAME01",
+        "namespace_name": "NAMESPACE_NAME01",
+        "profile_id": "PROFILE01",
+        "session_id": "SESSION01"
+      },
+      "MEMORY02": {
+        "errors": [],
+        "id": "MEMORY02",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "profile_name": "PROFILE_NAME01",
+        "namespace_name": "NAMESPACE_NAME01",
+        "profile_id": "PROFILE01",
+        "session_id": "SESSION01"
+      }
+    }
+  },
+  "new": {
+    "memory": {
+      "memory_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

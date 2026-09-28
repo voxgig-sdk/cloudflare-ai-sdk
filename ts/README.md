@@ -70,8 +70,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const aisearchinstancesjobs = await client.AiSearchInstancesJob().list()
-  console.log(aisearchinstancesjobs)
+  const workersaifinetunes = await client.WorkersAiFinetune().list()
+  console.log(workersaifinetunes)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -137,10 +137,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CloudflareAiSDK.test()
 
-const aisearchinstancesjob = await client.AiSearchInstancesJob().list()
-// aisearchinstancesjob is the entity, populated with mock response data
-// — call aisearchinstancesjob.data() for the record itself
-console.log(aisearchinstancesjob)
+const workersaifinetune = await client.WorkersAiFinetune().list()
+// workersaifinetune is the entity, populated with mock response data
+// — call workersaifinetune.data() for the record itself
+console.log(workersaifinetune)
 ```
 
 You can also use the instance method:
@@ -155,7 +155,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.AiSearchInstancesJob()
+const entity = client.WorkersAiFinetune()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -277,6 +277,8 @@ new CloudflareAiSDK(options?: {
 | `AutoRagRag(data?)` | `AutoRagRagEntity` | Create an AutoRagRag entity instance. |
 | `AutoRagRagSearch(data?)` | `AutoRagRagSearchEntity` | Create an AutoRagRagSearch entity instance. |
 | `FinetuneAsset(data?)` | `FinetuneAssetEntity` | Create a FinetuneAsset entity instance. |
+| `Memory(data?)` | `MemoryEntity` | Create a Memory entity instance. |
+| `Namespace(data?)` | `NamespaceEntity` | Create a Namespace entity instance. |
 | `Vectorize(data?)` | `VectorizeEntity` | Create a Vectorize entity instance. |
 | `VectorizeBetaDeprecated(data?)` | `VectorizeBetaDeprecatedEntity` | Create a VectorizeBetaDeprecated entity instance. |
 | `WorkersAi(data?)` | `WorkersAiEntity` | Create a WorkersAi entity instance. |
@@ -1045,6 +1047,37 @@ API path: `/accounts/{account_id}/autorag/rags/{id}/ai-search`
 Operations: load.
 
 API path: `/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}`
+
+#### Memory
+
+| Field | Description |
+| --- | --- |
+| `errors` | Always empty for a successful response. |
+| `id` |  |
+| `messages` | Informational, non-error messages, if any. |
+| `result` |  |
+| `result_info` |  |
+| `success` | Always true for a successful response. |
+
+Operations: create, list, load, remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest`
+
+#### Namespace
+
+| Field | Description |
+| --- | --- |
+| `errors` | Always empty for a successful response. |
+| `id` |  |
+| `messages` | Informational, non-error messages, if any. |
+| `name` | Namespace name. |
+| `result` |  |
+| `result_info` |  |
+| `success` | Always true for a successful response. |
+
+Operations: create, list, load, remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces`
 
 #### Vectorize
 
@@ -2667,6 +2700,108 @@ const finetune_asset = await client.FinetuneAsset().load({ id: 'finetune_asset_i
 ```
 
 
+### Memory
+
+Create an instance: `const memory = client.Memory()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `any[]` | Always empty for a successful response. |
+| `id` | `string` |  |
+| `messages` | `any[]` | Informational, non-error messages, if any. |
+| `result` | `Record<string, any>` |  |
+| `result_info` | `Record<string, any>` |  |
+| `success` | `boolean` | Always true for a successful response. |
+
+#### Example: Load
+
+```ts
+const memory = await client.Memory().load({ id: 'memory_id', account_id: 'account_id', namespace_id: 'namespace_id', profile_id: 'profile_id' })
+```
+
+#### Example: List
+
+```ts
+const memorys = await client.Memory().list({ account_id: "example" })
+```
+
+#### Example: Create
+
+```ts
+const memory = await client.Memory().create({
+  account_id: 'example_account_id',
+  namespace_id: 'example_namespace_id',
+  profile_name: 'example_profile_name',
+  errors: [],
+  messages: [],
+  result: {},
+  success: true,
+})
+```
+
+
+### Namespace
+
+Create an instance: `const namespace = client.Namespace()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `any[]` | Always empty for a successful response. |
+| `id` | `string` |  |
+| `messages` | `any[]` | Informational, non-error messages, if any. |
+| `name` | `string` | Namespace name. |
+| `result` | `Record<string, any>` |  |
+| `result_info` | `Record<string, any>` |  |
+| `success` | `boolean` | Always true for a successful response. |
+
+#### Example: Load
+
+```ts
+const namespace = await client.Namespace().load({ id: 'namespace_id', account_id: 'account_id' })
+```
+
+#### Example: List
+
+```ts
+const namespaces = await client.Namespace().list({ account_id: "example" })
+```
+
+#### Example: Create
+
+```ts
+const namespace = await client.Namespace().create({
+  account_id: 'example_account_id',
+  errors: [],
+  messages: [],
+  name: 'example_name',
+  result: {},
+  success: true,
+})
+```
+
+
 ### Vectorize
 
 Create an instance: `const vectorize = client.Vectorize()`
@@ -3011,11 +3146,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const aisearchinstancesjob = client.AiSearchInstancesJob()
-await aisearchinstancesjob.list()
+const workersaifinetune = client.WorkersAiFinetune()
+await workersaifinetune.list()
 
-// aisearchinstancesjob.data() now returns the aisearchinstancesjob data from the last `list`
-// aisearchinstancesjob.match() returns the last match criteria
+// workersaifinetune.data() now returns the workersaifinetune data from the last `list`
+// workersaifinetune.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

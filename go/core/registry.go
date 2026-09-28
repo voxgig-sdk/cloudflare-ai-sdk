@@ -76,6 +76,10 @@ var NewAutoRagRagSearchEntityFunc func(client *CloudflareAiSDK, entopts map[stri
 
 var NewFinetuneAssetEntityFunc func(client *CloudflareAiSDK, entopts map[string]any) CloudflareAiEntity
 
+var NewMemoryEntityFunc func(client *CloudflareAiSDK, entopts map[string]any) CloudflareAiEntity
+
+var NewNamespaceEntityFunc func(client *CloudflareAiSDK, entopts map[string]any) CloudflareAiEntity
+
 var NewVectorizeEntityFunc func(client *CloudflareAiSDK, entopts map[string]any) CloudflareAiEntity
 
 var NewVectorizeBetaDeprecatedEntityFunc func(client *CloudflareAiSDK, entopts map[string]any) CloudflareAiEntity

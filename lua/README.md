@@ -60,7 +60,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local aisearchinstancesjobs, err = client:AiSearchInstancesJob():list()
+local workersaifinetunes, err = client:WorkersAiFinetune():list()
 if err then error(err) end
 ```
 
@@ -118,7 +118,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:AiSearchInstancesJob():list()
+local result, err = client:WorkersAiFinetune():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -234,6 +234,8 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `AutoRagRag` | `(data) -> AutoRagRagEntity` | Create an AutoRagRag entity instance. |
 | `AutoRagRagSearch` | `(data) -> AutoRagRagSearchEntity` | Create an AutoRagRagSearch entity instance. |
 | `FinetuneAsset` | `(data) -> FinetuneAssetEntity` | Create a FinetuneAsset entity instance. |
+| `Memory` | `(data) -> MemoryEntity` | Create a Memory entity instance. |
+| `Namespace` | `(data) -> NamespaceEntity` | Create a Namespace entity instance. |
 | `Vectorize` | `(data) -> VectorizeEntity` | Create a Vectorize entity instance. |
 | `VectorizeBetaDeprecated` | `(data) -> VectorizeBetaDeprecatedEntity` | Create a VectorizeBetaDeprecated entity instance. |
 | `WorkersAi` | `(data) -> WorkersAiEntity` | Create a WorkersAi entity instance. |
@@ -971,6 +973,37 @@ API path: `/accounts/{account_id}/autorag/rags/{id}/ai-search`
 Operations: Load.
 
 API path: `/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}`
+
+#### Memory
+
+| Field | Description |
+| --- | --- |
+| `errors` | Always empty for a successful response. |
+| `id` |  |
+| `messages` | Informational, non-error messages, if any. |
+| `result` |  |
+| `result_info` |  |
+| `success` | Always true for a successful response. |
+
+Operations: Create, List, Load, Remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest`
+
+#### Namespace
+
+| Field | Description |
+| --- | --- |
+| `errors` | Always empty for a successful response. |
+| `id` |  |
+| `messages` | Informational, non-error messages, if any. |
+| `name` | Namespace name. |
+| `result` |  |
+| `result_info` |  |
+| `success` | Always true for a successful response. |
+
+Operations: Create, List, Load, Remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces`
 
 #### Vectorize
 
@@ -2593,6 +2626,108 @@ local finetune_asset, err = client:FinetuneAsset():load({ id = "finetune_asset_i
 ```
 
 
+### Memory
+
+Create an instance: `local memory = client:Memory(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `table` | Always empty for a successful response. |
+| `id` | `string` |  |
+| `messages` | `table` | Informational, non-error messages, if any. |
+| `result` | `table` |  |
+| `result_info` | `table` |  |
+| `success` | `boolean` | Always true for a successful response. |
+
+#### Example: Load
+
+```lua
+local memory, err = client:Memory():load({ id = "memory_id", account_id = "account_id", namespace_id = "namespace_id", profile_id = "profile_id" })
+```
+
+#### Example: List
+
+```lua
+local memorys, err = client:Memory():list()
+```
+
+#### Example: Create
+
+```lua
+local memory, err = client:Memory():create({
+  account_id = "example_account_id", -- string
+  namespace_id = "example_namespace_id", -- string
+  profile_name = "example_profile_name", -- string
+  errors = {}, -- table
+  messages = {}, -- table
+  result = {}, -- table
+  success = true, -- boolean
+})
+```
+
+
+### Namespace
+
+Create an instance: `local namespace = client:Namespace(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `table` | Always empty for a successful response. |
+| `id` | `string` |  |
+| `messages` | `table` | Informational, non-error messages, if any. |
+| `name` | `string` | Namespace name. |
+| `result` | `table` |  |
+| `result_info` | `table` |  |
+| `success` | `boolean` | Always true for a successful response. |
+
+#### Example: Load
+
+```lua
+local namespace, err = client:Namespace():load({ id = "namespace_id", account_id = "account_id" })
+```
+
+#### Example: List
+
+```lua
+local namespaces, err = client:Namespace():list()
+```
+
+#### Example: Create
+
+```lua
+local namespace, err = client:Namespace():create({
+  account_id = "example_account_id", -- string
+  errors = {}, -- table
+  messages = {}, -- table
+  name = "example_name", -- string
+  result = {}, -- table
+  success = true, -- boolean
+})
+```
+
+
 ### Vectorize
 
 Create an instance: `local vectorize = client:Vectorize(nil)`
@@ -2945,11 +3080,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local aisearchinstancesjob = client:AiSearchInstancesJob()
-aisearchinstancesjob:list()
+local workersaifinetune = client:WorkersAiFinetune()
+workersaifinetune:list()
 
--- aisearchinstancesjob:data_get() now returns the aisearchinstancesjob data from the last list
--- aisearchinstancesjob:match_get() returns the last match criteria
+-- workersaifinetune:data_get() now returns the workersaifinetune data from the last list
+-- workersaifinetune:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -35,6 +35,8 @@
 @"./BasicAutoRagRagFlow.aontu"
 @"./BasicAutoRagRagSearchFlow.aontu"
 @"./BasicFinetuneAssetFlow.aontu"
+@"./BasicMemoryFlow.aontu"
+@"./BasicNamespaceFlow.aontu"
 @"./BasicVectorizeBetaDeprecatedFlow.aontu"
 @"./BasicVectorizeFlow.aontu"
 @"./BasicWorkersAiFinetuneFlow.aontu"

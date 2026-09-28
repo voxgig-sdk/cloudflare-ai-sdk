@@ -15,7 +15,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"account | ai_gateway | ai_gateway_custom_domain | ai_gateway_custom_provider | ai_gateway_custom_provider_cost | ai_gateway_dataset | ai_gateway_dynamic_route | ai_gateway_evaluation | ai_gateway_gateway | ai_gateway_log | ai_gateway_provider_config | ai_search_account_search | ai_search_instance | ai_search_instances_item | ai_search_instances_job | ai_search_namespace | ai_search_token | aig_billing_create_topup | aig_billing_delete_spending_limit | aig_billing_delete_topup_config | aig_billing_get_credit_balance | aig_billing_get_invoice_history | aig_billing_get_invoice_preview | aig_billing_get_spending_limit | aig_billing_get_topup_config | aig_billing_get_topup_eligibility | aig_billing_get_topup_limit | aig_billing_get_usage_history | aig_billing_set_spending_limit | aig_billing_set_topup_config | aig_billing_topup_status | auto_rag_job | auto_rag_rag | auto_rag_rag_search | finetune_asset | vectorize | vectorize_beta__deprecated | workers_ai | workers_ai_finetune"`
+	Entity string         `json:"entity" jsonschema:"account | ai_gateway | ai_gateway_custom_domain | ai_gateway_custom_provider | ai_gateway_custom_provider_cost | ai_gateway_dataset | ai_gateway_dynamic_route | ai_gateway_evaluation | ai_gateway_gateway | ai_gateway_log | ai_gateway_provider_config | ai_search_account_search | ai_search_instance | ai_search_instances_item | ai_search_instances_job | ai_search_namespace | ai_search_token | aig_billing_create_topup | aig_billing_delete_spending_limit | aig_billing_delete_topup_config | aig_billing_get_credit_balance | aig_billing_get_invoice_history | aig_billing_get_invoice_preview | aig_billing_get_spending_limit | aig_billing_get_topup_config | aig_billing_get_topup_eligibility | aig_billing_get_topup_limit | aig_billing_get_usage_history | aig_billing_set_spending_limit | aig_billing_set_topup_config | aig_billing_topup_status | auto_rag_job | auto_rag_rag | auto_rag_rag_search | finetune_asset | memory | namespace | vectorize | vectorize_beta__deprecated | workers_ai | workers_ai_finetune"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -146,6 +146,10 @@ func entityFor(client *sdk.CloudflareAiSDK, name string) (sdk.CloudflareAiEntity
 		return client.AutoRagRagSearch(nil), nil
 	case "finetune_asset":
 		return client.FinetuneAsset(nil), nil
+	case "memory":
+		return client.Memory(nil), nil
+	case "namespace":
+		return client.Namespace(nil), nil
 	case "vectorize":
 		return client.Vectorize(nil), nil
 	case "vectorize_beta__deprecated":

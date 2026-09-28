@@ -181,6 +181,14 @@ Create a new `AutoRagRagSearch` entity instance. Pass `nil` for no initial data.
 
 Create a new `FinetuneAsset` entity instance. Pass `nil` for no initial data.
 
+#### `Memory(data)`
+
+Create a new `Memory` entity instance. Pass `nil` for no initial data.
+
+#### `Namespace(data)`
+
+Create a new `Namespace` entity instance. Pass `nil` for no initial data.
+
 #### `Vectorize(data)`
 
 Create a new `Vectorize` entity instance. Pass `nil` for no initial data.
@@ -3210,6 +3218,184 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `FinetuneAssetEntity` instance with the same client and
+options.
+
+#### `get_name() -> string`
+
+Return the entity name.
+
+
+---
+
+## MemoryEntity
+
+```lua
+local memory = client:Memory(nil)
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `table` | Yes | Always empty for a successful response. |
+| `id` | `string` | No |  |
+| `messages` | `table` | Yes | Informational, non-error messages, if any. |
+| `result` | `table` | Yes |  |
+| `result_info` | `table` | No |  |
+| `success` | `boolean` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(reqdata, ctrl) -> any, err`
+
+Create a new entity with the given data.
+
+```lua
+local result, err = client:Memory():create({
+  account_id = --[[ string ]],
+  namespace_id = --[[ string ]],
+  profile_name = --[[ string ]],
+  errors = --[[ table ]],
+  messages = --[[ table ]],
+  result = --[[ table ]],
+  success = --[[ boolean ]],
+})
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Memory():list()
+```
+
+#### `load(reqmatch, ctrl) -> any, err`
+
+Load a single entity matching the given criteria.
+
+```lua
+local result, err = client:Memory():load({ id = "memory_id", account_id = "account_id", namespace_id = "namespace_id", profile_id = "profile_id" })
+```
+
+#### `remove(reqmatch, ctrl) -> any, err`
+
+Remove the entity matching the given criteria.
+
+```lua
+local result, err = client:Memory():remove({ id = "memory_id", account_id = "account_id", namespace_id = "namespace_id" })
+```
+
+### Common Methods
+
+#### `data_get() -> table`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> table`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `MemoryEntity` instance with the same client and
+options.
+
+#### `get_name() -> string`
+
+Return the entity name.
+
+
+---
+
+## NamespaceEntity
+
+```lua
+local namespace = client:Namespace(nil)
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `table` | Yes | Always empty for a successful response. |
+| `id` | `string` | No |  |
+| `messages` | `table` | Yes | Informational, non-error messages, if any. |
+| `name` | `string` | Yes | Namespace name. |
+| `result` | `table` | Yes |  |
+| `result_info` | `table` | No |  |
+| `success` | `boolean` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(reqdata, ctrl) -> any, err`
+
+Create a new entity with the given data.
+
+```lua
+local result, err = client:Namespace():create({
+  account_id = --[[ string ]],
+  errors = --[[ table ]],
+  messages = --[[ table ]],
+  name = --[[ string ]],
+  result = --[[ table ]],
+  success = --[[ boolean ]],
+})
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Namespace():list()
+```
+
+#### `load(reqmatch, ctrl) -> any, err`
+
+Load a single entity matching the given criteria.
+
+```lua
+local result, err = client:Namespace():load({ id = "namespace_id", account_id = "account_id" })
+```
+
+#### `remove(reqmatch, ctrl) -> any, err`
+
+Remove the entity matching the given criteria.
+
+```lua
+local result, err = client:Namespace():remove({ id = "namespace_id", account_id = "account_id" })
+```
+
+### Common Methods
+
+#### `data_get() -> table`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> table`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `NamespaceEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`

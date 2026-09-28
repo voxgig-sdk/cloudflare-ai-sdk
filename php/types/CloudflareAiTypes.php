@@ -1828,6 +1828,113 @@ class FinetuneAssetLoadMatch
     public string $id;
 }
 
+/** Memory entity data model. */
+class Memory
+{
+    public array $errors;
+    public ?string $id = null;
+    public array $messages;
+    public array $result;
+    public ?array $result_info = null;
+    public bool $success;
+}
+
+/** Request payload for Memory#load. */
+class MemoryLoadMatch
+{
+    public string $account_id;
+    public string $id;
+    public string $namespace_id;
+    public string $profile_id;
+}
+
+/** Request payload for Memory#list. */
+class MemoryListMatch
+{
+    public string $account_id;
+    public ?string $namespace_id = null;
+    public ?string $profile_name = null;
+    public ?string $cursor = null;
+    public ?int $per_page = null;
+    public ?string $session_id = null;
+    public ?string $type = null;
+    public ?string $namespace_name = null;
+}
+
+/** Request payload for Memory#create. */
+class MemoryCreateData
+{
+    public string $account_id;
+    public string $namespace_id;
+    public string $profile_name;
+    public array $errors;
+    public ?string $id = null;
+    public array $messages;
+    public array $result;
+    public ?array $result_info = null;
+    public bool $success;
+}
+
+/** Request payload for Memory#remove. */
+class MemoryRemoveMatch
+{
+    public string $account_id;
+    public ?string $id = null;
+    public string $namespace_id;
+    public ?string $profile_id = null;
+    public ?string $session_id = null;
+    public ?string $profile_name = null;
+}
+
+/** Namespace entity data model. */
+class NamespaceType
+{
+    public array $errors;
+    public ?string $id = null;
+    public array $messages;
+    public string $name;
+    public array $result;
+    public ?array $result_info = null;
+    public bool $success;
+}
+
+/** Request payload for Namespace#load. */
+class NamespaceLoadMatch
+{
+    public string $account_id;
+    public string $id;
+}
+
+/** Request payload for Namespace#list. */
+class NamespaceListMatch
+{
+    public string $account_id;
+    public ?string $cursor = null;
+    public ?string $direction = null;
+    public ?string $order = null;
+    public ?int $per_page = null;
+}
+
+/** Request payload for Namespace#create. */
+class NamespaceCreateData
+{
+    public string $account_id;
+    public array $errors;
+    public ?string $id = null;
+    public array $messages;
+    public string $name;
+    public array $result;
+    public ?array $result_info = null;
+    public bool $success;
+}
+
+/** Request payload for Namespace#remove. */
+class NamespaceRemoveMatch
+{
+    public string $account_id;
+    public string $id;
+}
+
 /** Vectorize entity data model. */
 class Vectorize
 {

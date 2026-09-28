@@ -18,7 +18,7 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 ## Entities, not endpoints
 
-This SDK exposes the API as **39 semantic entities** that you
+This SDK exposes the API as **41 semantic entities** that you
 call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`, `update`, `remove`, `patch`):
@@ -44,23 +44,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = CloudflareAiSDK.test({
   entity: {
-    ai_search_instances_job: {
-      test01: { id: 'test01', account_id: 'example_account_id', instance_id: 'example_instance_id', action: 'example_action' },
+    workers_ai_finetune: {
+      test01: { id: 'test01', account_id: 'example_account_id', created_at: 'example_created_at' },
     },
   },
 })
-const aisearchinstancesjobs = await client.AiSearchInstancesJob().list()
-// aisearchinstancesjobs is an array of AiSearchInstancesJob entities, populated with mock data
-// — call aisearchinstancesjobs[0].data() for the record itself
-console.log(aisearchinstancesjobs)
+const workersaifinetunes = await client.WorkersAiFinetune().list()
+// workersaifinetunes is an array of WorkersAiFinetune entities, populated with mock data
+// — call workersaifinetunes[0].data() for the record itself
+console.log(workersaifinetunes)
 ```
 
 ### Python
 
 ```python
 client = CloudflareAiSDK.test()
-aisearchinstancesjobs = client.AiSearchInstancesJob().list()
-print(aisearchinstancesjobs)
+workersaifinetunes = client.WorkersAiFinetune().list()
+print(workersaifinetunes)
 ```
 
 ### PHP
@@ -68,16 +68,16 @@ print(aisearchinstancesjobs)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = CloudflareAiSDK::test([
-    "entity" => ["aisearchinstancesjob" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["workersaifinetune" => ["test01" => []]],
 ]);
-$aisearchinstancesjobs = $client->AiSearchInstancesJob()->list();
+$workersaifinetunes = $client->WorkersAiFinetune()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.AiSearchInstancesJob(nil).List(
+result, err := client.WorkersAiFinetune(nil).List(
     nil, nil,
 )
 ```
@@ -87,16 +87,16 @@ result, err := client.AiSearchInstancesJob(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = CloudflareAiSDK.test({
-  "entity" => { "aisearchinstancesjob" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "workersaifinetune" => { "test01" => {} } },
 })
-aisearchinstancesjobs = client.AiSearchInstancesJob.list()
+workersaifinetunes = client.WorkersAiFinetune.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:AiSearchInstancesJob():list()
+local results, err = client:WorkersAiFinetune():list()
 ```
 
 ## Packages
@@ -167,7 +167,7 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 39 entities:
+The API exposes 41 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
@@ -206,6 +206,8 @@ The API exposes 39 entities:
 | **AutoRagRag** | The AutoRagRag entity (list, update). | `/accounts/{account_id}/autorag/rags/{id}/files` |
 | **AutoRagRagSearch** | The AutoRagRagSearch entity (create). | `/accounts/{account_id}/autorag/rags/{id}/ai-search` |
 | **FinetuneAsset** | The FinetuneAsset entity (load). | `/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}` |
+| **Memory** | The Memory entity (create, list, load, remove). | `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories` |
+| **Namespace** | The Namespace entity (create, list, load, remove). | `/accounts/{account_id}/agent-memory/namespaces` |
 | **Vectorize** | The Vectorize entity (create, list, load, remove). | `/accounts/{account_id}/vectorize/v2/indexes` |
 | **VectorizeBetaDeprecated** | The VectorizeBetaDeprecated entity (create, list, load, remove, update). | `/accounts/{account_id}/vectorize/indexes` |
 | **WorkersAi** | The WorkersAi entity (create, list, load). | `/accounts/{account_id}/ai/authors/search` |

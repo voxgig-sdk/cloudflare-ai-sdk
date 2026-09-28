@@ -147,6 +147,10 @@ func entityFor(client *sdk.CloudflareAiSDK, name string) (sdk.CloudflareAiEntity
 		return client.AutoRagRagSearch(nil), nil
 	case "finetune_asset":
 		return client.FinetuneAsset(nil), nil
+	case "memory":
+		return client.Memory(nil), nil
+	case "namespace":
+		return client.Namespace(nil), nil
 	case "vectorize":
 		return client.Vectorize(nil), nil
 	case "vectorize_beta__deprecated":

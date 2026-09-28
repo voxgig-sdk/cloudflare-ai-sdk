@@ -6333,7 +6333,8 @@
           "relations": {
             "ancestors": [
               [
-                "$.main.kit.entity.account"
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
               ]
             ]
           }
@@ -8467,10 +8468,12 @@
                 "$.main.kit.entity.account"
               ],
               [
-                "$.main.kit.entity.account"
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
               ],
               [
-                "$.main.kit.entity.account"
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
               ]
             ]
           }
@@ -9718,10 +9721,12 @@
           "relations": {
             "ancestors": [
               [
-                "$.main.kit.entity.account"
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
               ],
               [
-                "$.main.kit.entity.account"
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
               ]
             ]
           }
@@ -10785,10 +10790,12 @@
                 "$.main.kit.entity.account"
               ],
               [
-                "$.main.kit.entity.account"
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
               ],
               [
-                "$.main.kit.entity.account"
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
               ]
             ]
           }
@@ -11307,7 +11314,8 @@
                 "$.main.kit.entity.account"
               ],
               [
-                "$.main.kit.entity.account"
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
               ]
             ]
           }
@@ -14319,6 +14327,1387 @@
                   "t": {
                     "req": "`reqdata`",
                     "res": "`body.result`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": [
+              [
+                "$.main.kit.entity.account"
+              ]
+            ]
+          }
+        },
+        "memory": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "errors": {
+              "a": true,
+              "h": "Errors",
+              "n": "errors",
+              "r": true,
+              "sh": "Always empty for a successful response.",
+              "t": "`$ARRAY`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "messages": {
+              "a": true,
+              "h": "Messages",
+              "n": "messages",
+              "r": true,
+              "sh": "Informational, non-error messages, if any.",
+              "t": "`$ARRAY`"
+            },
+            "result": {
+              "a": true,
+              "h": "Result",
+              "n": "result",
+              "r": true,
+              "t": "`$OBJECT`"
+            },
+            "result_info": {
+              "a": true,
+              "h": "Result Info",
+              "n": "result_info",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "success": {
+              "a": true,
+              "h": "Success",
+              "n": "success",
+              "r": true,
+              "sh": "Always true for a successful response.",
+              "t": "`$BOOLEAN`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "memory",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_name",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest",
+                  "q": {
+                    "$action": "ingest",
+                    "exist": [
+                      "account_id",
+                      "namespace_id",
+                      "profile_name"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "namespace_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_name"
+                    },
+                    {
+                      "lit": "ingest"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_name",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall",
+                  "q": {
+                    "$action": "recall",
+                    "exist": [
+                      "account_id",
+                      "namespace_id",
+                      "profile_name"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "namespace_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_name"
+                    },
+                    {
+                      "lit": "recall"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_name",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember",
+                  "q": {
+                    "$action": "remember",
+                    "exist": [
+                      "account_id",
+                      "namespace_id",
+                      "profile_name"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "namespace_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_name"
+                    },
+                    {
+                      "lit": "remember"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_name",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary",
+                  "q": {
+                    "$action": "summary",
+                    "exist": [
+                      "account_id",
+                      "namespace_id",
+                      "profile_name"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "namespace_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_name"
+                    },
+                    {
+                      "lit": "summary"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_name",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "01JSGCEXAMP1E0000000000000",
+                        "k": "query",
+                        "n": "cursor",
+                        "or": "cursor",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "per_page",
+                        "or": "per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "chat-session-42",
+                        "k": "query",
+                        "n": "session_id",
+                        "or": "session_id",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "fact",
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "cursor",
+                      "namespace_id",
+                      "per_page",
+                      "profile_name",
+                      "session_id",
+                      "type"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "namespace_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_name"
+                    },
+                    {
+                      "lit": "memories"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_name",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "ex": "eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9",
+                        "k": "query",
+                        "n": "cursor",
+                        "or": "cursor",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "per_page",
+                        "or": "per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "cursor",
+                      "namespace_name",
+                      "per_page"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_name"
+                    },
+                    {
+                      "lit": "profiles"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "01JSGCEXAMP1E0000000000000",
+                        "k": "param",
+                        "n": "id",
+                        "or": "memory_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_id",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "id",
+                      "namespace_id",
+                      "profile_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "memory_id": "id",
+                      "namespace_name": "namespace_id",
+                      "profile_name": "profile_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_id"
+                    },
+                    {
+                      "lit": "memories"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "remove": {
+              "input": "data",
+              "name": "remove",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "01JSGCEXAMP1E0000000000000",
+                        "k": "param",
+                        "n": "id",
+                        "or": "memory_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_id",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "DELETE",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "id",
+                      "namespace_id",
+                      "profile_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "memory_id": "id",
+                      "namespace_name": "namespace_id",
+                      "profile_name": "profile_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_id"
+                    },
+                    {
+                      "lit": "memories"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_id",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "chat-session-44",
+                        "k": "param",
+                        "n": "session_id",
+                        "or": "session_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "DELETE",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "namespace_id",
+                      "profile_id",
+                      "session_id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "namespace_id",
+                      "profile_name": "profile_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_id"
+                    },
+                    {
+                      "lit": "sessions"
+                    },
+                    {
+                      "var": "session_id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "namespace_id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "my-profile",
+                        "k": "param",
+                        "n": "profile_name",
+                        "or": "profile_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "DELETE",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "namespace_id",
+                      "profile_name"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "namespace_id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "namespace_id"
+                    },
+                    {
+                      "lit": "profiles"
+                    },
+                    {
+                      "var": "profile_name"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": [
+              [
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
+              ],
+              [
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
+              ],
+              [
+                "$.main.kit.entity.account",
+                "$.main.kit.entity.namespace"
+              ]
+            ]
+          }
+        },
+        "namespace": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": {
+            "errors": {
+              "a": true,
+              "h": "Errors",
+              "n": "errors",
+              "r": true,
+              "sh": "Always empty for a successful response.",
+              "t": "`$ARRAY`"
+            },
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
+            },
+            "messages": {
+              "a": true,
+              "h": "Messages",
+              "n": "messages",
+              "r": true,
+              "sh": "Informational, non-error messages, if any.",
+              "t": "`$ARRAY`"
+            },
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Namespace name.",
+              "t": "`$STRING`"
+            },
+            "result": {
+              "a": true,
+              "h": "Result",
+              "n": "result",
+              "r": true,
+              "t": "`$OBJECT`"
+            },
+            "result_info": {
+              "a": true,
+              "h": "Result Info",
+              "n": "result_info",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "success": {
+              "a": true,
+              "h": "Success",
+              "n": "success",
+              "r": true,
+              "sh": "Always true for a successful response.",
+              "t": "`$BOOLEAN`"
+            }
+          },
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "namespace",
+          "op": {
+            "create": {
+              "input": "data",
+              "name": "create",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "POST /accounts/{account_id}/agent-memory/namespaces",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces",
+                  "q": {
+                    "exist": [
+                      "account_id"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /accounts/{account_id}/agent-memory/namespaces",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ],
+                    "query": [
+                      {
+                        "a": true,
+                        "k": "query",
+                        "n": "cursor",
+                        "or": "cursor",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "asc",
+                        "k": "query",
+                        "n": "direction",
+                        "or": "direction",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "id",
+                        "k": "query",
+                        "n": "order",
+                        "or": "order",
+                        "r": false,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "per_page",
+                        "or": "per_page",
+                        "r": false,
+                        "t": "`$INTEGER`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "cursor",
+                      "direction",
+                      "order",
+                      "per_page"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            },
+            "remove": {
+              "input": "data",
+              "name": "remove",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "k": "param",
+                        "n": "account_id",
+                        "or": "account_id",
+                        "r": true,
+                        "t": "`$STRING`"
+                      },
+                      {
+                        "a": true,
+                        "ex": "support-agent",
+                        "k": "param",
+                        "n": "id",
+                        "or": "namespace_name",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "DELETE",
+                  "o": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}",
+                  "q": {
+                    "exist": [
+                      "account_id",
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "namespace_name": "id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "accounts"
+                    },
+                    {
+                      "var": "account_id"
+                    },
+                    {
+                      "lit": "agent-memory"
+                    },
+                    {
+                      "lit": "namespaces"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 }
               ]
@@ -19487,6 +20876,213 @@
                   "apply": "TextFieldMark",
                   "def": {
                     "mark": "Mark01-finetune_asset_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicMemoryFlow": {
+          "active": true,
+          "entity": "memory",
+          "key$": "BasicMemoryFlow",
+          "kind": "basic",
+          "name": "BasicMemoryFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "memory_ref01"
+              },
+              "m": {
+                "account_id": "account01",
+                "namespace_id": "namespace01",
+                "namespace_name": "namespace_name01",
+                "profile_id": "profile01",
+                "profile_name": "profile_name01"
+              },
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
+                "account_id": "account01",
+                "namespace_name": "namespace_name01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "memory_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "memory_ref01",
+                "srcdatavar": "memory_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "account_id": "account01",
+                "id": "memory01",
+                "namespace_id": "namespace01",
+                "profile_id": "profile01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-memory_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "memory_ref01",
+                "suffix": "_rm0"
+              },
+              "m": {
+                "account_id": "account01",
+                "id": "memory01",
+                "namespace_id": "namespace01"
+              },
+              "o": "remove",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "suffix": "_rt0"
+              },
+              "m": {
+                "account_id": "account01",
+                "namespace_name": "namespace_name01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemNotExists",
+                  "def": {
+                    "ref": "memory_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicNamespaceFlow": {
+          "active": true,
+          "entity": "namespace",
+          "key$": "BasicNamespaceFlow",
+          "kind": "basic",
+          "name": "BasicNamespaceFlow",
+          "param": {},
+          "step": [
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "namespace_ref01"
+              },
+              "m": {
+                "account_id": "account01"
+              },
+              "o": "create",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {
+                "account_id": "account01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "namespace_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "namespace_ref01",
+                "srcdatavar": "namespace_ref01_data",
+                "suffix": "_dt0"
+              },
+              "m": {
+                "account_id": "account01",
+                "id": "namespace01"
+              },
+              "o": "load",
+              "s": [],
+              "v": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-namespace_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "ref": "namespace_ref01",
+                "suffix": "_rm0"
+              },
+              "m": {
+                "account_id": "account01",
+                "id": "namespace01"
+              },
+              "o": "remove",
+              "s": [],
+              "v": []
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
+                "suffix": "_rt0"
+              },
+              "m": {
+                "account_id": "account01"
+              },
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemNotExists",
+                  "def": {
+                    "ref": "namespace_ref01"
                   }
                 }
               ]

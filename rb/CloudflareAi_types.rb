@@ -5425,6 +5425,284 @@ FinetuneAssetLoadMatch = Struct.new(
   keyword_init: true
 )
 
+# Memory entity data model.
+#
+# @!attribute [rw] errors
+#   @return [Array]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] messages
+#   @return [Array]
+#
+# @!attribute [rw] result
+#   @return [Hash]
+#
+# @!attribute [rw] result_info
+#   @return [Hash, nil]
+#
+# @!attribute [rw] success
+#   @return [Boolean]
+Memory = Struct.new(
+  :errors,
+  :id,
+  :messages,
+  :result,
+  :result_info,
+  :success,
+  keyword_init: true
+)
+
+# Request payload for Memory#load.
+#
+# @!attribute [rw] account_id
+#   @return [String]
+#
+# @!attribute [rw] id
+#   @return [String]
+#
+# @!attribute [rw] namespace_id
+#   @return [String]
+#
+# @!attribute [rw] profile_id
+#   @return [String]
+MemoryLoadMatch = Struct.new(
+  :account_id,
+  :id,
+  :namespace_id,
+  :profile_id,
+  keyword_init: true
+)
+
+# Request payload for Memory#list.
+#
+# @!attribute [rw] account_id
+#   @return [String]
+#
+# @!attribute [rw] namespace_id
+#   @return [String, nil]
+#
+# @!attribute [rw] profile_name
+#   @return [String, nil]
+#
+# @!attribute [rw] cursor
+#   @return [String, nil]
+#
+# @!attribute [rw] per_page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] session_id
+#   @return [String, nil]
+#
+# @!attribute [rw] type
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace_name
+#   @return [String, nil]
+MemoryListMatch = Struct.new(
+  :account_id,
+  :namespace_id,
+  :profile_name,
+  :cursor,
+  :per_page,
+  :session_id,
+  :type,
+  :namespace_name,
+  keyword_init: true
+)
+
+# Request payload for Memory#create.
+#
+# @!attribute [rw] account_id
+#   @return [String]
+#
+# @!attribute [rw] namespace_id
+#   @return [String]
+#
+# @!attribute [rw] profile_name
+#   @return [String]
+#
+# @!attribute [rw] errors
+#   @return [Array]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] messages
+#   @return [Array]
+#
+# @!attribute [rw] result
+#   @return [Hash]
+#
+# @!attribute [rw] result_info
+#   @return [Hash, nil]
+#
+# @!attribute [rw] success
+#   @return [Boolean]
+MemoryCreateData = Struct.new(
+  :account_id,
+  :namespace_id,
+  :profile_name,
+  :errors,
+  :id,
+  :messages,
+  :result,
+  :result_info,
+  :success,
+  keyword_init: true
+)
+
+# Request payload for Memory#remove.
+#
+# @!attribute [rw] account_id
+#   @return [String]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] namespace_id
+#   @return [String]
+#
+# @!attribute [rw] profile_id
+#   @return [String, nil]
+#
+# @!attribute [rw] session_id
+#   @return [String, nil]
+#
+# @!attribute [rw] profile_name
+#   @return [String, nil]
+MemoryRemoveMatch = Struct.new(
+  :account_id,
+  :id,
+  :namespace_id,
+  :profile_id,
+  :session_id,
+  :profile_name,
+  keyword_init: true
+)
+
+# Namespace entity data model.
+#
+# @!attribute [rw] errors
+#   @return [Array]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] messages
+#   @return [Array]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] result
+#   @return [Hash]
+#
+# @!attribute [rw] result_info
+#   @return [Hash, nil]
+#
+# @!attribute [rw] success
+#   @return [Boolean]
+Namespace = Struct.new(
+  :errors,
+  :id,
+  :messages,
+  :name,
+  :result,
+  :result_info,
+  :success,
+  keyword_init: true
+)
+
+# Request payload for Namespace#load.
+#
+# @!attribute [rw] account_id
+#   @return [String]
+#
+# @!attribute [rw] id
+#   @return [String]
+NamespaceLoadMatch = Struct.new(
+  :account_id,
+  :id,
+  keyword_init: true
+)
+
+# Request payload for Namespace#list.
+#
+# @!attribute [rw] account_id
+#   @return [String]
+#
+# @!attribute [rw] cursor
+#   @return [String, nil]
+#
+# @!attribute [rw] direction
+#   @return [String, nil]
+#
+# @!attribute [rw] order
+#   @return [String, nil]
+#
+# @!attribute [rw] per_page
+#   @return [Integer, nil]
+NamespaceListMatch = Struct.new(
+  :account_id,
+  :cursor,
+  :direction,
+  :order,
+  :per_page,
+  keyword_init: true
+)
+
+# Request payload for Namespace#create.
+#
+# @!attribute [rw] account_id
+#   @return [String]
+#
+# @!attribute [rw] errors
+#   @return [Array]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] messages
+#   @return [Array]
+#
+# @!attribute [rw] name
+#   @return [String]
+#
+# @!attribute [rw] result
+#   @return [Hash]
+#
+# @!attribute [rw] result_info
+#   @return [Hash, nil]
+#
+# @!attribute [rw] success
+#   @return [Boolean]
+NamespaceCreateData = Struct.new(
+  :account_id,
+  :errors,
+  :id,
+  :messages,
+  :name,
+  :result,
+  :result_info,
+  :success,
+  keyword_init: true
+)
+
+# Request payload for Namespace#remove.
+#
+# @!attribute [rw] account_id
+#   @return [String]
+#
+# @!attribute [rw] id
+#   @return [String]
+NamespaceRemoveMatch = Struct.new(
+  :account_id,
+  :id,
+  keyword_init: true
+)
+
 # Vectorize entity data model.
 #
 # @!attribute [rw] config

@@ -182,6 +182,14 @@ Create a new `AutoRagRagSearchEntity` instance. Pass `null` for no initial data.
 
 Create a new `FinetuneAssetEntity` instance. Pass `null` for no initial data.
 
+#### `Memory($data = null)`
+
+Create a new `MemoryEntity` instance. Pass `null` for no initial data.
+
+#### `Namespace($data = null)`
+
+Create a new `NamespaceEntity` instance. Pass `null` for no initial data.
+
 #### `Vectorize($data = null)`
 
 Create a new `VectorizeEntity` instance. Pass `null` for no initial data.
@@ -3212,6 +3220,184 @@ Set the entity match criteria.
 #### `make(): FinetuneAssetEntity`
 
 Create a new `FinetuneAssetEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## MemoryEntity
+
+```php
+$memory = $client->Memory();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `array` | Yes | Always empty for a successful response. |
+| `id` | `string` | No |  |
+| `messages` | `array` | Yes | Informational, non-error messages, if any. |
+| `result` | `array` | Yes |  |
+| `result_info` | `array` | No |  |
+| `success` | `bool` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Memory()->create([
+  "account_id" => null, // string
+  "namespace_id" => null, // string
+  "profile_name" => null, // string
+  "errors" => null, // array
+  "messages" => null, // array
+  "result" => null, // array
+  "success" => null, // bool
+]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Memory()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Memory()->load(["id" => "memory_id", "account_id" => "account_id", "namespace_id" => "namespace_id", "profile_id" => "profile_id"]);
+```
+
+#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
+
+Remove the entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Memory()->remove(["id" => "memory_id", "account_id" => "account_id", "namespace_id" => "namespace_id"]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): MemoryEntity`
+
+Create a new `MemoryEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
+## NamespaceEntity
+
+```php
+$namespace = $client->Namespace();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `array` | Yes | Always empty for a successful response. |
+| `id` | `string` | No |  |
+| `messages` | `array` | Yes | Informational, non-error messages, if any. |
+| `name` | `string` | Yes | Namespace name. |
+| `result` | `array` | Yes |  |
+| `result_info` | `array` | No |  |
+| `success` | `bool` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Namespace()->create([
+  "account_id" => null, // string
+  "errors" => null, // array
+  "messages" => null, // array
+  "name" => null, // string
+  "result" => null, // array
+  "success" => null, // bool
+]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Namespace()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Namespace()->load(["id" => "namespace_id", "account_id" => "account_id"]);
+```
+
+#### `remove(array $reqmatch, ?array $ctrl = null): mixed`
+
+Remove the entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Namespace()->remove(["id" => "namespace_id", "account_id" => "account_id"]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): NamespaceEntity`
+
+Create a new `NamespaceEntity` instance with the same client and
 options.
 
 #### `get_name(): string`

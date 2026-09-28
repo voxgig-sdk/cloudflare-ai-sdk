@@ -971,6 +971,42 @@ class CloudflareAiSDK
     }
 
 
+    private $_memory = null;
+
+    // Canonical facade: $client->Memory()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->memory()
+    // resolves here too.
+    public function Memory($data = null)
+    {
+        require_once __DIR__ . '/entity/memory_entity.php';
+        if ($data === null) {
+            if ($this->_memory === null) {
+                $this->_memory = new MemoryEntity($this, null);
+            }
+            return $this->_memory;
+        }
+        return new MemoryEntity($this, $data);
+    }
+
+
+    private $_namespace = null;
+
+    // Canonical facade: $client->Namespace()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->namespace()
+    // resolves here too.
+    public function Namespace($data = null)
+    {
+        require_once __DIR__ . '/entity/namespace_entity.php';
+        if ($data === null) {
+            if ($this->_namespace === null) {
+                $this->_namespace = new NamespaceEntity($this, null);
+            }
+            return $this->_namespace;
+        }
+        return new NamespaceEntity($this, $data);
+    }
+
+
     private $_vectorize = null;
 
     // Canonical facade: $client->Vectorize()->list() / ->load(["id" => ...]).

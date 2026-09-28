@@ -188,6 +188,14 @@ Create a new `AutoRagRagSearch` entity instance. Pass `nil` for no initial data.
 
 Create a new `FinetuneAsset` entity instance. Pass `nil` for no initial data.
 
+#### `Memory(data map[string]any) CloudflareAiEntity`
+
+Create a new `Memory` entity instance. Pass `nil` for no initial data.
+
+#### `Namespace(data map[string]any) CloudflareAiEntity`
+
+Create a new `Namespace` entity instance. Pass `nil` for no initial data.
+
 #### `Vectorize(data map[string]any) CloudflareAiEntity`
 
 Create a new `Vectorize` entity instance. Pass `nil` for no initial data.
@@ -3394,6 +3402,206 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `FinetuneAssetEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## MemoryEntity
+
+```go
+memory := client.Memory(nil)
+fmt.Println(memory.GetName()) // "memory"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `[]any` | Yes | Always empty for a successful response. |
+| `id` | `string` | No |  |
+| `messages` | `[]any` | Yes | Informational, non-error messages, if any. |
+| `result` | `map[string]any` | Yes |  |
+| `result_info` | `map[string]any` | No |  |
+| `success` | `bool` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Memory(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.Memory(nil).Load(map[string]any{"id": "memory_id", "account_id": "account_id", "namespace_id": "namespace_id", "profile_id": "profile_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Memory(nil).Create(map[string]any{
+    "account_id": "example_account_id",
+    "namespace_id": "example_namespace_id",
+    "profile_name": "example_profile_name",
+    "errors": []any{},
+    "messages": []any{},
+    "result": map[string]any{},
+    "success": true,
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
+
+Remove the entity matching the given criteria.
+
+```go
+result, err := client.Memory(nil).Remove(map[string]any{"id": "memory_id", "account_id": "account_id", "namespace_id": "namespace_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `MemoryEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
+
+
+---
+
+## NamespaceEntity
+
+```go
+namespace := client.Namespace(nil)
+fmt.Println(namespace.GetName()) // "namespace"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `[]any` | Yes | Always empty for a successful response. |
+| `id` | `string` | No |  |
+| `messages` | `[]any` | Yes | Informational, non-error messages, if any. |
+| `name` | `string` | Yes | Namespace name. |
+| `result` | `map[string]any` | Yes |  |
+| `result_info` | `map[string]any` | No |  |
+| `success` | `bool` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Namespace(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.Namespace(nil).Load(map[string]any{"id": "namespace_id", "account_id": "account_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Namespace(nil).Create(map[string]any{
+    "account_id": "example_account_id",
+    "errors": []any{},
+    "messages": []any{},
+    "name": "example_name",
+    "result": map[string]any{},
+    "success": true,
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Remove(reqmatch, ctrl map[string]any) (any, error)`
+
+Remove the entity matching the given criteria.
+
+```go
+result, err := client.Namespace(nil).Remove(map[string]any{"id": "namespace_id", "account_id": "account_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `NamespaceEntity` instance with the same client and
 options.
 
 #### `GetName() string`

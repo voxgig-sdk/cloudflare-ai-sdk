@@ -41,6 +41,8 @@
 <a href="../api/auto_rag_rag.html">AutoRagRag</a>
 <a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
 <a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a href="../api/memory.html">Memory</a>
+<a href="../api/namespace.html">Namespace</a>
 <a href="../api/vectorize.html">Vectorize</a>
 <a href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a>
 <a href="../api/workers_ai.html">WorkersAi</a>
@@ -214,6 +216,14 @@
 <td><code>load</code></td>
 </tr>
 <tr>
+<td><a href="../api/memory.html">Memory</a></td>
+<td><code>create</code>, <code>list</code>, <code>load</code>, <code>remove</code></td>
+</tr>
+<tr>
+<td><a href="../api/namespace.html">Namespace</a></td>
+<td><code>create</code>, <code>list</code>, <code>load</code>, <code>remove</code></td>
+</tr>
+<tr>
 <td><a href="../api/vectorize.html">Vectorize</a></td>
 <td><code>create</code>, <code>list</code>, <code>load</code>, <code>remove</code></td>
 </tr>
@@ -248,7 +258,7 @@
   &quot;properties&quot;: {
     &quot;entity&quot;: {
       &quot;type&quot;: &quot;string&quot;,
-      &quot;description&quot;: &quot;account | ai_gateway | ai_gateway_custom_domain | ai_gateway_custom_provider | ai_gateway_custom_provider_cost | ai_gateway_dataset | ai_gateway_dynamic_route | ai_gateway_evaluation | ai_gateway_gateway | ai_gateway_log | ai_gateway_provider_config | ai_search_account_search | ai_search_instance | ai_search_instances_item | ai_search_instances_job | ai_search_namespace | ai_search_token | aig_billing_create_topup | aig_billing_delete_spending_limit | aig_billing_delete_topup_config | aig_billing_get_credit_balance | aig_billing_get_invoice_history | aig_billing_get_invoice_preview | aig_billing_get_spending_limit | aig_billing_get_topup_config | aig_billing_get_topup_eligibility | aig_billing_get_topup_limit | aig_billing_get_usage_history | aig_billing_set_spending_limit | aig_billing_set_topup_config | aig_billing_topup_status | auto_rag_job | auto_rag_rag | auto_rag_rag_search | finetune_asset | vectorize | vectorize_beta__deprecated | workers_ai | workers_ai_finetune&quot;
+      &quot;description&quot;: &quot;account | ai_gateway | ai_gateway_custom_domain | ai_gateway_custom_provider | ai_gateway_custom_provider_cost | ai_gateway_dataset | ai_gateway_dynamic_route | ai_gateway_evaluation | ai_gateway_gateway | ai_gateway_log | ai_gateway_provider_config | ai_search_account_search | ai_search_instance | ai_search_instances_item | ai_search_instances_job | ai_search_namespace | ai_search_token | aig_billing_create_topup | aig_billing_delete_spending_limit | aig_billing_delete_topup_config | aig_billing_get_credit_balance | aig_billing_get_invoice_history | aig_billing_get_invoice_preview | aig_billing_get_spending_limit | aig_billing_get_topup_config | aig_billing_get_topup_eligibility | aig_billing_get_topup_limit | aig_billing_get_usage_history | aig_billing_set_spending_limit | aig_billing_set_topup_config | aig_billing_topup_status | auto_rag_job | auto_rag_rag | auto_rag_rag_search | finetune_asset | memory | namespace | vectorize | vectorize_beta__deprecated | workers_ai | workers_ai_finetune&quot;
     },
     &quot;query&quot;: {
       &quot;type&quot;: &quot;object&quot;,
@@ -257,7 +267,7 @@
   }
 }
 </code></pre>
-<p>Supported entities: <code>ai_gateway_custom_domain</code>, <code>ai_gateway_custom_provider</code>, <code>ai_gateway_custom_provider_cost</code>, <code>ai_gateway_dataset</code>, <code>ai_gateway_evaluation</code>, <code>ai_gateway_gateway</code>, <code>ai_gateway_log</code>, <code>ai_gateway_provider_config</code>, <code>ai_search_instance</code>, <code>ai_search_instances_item</code>, <code>ai_search_instances_job</code>, <code>ai_search_namespace</code>, <code>ai_search_token</code>, <code>aig_billing_get_credit_balance</code>, <code>aig_billing_get_invoice_history</code>, <code>aig_billing_get_invoice_preview</code>, <code>aig_billing_get_spending_limit</code>, <code>aig_billing_get_topup_config</code>, <code>aig_billing_get_topup_limit</code>, <code>aig_billing_get_usage_history</code>, <code>auto_rag_job</code>, <code>auto_rag_rag</code>, <code>vectorize</code>, <code>vectorize_beta__deprecated</code>, <code>workers_ai</code>, <code>workers_ai_finetune</code>.</p>
+<p>Supported entities: <code>ai_gateway_custom_domain</code>, <code>ai_gateway_custom_provider</code>, <code>ai_gateway_custom_provider_cost</code>, <code>ai_gateway_dataset</code>, <code>ai_gateway_evaluation</code>, <code>ai_gateway_gateway</code>, <code>ai_gateway_log</code>, <code>ai_gateway_provider_config</code>, <code>ai_search_instance</code>, <code>ai_search_instances_item</code>, <code>ai_search_instances_job</code>, <code>ai_search_namespace</code>, <code>ai_search_token</code>, <code>aig_billing_get_credit_balance</code>, <code>aig_billing_get_invoice_history</code>, <code>aig_billing_get_invoice_preview</code>, <code>aig_billing_get_spending_limit</code>, <code>aig_billing_get_topup_config</code>, <code>aig_billing_get_topup_limit</code>, <code>aig_billing_get_usage_history</code>, <code>auto_rag_job</code>, <code>auto_rag_rag</code>, <code>memory</code>, <code>namespace</code>, <code>vectorize</code>, <code>vectorize_beta__deprecated</code>, <code>workers_ai</code>, <code>workers_ai_finetune</code>.</p>
 <h3 id="cloudflare-ai_load"><code>cloudflare-ai_load</code></h3>
 <p>Load one record for an entity.</p>
 <pre><code class="language-json">{
@@ -268,7 +278,7 @@
   &quot;properties&quot;: {
     &quot;entity&quot;: {
       &quot;type&quot;: &quot;string&quot;,
-      &quot;description&quot;: &quot;account | ai_gateway | ai_gateway_custom_domain | ai_gateway_custom_provider | ai_gateway_custom_provider_cost | ai_gateway_dataset | ai_gateway_dynamic_route | ai_gateway_evaluation | ai_gateway_gateway | ai_gateway_log | ai_gateway_provider_config | ai_search_account_search | ai_search_instance | ai_search_instances_item | ai_search_instances_job | ai_search_namespace | ai_search_token | aig_billing_create_topup | aig_billing_delete_spending_limit | aig_billing_delete_topup_config | aig_billing_get_credit_balance | aig_billing_get_invoice_history | aig_billing_get_invoice_preview | aig_billing_get_spending_limit | aig_billing_get_topup_config | aig_billing_get_topup_eligibility | aig_billing_get_topup_limit | aig_billing_get_usage_history | aig_billing_set_spending_limit | aig_billing_set_topup_config | aig_billing_topup_status | auto_rag_job | auto_rag_rag | auto_rag_rag_search | finetune_asset | vectorize | vectorize_beta__deprecated | workers_ai | workers_ai_finetune&quot;
+      &quot;description&quot;: &quot;account | ai_gateway | ai_gateway_custom_domain | ai_gateway_custom_provider | ai_gateway_custom_provider_cost | ai_gateway_dataset | ai_gateway_dynamic_route | ai_gateway_evaluation | ai_gateway_gateway | ai_gateway_log | ai_gateway_provider_config | ai_search_account_search | ai_search_instance | ai_search_instances_item | ai_search_instances_job | ai_search_namespace | ai_search_token | aig_billing_create_topup | aig_billing_delete_spending_limit | aig_billing_delete_topup_config | aig_billing_get_credit_balance | aig_billing_get_invoice_history | aig_billing_get_invoice_preview | aig_billing_get_spending_limit | aig_billing_get_topup_config | aig_billing_get_topup_eligibility | aig_billing_get_topup_limit | aig_billing_get_usage_history | aig_billing_set_spending_limit | aig_billing_set_topup_config | aig_billing_topup_status | auto_rag_job | auto_rag_rag | auto_rag_rag_search | finetune_asset | memory | namespace | vectorize | vectorize_beta__deprecated | workers_ai | workers_ai_finetune&quot;
     },
     &quot;query&quot;: {
       &quot;type&quot;: &quot;object&quot;,
@@ -277,6 +287,6 @@
   }
 }
 </code></pre>
-<p>Supported entities: <code>account</code>, <code>ai_gateway_custom_domain</code>, <code>ai_gateway_custom_provider</code>, <code>ai_gateway_custom_provider_cost</code>, <code>ai_gateway_dataset</code>, <code>ai_gateway_dynamic_route</code>, <code>ai_gateway_evaluation</code>, <code>ai_gateway_gateway</code>, <code>ai_gateway_log</code>, <code>ai_search_instance</code>, <code>ai_search_instances_item</code>, <code>ai_search_instances_job</code>, <code>ai_search_namespace</code>, <code>ai_search_token</code>, <code>auto_rag_job</code>, <code>finetune_asset</code>, <code>vectorize</code>, <code>vectorize_beta__deprecated</code>, <code>workers_ai</code>, <code>workers_ai_finetune</code>.</p>
+<p>Supported entities: <code>account</code>, <code>ai_gateway_custom_domain</code>, <code>ai_gateway_custom_provider</code>, <code>ai_gateway_custom_provider_cost</code>, <code>ai_gateway_dataset</code>, <code>ai_gateway_dynamic_route</code>, <code>ai_gateway_evaluation</code>, <code>ai_gateway_gateway</code>, <code>ai_gateway_log</code>, <code>ai_search_instance</code>, <code>ai_search_instances_item</code>, <code>ai_search_instances_job</code>, <code>ai_search_namespace</code>, <code>ai_search_token</code>, <code>auto_rag_job</code>, <code>finetune_asset</code>, <code>memory</code>, <code>namespace</code>, <code>vectorize</code>, <code>vectorize_beta__deprecated</code>, <code>workers_ai</code>, <code>workers_ai_finetune</code>.</p>
 </main></div>
 <script src="../assets/search.js" defer></script></body></html>

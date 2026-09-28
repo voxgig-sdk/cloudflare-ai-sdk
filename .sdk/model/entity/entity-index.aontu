@@ -35,6 +35,8 @@
 @"./auto_rag_rag.aontu"
 @"./auto_rag_rag_search.aontu"
 @"./finetune_asset.aontu"
+@"./memory.aontu"
+@"./namespace.aontu"
 @"./vectorize.aontu"
 @"./vectorize_beta__deprecated.aontu"
 @"./workers_ai.aontu"

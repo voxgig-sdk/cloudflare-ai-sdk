@@ -37,6 +37,8 @@
     "docs/api/auto_rag_rag_search.html",
     "docs/api/finetune_asset.html",
     "docs/api/index.html",
+    "docs/api/memory.html",
+    "docs/api/namespace.html",
     "docs/api/vectorize.html",
     "docs/api/vectorize_beta__deprecated.html",
     "docs/api/workers_ai.html",

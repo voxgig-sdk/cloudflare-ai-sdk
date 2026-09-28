@@ -37,6 +37,8 @@ const AutoRagJobEntity_1 = require("./entity/AutoRagJobEntity");
 const AutoRagRagEntity_1 = require("./entity/AutoRagRagEntity");
 const AutoRagRagSearchEntity_1 = require("./entity/AutoRagRagSearchEntity");
 const FinetuneAssetEntity_1 = require("./entity/FinetuneAssetEntity");
+const MemoryEntity_1 = require("./entity/MemoryEntity");
+const NamespaceEntity_1 = require("./entity/NamespaceEntity");
 const VectorizeEntity_1 = require("./entity/VectorizeEntity");
 const VectorizeBetaDeprecatedEntity_1 = require("./entity/VectorizeBetaDeprecatedEntity");
 const WorkersAiEntity_1 = require("./entity/WorkersAiEntity");
@@ -492,6 +494,20 @@ class CloudflareAiSDK {
     FinetuneAsset(entopts) {
         const self = this;
         return new FinetuneAssetEntity_1.FinetuneAssetEntity(self, entopts);
+    }
+    // Entity access: `client.Memory().list()` / `client.Memory().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Memory(entopts) {
+        const self = this;
+        return new MemoryEntity_1.MemoryEntity(self, entopts);
+    }
+    // Entity access: `client.Namespace().list()` / `client.Namespace().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Namespace(entopts) {
+        const self = this;
+        return new NamespaceEntity_1.NamespaceEntity(self, entopts);
     }
     // Entity access: `client.Vectorize().list()` / `client.Vectorize().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity

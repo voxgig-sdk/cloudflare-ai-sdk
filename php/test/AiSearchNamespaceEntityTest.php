@@ -163,7 +163,7 @@ function ai_search_namespace_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["ai_search_namespace01", "ai_search_namespace02", "ai_search_namespace03", "account01", "account02", "account03"] as $k) {
+    foreach (["ai_search_namespace01", "ai_search_namespace02", "ai_search_namespace03", "account01", "account02", "account03", "namespace01", "namespace02", "namespace03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

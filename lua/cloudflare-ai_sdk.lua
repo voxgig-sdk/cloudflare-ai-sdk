@@ -836,6 +836,34 @@ function CloudflareAiSDK:FinetuneAsset(data)
 end
 
 
+-- Idiomatic facade: client:Memory():list() / client:Memory():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CloudflareAiSDK:Memory(data)
+  local EntityMod = require("entity.memory_entity")
+  if data == nil then
+    if self._memory == nil then
+      self._memory = EntityMod.new(self, nil)
+    end
+    return self._memory
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:Namespace():list() / client:Namespace():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CloudflareAiSDK:Namespace(data)
+  local EntityMod = require("entity.namespace_entity")
+  if data == nil then
+    if self._namespace == nil then
+      self._namespace = EntityMod.new(self, nil)
+    end
+    return self._namespace
+  end
+  return EntityMod.new(self, data)
+end
+
+
 -- Idiomatic facade: client:Vectorize():list() / client:Vectorize():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function CloudflareAiSDK:Vectorize(data)

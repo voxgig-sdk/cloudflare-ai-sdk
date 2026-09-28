@@ -472,7 +472,7 @@ main: kit: entity: ai_search_namespace: {
 
   relations: ancestors: [
     [path("$.main.kit.entity.account")]
-    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace")]
   ]
 
 }

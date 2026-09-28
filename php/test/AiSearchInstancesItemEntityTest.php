@@ -173,7 +173,7 @@ function ai_search_instances_item_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["ai_search_instances_item01", "ai_search_instances_item02", "ai_search_instances_item03", "account01", "account02", "account03", "instance01", "item01", "namespace01"] as $k) {
+    foreach (["ai_search_instances_item01", "ai_search_instances_item02", "ai_search_instances_item03", "account01", "account02", "account03", "namespace01", "namespace02", "namespace03", "instance01", "item01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

@@ -35,6 +35,8 @@ import { AutoRagJobEntity } from './entity/AutoRagJobEntity'
 import { AutoRagRagEntity } from './entity/AutoRagRagEntity'
 import { AutoRagRagSearchEntity } from './entity/AutoRagRagSearchEntity'
 import { FinetuneAssetEntity } from './entity/FinetuneAssetEntity'
+import { MemoryEntity } from './entity/MemoryEntity'
+import { NamespaceEntity } from './entity/NamespaceEntity'
 import { VectorizeEntity } from './entity/VectorizeEntity'
 import { VectorizeBetaDeprecatedEntity } from './entity/VectorizeBetaDeprecatedEntity'
 import { WorkersAiEntity } from './entity/WorkersAiEntity'
@@ -632,6 +634,24 @@ class CloudflareAiSDK {
   FinetuneAsset(entopts?: Record<string, any>) {
     const self = this
     return new FinetuneAssetEntity(self, entopts)
+  }
+
+
+  // Entity access: `client.Memory().list()` / `client.Memory().load({ id })`.
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Memory(entopts?: Record<string, any>) {
+    const self = this
+    return new MemoryEntity(self, entopts)
+  }
+
+
+  // Entity access: `client.Namespace().list()` / `client.Namespace().load({ id })`.
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Namespace(entopts?: Record<string, any>) {
+    const self = this
+    return new NamespaceEntity(self, entopts)
   }
 
 

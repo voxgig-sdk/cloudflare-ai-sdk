@@ -1593,6 +1593,99 @@ export interface FinetuneAssetLoadMatch {
   id: string
 }
 
+export interface Memory {
+  errors: any[]
+  id?: string
+  messages: any[]
+  result: Record<string, any>
+  result_info?: Record<string, any>
+  success: boolean
+}
+
+export interface MemoryLoadMatch {
+  account_id: string
+  id: string
+  namespace_id: string
+  profile_id: string
+}
+
+export interface MemoryListMatch {
+  account_id: string
+  namespace_id?: string
+  profile_name?: string
+  cursor?: string
+  per_page?: number
+  session_id?: string
+  type?: string
+  namespace_name?: string
+}
+
+export interface MemoryCreateData {
+  account_id: string
+  namespace_id: string
+  profile_name: string
+  errors: any[]
+  id?: string
+  messages: any[]
+  result: Record<string, any>
+  result_info?: Record<string, any>
+  success: boolean
+
+  // Selects a custom action instead of the plain create:
+  //   'ingest' | 'recall' | 'remember' | 'summary'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
+}
+
+export interface MemoryRemoveMatch {
+  account_id: string
+  id?: string
+  namespace_id: string
+  profile_id?: string
+  session_id?: string
+  profile_name?: string
+}
+
+export interface Namespace {
+  errors: any[]
+  id?: string
+  messages: any[]
+  name: string
+  result: Record<string, any>
+  result_info?: Record<string, any>
+  success: boolean
+}
+
+export interface NamespaceLoadMatch {
+  account_id: string
+  id: string
+}
+
+export interface NamespaceListMatch {
+  account_id: string
+  cursor?: string
+  direction?: string
+  order?: string
+  per_page?: number
+}
+
+export interface NamespaceCreateData {
+  account_id: string
+  errors: any[]
+  id?: string
+  messages: any[]
+  name: string
+  result: Record<string, any>
+  result_info?: Record<string, any>
+  success: boolean
+}
+
+export interface NamespaceRemoveMatch {
+  account_id: string
+  id: string
+}
+
 export interface Vectorize {
   config: any
   description?: string

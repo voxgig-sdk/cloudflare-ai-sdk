@@ -76,12 +76,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-aisearchinstancesjobs, err := client.AiSearchInstancesJob(nil).List(nil, nil)
+workersaifinetunes, err := client.WorkersAiFinetune(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = aisearchinstancesjobs
+_ = workersaifinetunes
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -145,13 +145,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-aiSearchInstancesJob, err := client.AiSearchInstancesJob(nil).List(
+workersAiFinetune, err := client.WorkersAiFinetune(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(aiSearchInstancesJob) // the returned mock data
+fmt.Println(workersAiFinetune) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -265,6 +265,8 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `AutoRagRag` | `(data map[string]any) CloudflareAiEntity` | Create an AutoRagRag entity instance. |
 | `AutoRagRagSearch` | `(data map[string]any) CloudflareAiEntity` | Create an AutoRagRagSearch entity instance. |
 | `FinetuneAsset` | `(data map[string]any) CloudflareAiEntity` | Create a FinetuneAsset entity instance. |
+| `Memory` | `(data map[string]any) CloudflareAiEntity` | Create a Memory entity instance. |
+| `Namespace` | `(data map[string]any) CloudflareAiEntity` | Create a Namespace entity instance. |
 | `Vectorize` | `(data map[string]any) CloudflareAiEntity` | Create a Vectorize entity instance. |
 | `VectorizeBetaDeprecated` | `(data map[string]any) CloudflareAiEntity` | Create a VectorizeBetaDeprecated entity instance. |
 | `WorkersAi` | `(data map[string]any) CloudflareAiEntity` | Create a WorkersAi entity instance. |
@@ -1002,6 +1004,37 @@ API path: `/accounts/{account_id}/autorag/rags/{id}/ai-search`
 Operations: Load.
 
 API path: `/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}`
+
+#### Memory
+
+| Field | Description |
+| --- | --- |
+| `"errors"` | Always empty for a successful response. |
+| `"id"` |  |
+| `"messages"` | Informational, non-error messages, if any. |
+| `"result"` |  |
+| `"result_info"` |  |
+| `"success"` | Always true for a successful response. |
+
+Operations: Create, List, Load, Remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest`
+
+#### Namespace
+
+| Field | Description |
+| --- | --- |
+| `"errors"` | Always empty for a successful response. |
+| `"id"` |  |
+| `"messages"` | Informational, non-error messages, if any. |
+| `"name"` | Namespace name. |
+| `"result"` |  |
+| `"result_info"` |  |
+| `"success"` | Always true for a successful response. |
+
+Operations: Create, List, Load, Remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces`
 
 #### Vectorize
 
@@ -2860,6 +2893,132 @@ fmt.Println(finetuneAsset) // the loaded record
 ```
 
 
+### Memory
+
+Create an instance: `memory := client.Memory(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `[]any` | Always empty for a successful response. |
+| `id` | `string` |  |
+| `messages` | `[]any` | Informational, non-error messages, if any. |
+| `result` | `map[string]any` |  |
+| `result_info` | `map[string]any` |  |
+| `success` | `bool` | Always true for a successful response. |
+
+#### Example: Load
+
+```go
+memory, err := client.Memory(nil).Load(map[string]any{"id": "memory_id", "account_id": "account_id", "namespace_id": "namespace_id", "profile_id": "profile_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(memory) // the loaded record
+```
+
+#### Example: List
+
+```go
+memorys, err := client.Memory(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(memorys) // the array of records
+```
+
+#### Example: Create
+
+```go
+result, err := client.Memory(nil).Create(map[string]any{
+    "account_id": "example_account_id",
+    "namespace_id": "example_namespace_id",
+    "profile_name": "example_profile_name",
+    "errors": []any{},
+    "messages": []any{},
+    "result": map[string]any{},
+    "success": true,
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
+### Namespace
+
+Create an instance: `namespace := client.Namespace(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+| `Remove(match, ctrl)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `[]any` | Always empty for a successful response. |
+| `id` | `string` |  |
+| `messages` | `[]any` | Informational, non-error messages, if any. |
+| `name` | `string` | Namespace name. |
+| `result` | `map[string]any` |  |
+| `result_info` | `map[string]any` |  |
+| `success` | `bool` | Always true for a successful response. |
+
+#### Example: Load
+
+```go
+namespace, err := client.Namespace(nil).Load(map[string]any{"id": "namespace_id", "account_id": "account_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(namespace) // the loaded record
+```
+
+#### Example: List
+
+```go
+namespaces, err := client.Namespace(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(namespaces) // the array of records
+```
+
+#### Example: Create
+
+```go
+result, err := client.Namespace(nil).Create(map[string]any{
+    "account_id": "example_account_id",
+    "errors": []any{},
+    "messages": []any{},
+    "name": "example_name",
+    "result": map[string]any{},
+    "success": true,
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+
 ### Vectorize
 
 Create an instance: `vectorize := client.Vectorize(nil)`
@@ -3256,11 +3415,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-aisearchinstancesjob := client.AiSearchInstancesJob(nil)
-aisearchinstancesjob.List(nil, nil)
+workersaifinetune := client.WorkersAiFinetune(nil)
+workersaifinetune.List(nil, nil)
 
-// aisearchinstancesjob.Data() now returns the aisearchinstancesjob data from the last list
-// aisearchinstancesjob.Match() returns the last match criteria
+// workersaifinetune.Data() now returns the workersaifinetune data from the last list
+// workersaifinetune.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

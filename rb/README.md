@@ -61,7 +61,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  aisearchinstancesjobs = client.AiSearchInstancesJob.list()
+  workersaifinetunes = client.WorkersAiFinetune.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -124,18 +124,15 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```ruby
-client = CloudflareAiSDK.test({
-  "entity" => { "aisearchinstancesjob" => { "test01" => { "id" => "test01" } } },
-})
+client = CloudflareAiSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-aisearchinstancesjob = client.AiSearchInstancesJob.list()
-puts aisearchinstancesjob
+workersaifinetune = client.WorkersAiFinetune.list()
+puts workersaifinetune
 ```
 
 ### Use a custom fetch function
@@ -248,6 +245,8 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `AutoRagRag` | `(data) -> AutoRagRagEntity` | Create an AutoRagRag entity instance. |
 | `AutoRagRagSearch` | `(data) -> AutoRagRagSearchEntity` | Create an AutoRagRagSearch entity instance. |
 | `FinetuneAsset` | `(data) -> FinetuneAssetEntity` | Create a FinetuneAsset entity instance. |
+| `Memory` | `(data) -> MemoryEntity` | Create a Memory entity instance. |
+| `Namespace` | `(data) -> NamespaceEntity` | Create a Namespace entity instance. |
 | `Vectorize` | `(data) -> VectorizeEntity` | Create a Vectorize entity instance. |
 | `VectorizeBetaDeprecated` | `(data) -> VectorizeBetaDeprecatedEntity` | Create a VectorizeBetaDeprecated entity instance. |
 | `WorkersAi` | `(data) -> WorkersAiEntity` | Create a WorkersAi entity instance. |
@@ -983,6 +982,37 @@ API path: `/accounts/{account_id}/autorag/rags/{id}/ai-search`
 Operations: Load.
 
 API path: `/accounts/{account_id}/ai/finetunes/{finetune_id}/finetune-assets/{file_name}`
+
+#### Memory
+
+| Field | Description |
+| --- | --- |
+| `errors` | Always empty for a successful response. |
+| `id` |  |
+| `messages` | Informational, non-error messages, if any. |
+| `result` |  |
+| `result_info` |  |
+| `success` | Always true for a successful response. |
+
+Operations: Create, List, Load, Remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest`
+
+#### Namespace
+
+| Field | Description |
+| --- | --- |
+| `errors` | Always empty for a successful response. |
+| `id` |  |
+| `messages` | Informational, non-error messages, if any. |
+| `name` | Namespace name. |
+| `result` |  |
+| `result_info` |  |
+| `success` | Always true for a successful response. |
+
+Operations: Create, List, Load, Remove.
+
+API path: `/accounts/{account_id}/agent-memory/namespaces`
 
 #### Vectorize
 
@@ -2643,6 +2673,112 @@ finetune_asset = client.FinetuneAsset.load({ "id" => "finetune_asset_id", "accou
 ```
 
 
+### Memory
+
+Create an instance: `memory = client.Memory`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `Array` | Always empty for a successful response. |
+| `id` | `String` |  |
+| `messages` | `Array` | Informational, non-error messages, if any. |
+| `result` | `Hash` |  |
+| `result_info` | `Hash` |  |
+| `success` | `Boolean` | Always true for a successful response. |
+
+#### Example: Load
+
+```ruby
+# load returns the ENTITY — call data_get for the Memory record (raises on error).
+memory = client.Memory.load({ "id" => "memory_id", "account_id" => "account_id", "namespace_id" => "namespace_id", "profile_id" => "profile_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of Memory records (raises on error).
+memorys = client.Memory.list
+```
+
+#### Example: Create
+
+```ruby
+memory = client.Memory.create({
+  "account_id" => "example_account_id", # String
+  "namespace_id" => "example_namespace_id", # String
+  "profile_name" => "example_profile_name", # String
+  "errors" => [], # Array
+  "messages" => [], # Array
+  "result" => {}, # Hash
+  "success" => true, # Boolean
+})
+```
+
+
+### Namespace
+
+Create an instance: `namespace = client.Namespace`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `remove(match)` | Remove the matching entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `errors` | `Array` | Always empty for a successful response. |
+| `id` | `String` |  |
+| `messages` | `Array` | Informational, non-error messages, if any. |
+| `name` | `String` | Namespace name. |
+| `result` | `Hash` |  |
+| `result_info` | `Hash` |  |
+| `success` | `Boolean` | Always true for a successful response. |
+
+#### Example: Load
+
+```ruby
+# load returns the ENTITY — call data_get for the Namespace record (raises on error).
+namespace = client.Namespace.load({ "id" => "namespace_id", "account_id" => "account_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of Namespace records (raises on error).
+namespaces = client.Namespace.list
+```
+
+#### Example: Create
+
+```ruby
+namespace = client.Namespace.create({
+  "account_id" => "example_account_id", # String
+  "errors" => [], # Array
+  "messages" => [], # Array
+  "name" => "example_name", # String
+  "result" => {}, # Hash
+  "success" => true, # Boolean
+})
+```
+
+
 ### Vectorize
 
 Create an instance: `vectorize = client.Vectorize`
@@ -3003,11 +3139,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-aisearchinstancesjob = client.AiSearchInstancesJob
-aisearchinstancesjob.list()
+workersaifinetune = client.WorkersAiFinetune
+workersaifinetune.list()
 
-# aisearchinstancesjob.data_get now returns the aisearchinstancesjob data from the last list
-# aisearchinstancesjob.match_get returns the last match criteria
+# workersaifinetune.data_get now returns the workersaifinetune data from the last list
+# workersaifinetune.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

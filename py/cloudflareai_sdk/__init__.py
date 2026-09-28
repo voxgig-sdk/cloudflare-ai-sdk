@@ -517,6 +517,18 @@ class CloudflareAiSDK:
         return FinetuneAssetEntity(self, data)
 
 
+    def Memory(self, data=None) -> "MemoryEntity":
+        """Entity factory: client.Memory().list() / client.Memory().load({"id": ...})."""
+        from cloudflareai_sdk.entity.memory_entity import MemoryEntity
+        return MemoryEntity(self, data)
+
+
+    def Namespace(self, data=None) -> "NamespaceEntity":
+        """Entity factory: client.Namespace().list() / client.Namespace().load({"id": ...})."""
+        from cloudflareai_sdk.entity.namespace_entity import NamespaceEntity
+        return NamespaceEntity(self, data)
+
+
     def Vectorize(self, data=None) -> "VectorizeEntity":
         """Entity factory: client.Vectorize().list() / client.Vectorize().load({"id": ...})."""
         from cloudflareai_sdk.entity.vectorize_entity import VectorizeEntity
@@ -603,6 +615,8 @@ if TYPE_CHECKING:
     from cloudflareai_sdk.entity.auto_rag_rag_entity import AutoRagRagEntity
     from cloudflareai_sdk.entity.auto_rag_rag_search_entity import AutoRagRagSearchEntity
     from cloudflareai_sdk.entity.finetune_asset_entity import FinetuneAssetEntity
+    from cloudflareai_sdk.entity.memory_entity import MemoryEntity
+    from cloudflareai_sdk.entity.namespace_entity import NamespaceEntity
     from cloudflareai_sdk.entity.vectorize_entity import VectorizeEntity
     from cloudflareai_sdk.entity.vectorize_beta__deprecated_entity import VectorizeBetaDeprecatedEntity
     from cloudflareai_sdk.entity.workers_ai_entity import WorkersAiEntity

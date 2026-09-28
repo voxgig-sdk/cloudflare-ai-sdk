@@ -1,0 +1,2726 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Memory | Cloudflare AI</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare AI<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-ai-sdk">voxgig-sdk/cloudflare-ai-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare AI</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/ai_gateway.html">AiGateway</a>
+<a href="../api/ai_gateway_custom_domain.html">AiGatewayCustomDomain</a>
+<a href="../api/ai_gateway_custom_provider.html">AiGatewayCustomProvider</a>
+<a href="../api/ai_gateway_custom_provider_cost.html">AiGatewayCustomProviderCost</a>
+<a href="../api/ai_gateway_dataset.html">AiGatewayDataset</a>
+<a href="../api/ai_gateway_dynamic_route.html">AiGatewayDynamicRoute</a>
+<a href="../api/ai_gateway_evaluation.html">AiGatewayEvaluation</a>
+<a href="../api/ai_gateway_gateway.html">AiGatewayGateway</a>
+<a href="../api/ai_gateway_log.html">AiGatewayLog</a>
+<a href="../api/ai_gateway_provider_config.html">AiGatewayProviderConfig</a>
+<a href="../api/ai_search_account_search.html">AiSearchAccountSearch</a>
+<a href="../api/ai_search_instance.html">AiSearchInstance</a>
+<a href="../api/ai_search_instances_item.html">AiSearchInstancesItem</a>
+<a href="../api/ai_search_instances_job.html">AiSearchInstancesJob</a>
+<a href="../api/ai_search_namespace.html">AiSearchNamespace</a>
+<a href="../api/ai_search_token.html">AiSearchToken</a>
+<a href="../api/aig_billing_create_topup.html">AigBillingCreateTopup</a>
+<a href="../api/aig_billing_delete_spending_limit.html">AigBillingDeleteSpendingLimit</a>
+<a href="../api/aig_billing_delete_topup_config.html">AigBillingDeleteTopupConfig</a>
+<a href="../api/aig_billing_get_credit_balance.html">AigBillingGetCreditBalance</a>
+<a href="../api/aig_billing_get_invoice_history.html">AigBillingGetInvoiceHistory</a>
+<a href="../api/aig_billing_get_invoice_preview.html">AigBillingGetInvoicePreview</a>
+<a href="../api/aig_billing_get_spending_limit.html">AigBillingGetSpendingLimit</a>
+<a href="../api/aig_billing_get_topup_config.html">AigBillingGetTopupConfig</a>
+<a href="../api/aig_billing_get_topup_eligibility.html">AigBillingGetTopupEligibility</a>
+<a href="../api/aig_billing_get_topup_limit.html">AigBillingGetTopupLimit</a>
+<a href="../api/aig_billing_get_usage_history.html">AigBillingGetUsageHistory</a>
+<a href="../api/aig_billing_set_spending_limit.html">AigBillingSetSpendingLimit</a>
+<a href="../api/aig_billing_set_topup_config.html">AigBillingSetTopupConfig</a>
+<a href="../api/aig_billing_topup_status.html">AigBillingTopupStatus</a>
+<a href="../api/auto_rag_job.html">AutoRagJob</a>
+<a href="../api/auto_rag_rag.html">AutoRagRag</a>
+<a href="../api/auto_rag_rag_search.html">AutoRagRagSearch</a>
+<a href="../api/finetune_asset.html">FinetuneAsset</a>
+<a aria-current="page" href="../api/memory.html">Memory</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_nameingest">POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest</a>
+<a class="nav-section" href="#post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namerecall">POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall</a>
+<a class="nav-section" href="#post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_nameremember">POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember</a>
+<a class="nav-section" href="#post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namesummary">POST /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary</a>
+<a class="nav-section" href="#get-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememories">GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories</a>
+<a class="nav-section" href="#get-accountsaccount_idagent-memorynamespacesnamespace_nameprofiles">GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles</a>
+<a class="nav-section" href="#get-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememoriesmemory_id">GET /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememoriesmemory_id">DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namesessionssession_id">DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_name">DELETE /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}</a></div>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/vectorize.html">Vectorize</a>
+<a href="../api/vectorize_beta__deprecated.html">VectorizeBetaDeprecated</a>
+<a href="../api/workers_ai.html">WorkersAi</a>
+<a href="../api/workers_ai_finetune.html">WorkersAiFinetune</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="memory">Memory</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_nameingest"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest</code></a></td>
+<td><code>create</code></td>
+<td>Conversation ingested</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namerecall"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall</code></a></td>
+<td><code>create</code></td>
+<td>Recall result</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_nameremember"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember</code></a></td>
+<td><code>create</code></td>
+<td>Memory stored</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namesummary"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary</code></a></td>
+<td><code>create</code></td>
+<td>Profile summary</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememories"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories</code></a></td>
+<td><code>list</code></td>
+<td>A page of memory metadata</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idagent-memorynamespacesnamespace_nameprofiles"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles</code></a></td>
+<td><code>list</code></td>
+<td>A page of profiles</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememoriesmemory_id"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}</code></a></td>
+<td><code>load</code></td>
+<td>The requested memory</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememoriesmemory_id"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}</code></a></td>
+<td><code>remove</code></td>
+<td>The deleted memory</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namesessionssession_id"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Session deleted</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_name"><code>/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}</code></a></td>
+<td><code>remove</code></td>
+<td>Profile deleted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">memorys, err := client.Memory(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(memorys)
+memory, err := client.Memory(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;, &quot;namespace_id&quot;: &quot;example&quot;, &quot;profile_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(memory)
+created, err := client.Memory(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;, &quot;profile_name&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;result&quot;: map[string]any{}, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+removed, err := client.Memory(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local memorys, err = client:Memory():list({ account_id = &quot;example&quot; })
+local memory, err = client:Memory():load({ account_id = &quot;example&quot;, id = &quot;example_id&quot;, namespace_id = &quot;example&quot;, profile_id = &quot;example&quot; })
+local created, err = client:Memory():create({ account_id = &quot;example&quot;, namespace_id = &quot;example&quot;, profile_name = &quot;example&quot;, errors = {}, messages = {}, result = {}, success = true })
+local removed, err = client:Memory():remove({ account_id = &quot;example&quot;, namespace_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$memorys = $client-&gt;Memory()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$memory = $client-&gt;Memory()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;, &quot;profile_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;Memory()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;, &quot;profile_name&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; [], &quot;success&quot; =&gt; true]);
+$client-&gt;Memory()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">memorys = client.Memory().list({&quot;account_id&quot;: &quot;example&quot;})
+memory = client.Memory().load({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;, &quot;namespace_id&quot;: &quot;example&quot;, &quot;profile_id&quot;: &quot;example&quot;})
+created = client.Memory().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;, &quot;profile_name&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;messages&quot;: [], &quot;result&quot;: {}, &quot;success&quot;: True })
+client.Memory().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">memorys = client.Memory.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+memory = client.Memory.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;, &quot;profile_id&quot; =&gt; &quot;example&quot; })
+created = client.Memory.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;, &quot;profile_name&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; {}, &quot;success&quot; =&gt; true })
+client.Memory.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const memorys = await client.Memory().list({ account_id: &quot;example&quot; })
+const memory = await client.Memory().load({ account_id: &quot;example&quot;, id: &quot;example_id&quot;, namespace_id: &quot;example&quot;, profile_id: &quot;example&quot; })
+const created = await client.Memory().create({ account_id: &quot;example&quot;, namespace_id: &quot;example&quot;, profile_name: &quot;example&quot;, errors: [], messages: [], result: {}, success: true })
+await client.Memory().remove({ account_id: &quot;example&quot;, namespace_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Result Info</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_nameingest" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest</h3>
+<p>Operation ID: <code>agent-memory-ingest</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Conversation messages to extract memories from.</td>
+</tr>
+<tr>
+<td><code>messages[].content</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Text content of the message.</td>
+</tr>
+<tr>
+<td><code>messages[].role</code></td>
+<td><code>enum: system, user, assistant</code></td>
+<td>Yes</td>
+<td>Author role of the message.</td>
+</tr>
+<tr>
+<td><code>messages[].timestamp</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Message timestamp.</td>
+</tr>
+<tr>
+<td><code>sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Session identifier.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-conversation-ingested" class="status" data-status="2xx">200: Conversation ingested</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namerecall" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall</h3>
+<p>Operation ID: <code>agent-memory-recall</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>query</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Natural-language query to match against stored memories.</td>
+</tr>
+<tr>
+<td><code>referenceDate</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Temporal anchor for relative date references in the query.</td>
+</tr>
+<tr>
+<td><code>responseLength</code></td>
+<td><code>enum: short, medium, long</code></td>
+<td>No</td>
+<td>Verbosity of the synthesized answer. Defaults to 'medium'.</td>
+</tr>
+<tr>
+<td><code>thinkingLevel</code></td>
+<td><code>enum: low, medium, high</code></td>
+<td>No</td>
+<td>Recall intensity / search depth. Defaults to 'low'.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-recall-result" class="status" data-status="2xx">200: Recall result</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.answer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>LLM-synthesized answer to the query. Omitted when synthesis is skipped.</td>
+</tr>
+<tr>
+<td><code>result.candidates</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Matching memories ranked by relevance (most relevant first).</td>
+</tr>
+<tr>
+<td><code>result.candidates[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the memory.</td>
+</tr>
+<tr>
+<td><code>result.candidates[].score</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Relevance score for the query; higher is more relevant.</td>
+</tr>
+<tr>
+<td><code>result.candidates[].sessionId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Session the candidate memory is associated with, or null if not session-scoped.</td>
+</tr>
+<tr>
+<td><code>result.candidates[].summary</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Short summary of the candidate memory.</td>
+</tr>
+<tr>
+<td><code>result.count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Number of matching memories returned in <code>candidates</code>.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-1">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_nameremember" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember</h3>
+<p>Operation ID: <code>agent-memory-remember</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Raw memory content to store.</td>
+</tr>
+<tr>
+<td><code>sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Session identifier.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-memory-stored" class="status" data-status="2xx">200: Memory stored</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.content</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Full memory content extracted from the conversation.</td>
+</tr>
+<tr>
+<td><code>result.createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the memory was created.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the memory.</td>
+</tr>
+<tr>
+<td><code>result.sessionId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifier of the session this memory is associated with.</td>
+</tr>
+<tr>
+<td><code>result.summary</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Short, human-readable summary of the memory.</td>
+</tr>
+<tr>
+<td><code>result.type</code></td>
+<td><code>enum: fact, event, instruction, task</code></td>
+<td>Yes</td>
+<td>Classification of a memory: 'fact', 'event', 'instruction', or 'task'.</td>
+</tr>
+<tr>
+<td><code>result.updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the memory was last updated.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-2">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namesummary" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary</h3>
+<p>Operation ID: <code>agent-memory-summary</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sessionId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Session identifier.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-profile-summary" class="status" data-status="2xx">200: Profile summary</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.summary</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Paste-ready prompt block summarizing everything stored in the profile.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-3">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememories" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories</h3>
+<p>Operation ID: <code>agent-memory-memory-list</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>cursor</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>session_id</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>type</code> | <code>query</code> | <code>enum: fact, event, instruction, task</code> | No |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-a-page-of-memory-metadata" class="status" data-status="2xx">200: A page of memory metadata</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the memory was created.</td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the memory.</td>
+</tr>
+<tr>
+<td><code>result[].sessionId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifier of the session this memory is associated with.</td>
+</tr>
+<tr>
+<td><code>result[].summary</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Short, human-readable summary of the memory.</td>
+</tr>
+<tr>
+<td><code>result[].type</code></td>
+<td><code>enum: fact, event, instruction, task</code></td>
+<td>Yes</td>
+<td>Classification of a memory: 'fact', 'event', 'instruction', or 'task'.</td>
+</tr>
+<tr>
+<td><code>result[].updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the memory was last updated.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number of results returned in this page.</td>
+</tr>
+<tr>
+<td><code>result_info.cursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Opaque cursor for the next page; omitted on the last page.</td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Page size used for this query.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-4">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idagent-memorynamespacesnamespace_nameprofiles" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles</h3>
+<p>Operation ID: <code>agent-memory-profile-list</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No |  |
+| <code>cursor</code> | <code>query</code> | <code>string</code> | No |  |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-a-page-of-profiles" class="status" data-status="2xx">200: A page of profiles</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the profile was first recorded in the namespace index.</td>
+</tr>
+<tr>
+<td><code>result[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Profile name.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Number of results returned in this page.</td>
+</tr>
+<tr>
+<td><code>result_info.cursor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Opaque cursor for the next page; omitted on the last page.</td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Page size used for this query.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-5">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememoriesmemory_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}</h3>
+<p>Operation ID: <code>agent-memory-memory-get</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>memory_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-the-requested-memory" class="status" data-status="2xx">200: The requested memory</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.content</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Full memory content extracted from the conversation.</td>
+</tr>
+<tr>
+<td><code>result.createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the memory was created.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the memory.</td>
+</tr>
+<tr>
+<td><code>result.sessionId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifier of the session this memory is associated with.</td>
+</tr>
+<tr>
+<td><code>result.summary</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Short, human-readable summary of the memory.</td>
+</tr>
+<tr>
+<td><code>result.type</code></td>
+<td><code>enum: fact, event, instruction, task</code></td>
+<td>Yes</td>
+<td>Classification of a memory: 'fact', 'event', 'instruction', or 'task'.</td>
+</tr>
+<tr>
+<td><code>result.updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the memory was last updated.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-6">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namememoriesmemory_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}</h3>
+<p>Operation ID: <code>agent-memory-memory-delete</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>memory_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-the-deleted-memory" class="status" data-status="2xx">200: The deleted memory</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.content</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Full memory content extracted from the conversation.</td>
+</tr>
+<tr>
+<td><code>result.createdAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the memory was created.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier of the memory.</td>
+</tr>
+<tr>
+<td><code>result.sessionId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifier of the session this memory is associated with.</td>
+</tr>
+<tr>
+<td><code>result.summary</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Short, human-readable summary of the memory.</td>
+</tr>
+<tr>
+<td><code>result.type</code></td>
+<td><code>enum: fact, event, instruction, task</code></td>
+<td>Yes</td>
+<td>Classification of a memory: 'fact', 'event', 'instruction', or 'task'.</td>
+</tr>
+<tr>
+<td><code>result.updatedAt</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td>Time the memory was last updated.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-7">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_namesessionssession_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}</h3>
+<p>Operation ID: <code>agent-memory-session-delete</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>session_id</code> | <code>path</code> | <code>string</code> | Yes | Session identifier. |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-session-deleted" class="status" data-status="2xx">200: Session deleted</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-8">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-accountsaccount_idagent-memorynamespacesnamespace_nameprofilesprofile_name" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}</h3>
+<p>Operation ID: <code>agent-memory-profile-delete</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Cloudflare Account ID. |
+| <code>namespace_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>profile_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-profile-deleted" class="status" data-status="2xx">200: Profile deleted</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Always empty for a successful response.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Always true for a successful response.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-error-response-9">4XX: Error response</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>One or more errors describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Informational, non-error messages, if any.</td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Machine-readable status code.</td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Link to relevant documentation, when available.</td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable message describing the error or status.</td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>JSON pointer to the request field that caused the error.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Always null for an error response.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Always false for an error response.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -4,9 +4,9 @@
 #   guide.aontu
 
 guide: {
-  metrics: count: entity: 39
-  metrics: count: path: 104
-  metrics: count: method: 161
+  metrics: count: entity: 41
+  metrics: count: path: 115
+  metrics: count: method: 175
 
   entity: account: {
     path: "/accounts/{account_id}/ai-gateway/logging-state": {
@@ -544,6 +544,64 @@ guide: {
       rename: param: "file_name": *"id"
       op: load: method: *GET
       op: load: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: memory: {
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}": {
+      rename: param: "namespace_name": *"namespace_id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest": {
+      action: "ingest": {}
+      rename: param: "namespace_name": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories": {
+      rename: param: "namespace_name": *"namespace_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}": {
+      rename: param: "memory_id": *"id"
+      rename: param: "namespace_name": *"namespace_id"
+      rename: param: "profile_name": *"profile_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall": {
+      action: "recall": {}
+      rename: param: "namespace_name": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember": {
+      action: "remember": {}
+      rename: param: "namespace_name": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}": {
+      rename: param: "namespace_name": *"namespace_id"
+      rename: param: "profile_name": *"profile_id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary": {
+      action: "summary": {}
+      rename: param: "namespace_name": *"namespace_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: namespace: {
+    path: "/accounts/{account_id}/agent-memory/namespaces": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}": {
+      rename: param: "namespace_name": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
     }
   }
 

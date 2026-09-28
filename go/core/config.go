@@ -73,6 +73,8 @@ func MakeConfig() map[string]any {
 				"auto_rag_rag": map[string]any{},
 				"auto_rag_rag_search": map[string]any{},
 				"finetune_asset": map[string]any{},
+				"memory": map[string]any{},
+				"namespace": map[string]any{},
 				"vectorize": map[string]any{},
 				"vectorize_beta__deprecated": map[string]any{},
 				"workers_ai": map[string]any{},
@@ -5819,6 +5821,7 @@ func MakeConfig() map[string]any {
 					"ancestors": []any{
 						[]any{
 							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
 						},
 					},
 				},
@@ -7779,9 +7782,11 @@ func MakeConfig() map[string]any {
 						},
 						[]any{
 							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
 						},
 						[]any{
 							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
 						},
 					},
 				},
@@ -8971,9 +8976,11 @@ func MakeConfig() map[string]any {
 					"ancestors": []any{
 						[]any{
 							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
 						},
 						[]any{
 							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
 						},
 					},
 				},
@@ -10009,9 +10016,11 @@ func MakeConfig() map[string]any {
 						},
 						[]any{
 							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
 						},
 						[]any{
 							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
 						},
 					},
 				},
@@ -10505,6 +10514,7 @@ func MakeConfig() map[string]any {
 						},
 						[]any{
 							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
 						},
 					},
 				},
@@ -13269,6 +13279,1346 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"account_id",
 										"finetune_id",
+										"id",
+									},
+								},
+							},
+						},
+					},
+				},
+				"relations": map[string]any{
+					"ancestors": []any{
+						[]any{
+							"$.main.kit.entity.account",
+						},
+					},
+				},
+			},
+			"memory": map[string]any{
+				"fields": []any{
+					map[string]any{
+						"name": "errors",
+						"title": "Errors",
+						"type": "`$ARRAY`",
+						"req": true,
+						"short": "Always empty for a successful response.",
+					},
+					map[string]any{
+						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "messages",
+						"title": "Messages",
+						"type": "`$ARRAY`",
+						"req": true,
+						"short": "Informational, non-error messages, if any.",
+					},
+					map[string]any{
+						"name": "result",
+						"title": "Result",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "result_info",
+						"title": "Result Info",
+						"type": "`$OBJECT`",
+					},
+					map[string]any{
+						"name": "success",
+						"title": "Success",
+						"type": "`$BOOLEAN`",
+						"req": true,
+						"short": "Always true for a successful response.",
+					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
+				"name": "memory",
+				"op": map[string]any{
+					"create": map[string]any{
+						"input": "data",
+						"name": "create",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "POST",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/ingest",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_name",
+									},
+									map[string]any{
+										"lit": "ingest",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_name}",
+									"ingest",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "namespace_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_name",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "ingest",
+									"exist": []any{
+										"account_id",
+										"namespace_id",
+										"profile_name",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "POST",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/recall",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_name",
+									},
+									map[string]any{
+										"lit": "recall",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_name}",
+									"recall",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "namespace_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_name",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "recall",
+									"exist": []any{
+										"account_id",
+										"namespace_id",
+										"profile_name",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "POST",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/remember",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_name",
+									},
+									map[string]any{
+										"lit": "remember",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_name}",
+									"remember",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "namespace_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_name",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "remember",
+									"exist": []any{
+										"account_id",
+										"namespace_id",
+										"profile_name",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "POST",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/summary",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_name",
+									},
+									map[string]any{
+										"lit": "summary",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_name}",
+									"summary",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "namespace_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_name",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "summary",
+									"exist": []any{
+										"account_id",
+										"namespace_id",
+										"profile_name",
+									},
+								},
+							},
+						},
+					},
+					"list": map[string]any{
+						"input": "data",
+						"name": "list",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_name",
+									},
+									map[string]any{
+										"lit": "memories",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_name}",
+									"memories",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "namespace_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_name",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "cursor",
+											"orig": "cursor",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "01JSGCEXAMP1E0000000000000",
+										},
+										map[string]any{
+											"name": "per_page",
+											"orig": "per_page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+										map[string]any{
+											"name": "session_id",
+											"orig": "session_id",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "chat-session-42",
+										},
+										map[string]any{
+											"name": "type",
+											"orig": "type",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "fact",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+										"cursor",
+										"namespace_id",
+										"per_page",
+										"profile_name",
+										"session_id",
+										"type",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_name",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_name}",
+									"profiles",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "namespace_name",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "cursor",
+											"orig": "cursor",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "eyJ2IjoxLCJuIjoibXktcHJvZmlsZSJ9",
+										},
+										map[string]any{
+											"name": "per_page",
+											"orig": "per_page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+										"cursor",
+										"namespace_name",
+										"per_page",
+									},
+								},
+							},
+						},
+					},
+					"load": map[string]any{
+						"input": "data",
+						"name": "load",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_id",
+									},
+									map[string]any{
+										"lit": "memories",
+									},
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_id}",
+									"memories",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"memory_id": "id",
+										"namespace_name": "namespace_id",
+										"profile_name": "profile_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "memory_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "01JSGCEXAMP1E0000000000000",
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_id",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+										"id",
+										"namespace_id",
+										"profile_id",
+									},
+								},
+							},
+						},
+					},
+					"remove": map[string]any{
+						"input": "data",
+						"name": "remove",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "DELETE",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/memories/{memory_id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_id",
+									},
+									map[string]any{
+										"lit": "memories",
+									},
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_id}",
+									"memories",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"memory_id": "id",
+										"namespace_name": "namespace_id",
+										"profile_name": "profile_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "memory_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "01JSGCEXAMP1E0000000000000",
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_id",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+										"id",
+										"namespace_id",
+										"profile_id",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "DELETE",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}/sessions/{session_id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_id",
+									},
+									map[string]any{
+										"lit": "sessions",
+									},
+									map[string]any{
+										"var": "session_id",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_id}",
+									"sessions",
+									"{session_id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "namespace_id",
+										"profile_name": "profile_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_id",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+										map[string]any{
+											"name": "session_id",
+											"orig": "session_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "chat-session-44",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+										"namespace_id",
+										"profile_id",
+										"session_id",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "DELETE",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}/profiles/{profile_name}",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "namespace_id",
+									},
+									map[string]any{
+										"lit": "profiles",
+									},
+									map[string]any{
+										"var": "profile_name",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{namespace_id}",
+									"profiles",
+									"{profile_name}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "namespace_id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "namespace_id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+										map[string]any{
+											"name": "profile_name",
+											"orig": "profile_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "my-profile",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+										"namespace_id",
+										"profile_name",
+									},
+								},
+							},
+						},
+					},
+				},
+				"relations": map[string]any{
+					"ancestors": []any{
+						[]any{
+							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
+						},
+						[]any{
+							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
+						},
+						[]any{
+							"$.main.kit.entity.account",
+							"$.main.kit.entity.namespace",
+						},
+					},
+				},
+			},
+			"namespace": map[string]any{
+				"fields": []any{
+					map[string]any{
+						"name": "errors",
+						"title": "Errors",
+						"type": "`$ARRAY`",
+						"req": true,
+						"short": "Always empty for a successful response.",
+					},
+					map[string]any{
+						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
+					},
+					map[string]any{
+						"name": "messages",
+						"title": "Messages",
+						"type": "`$ARRAY`",
+						"req": true,
+						"short": "Informational, non-error messages, if any.",
+					},
+					map[string]any{
+						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
+						"req": true,
+						"short": "Namespace name.",
+					},
+					map[string]any{
+						"name": "result",
+						"title": "Result",
+						"type": "`$OBJECT`",
+						"req": true,
+					},
+					map[string]any{
+						"name": "result_info",
+						"title": "Result Info",
+						"type": "`$OBJECT`",
+					},
+					map[string]any{
+						"name": "success",
+						"title": "Success",
+						"type": "`$BOOLEAN`",
+						"req": true,
+						"short": "Always true for a successful response.",
+					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
+				"name": "namespace",
+				"op": map[string]any{
+					"create": map[string]any{
+						"input": "data",
+						"name": "create",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "POST",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+									},
+								},
+							},
+						},
+					},
+					"list": map[string]any{
+						"input": "data",
+						"name": "list",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "cursor",
+											"orig": "cursor",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "direction",
+											"orig": "direction",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "asc",
+										},
+										map[string]any{
+											"name": "order",
+											"orig": "order",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "id",
+										},
+										map[string]any{
+											"name": "per_page",
+											"orig": "per_page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+										"cursor",
+										"direction",
+										"order",
+										"per_page",
+									},
+								},
+							},
+						},
+					},
+					"load": map[string]any{
+						"input": "data",
+						"name": "load",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
+										"id",
+									},
+								},
+							},
+						},
+					},
+					"remove": map[string]any{
+						"input": "data",
+						"name": "remove",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "DELETE",
+								"orig": "/accounts/{account_id}/agent-memory/namespaces/{namespace_name}",
+								"segments": []any{
+									map[string]any{
+										"lit": "accounts",
+									},
+									map[string]any{
+										"var": "account_id",
+									},
+									map[string]any{
+										"lit": "agent-memory",
+									},
+									map[string]any{
+										"lit": "namespaces",
+									},
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"accounts",
+									"{account_id}",
+									"agent-memory",
+									"namespaces",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"namespace_name": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "account_id",
+											"orig": "account_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "id",
+											"orig": "namespace_name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "support-agent",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"account_id",
 										"id",
 									},
 								},

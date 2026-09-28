@@ -1,0 +1,104 @@
+# BasicMemoryFlow
+
+main: kit: flow: BasicMemoryFlow:
+{
+  entity: "memory",
+  kind: "basic",
+  name: "BasicMemoryFlow",
+  step: [
+    {
+      i: {
+        ref: "memory_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        namespace_id: "namespace01",
+        namespace_name: "namespace_name01",
+        profile_id: "profile01",
+        profile_name: "profile_name01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01",
+        namespace_name: "namespace_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "memory_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "memory_ref01",
+        srcdatavar: "memory_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "memory01",
+        namespace_id: "namespace01",
+        profile_id: "profile01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-memory_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "memory_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "memory01",
+        namespace_id: "namespace01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01",
+        namespace_name: "namespace_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "memory_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMemoryFlow"
+}

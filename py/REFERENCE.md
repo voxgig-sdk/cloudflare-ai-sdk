@@ -182,6 +182,14 @@ Create a new `AutoRagRagSearchEntity` instance. Pass `None` for no initial data.
 
 Create a new `FinetuneAssetEntity` instance. Pass `None` for no initial data.
 
+#### `Memory(data=None)`
+
+Create a new `MemoryEntity` instance. Pass `None` for no initial data.
+
+#### `Namespace(data=None)`
+
+Create a new `NamespaceEntity` instance. Pass `None` for no initial data.
+
 #### `Vectorize(data=None)`
 
 Create a new `VectorizeEntity` instance. Pass `None` for no initial data.
@@ -3217,6 +3225,186 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `FinetuneAssetEntity` instance with the same options.
+
+#### `get_name() -> str`
+
+Return the entity name.
+
+
+---
+
+## MemoryEntity
+
+```python
+memory = client.Memory()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `list` | Yes | Always empty for a successful response. |
+| `id` | `str` | No |  |
+| `messages` | `list` | Yes | Informational, non-error messages, if any. |
+| `result` | `dict` | Yes |  |
+| `result_info` | `dict` | No |  |
+| `success` | `bool` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(reqdata, ctrl=None) -> dict`
+
+Create a new entity with the given data. Returns the created entity data and raises on error.
+
+```python
+result = client.Memory().create({
+    "account_id": "example_account_id",  # str
+    "namespace_id": "example_namespace_id",  # str
+    "profile_name": "example_profile_name",  # str
+    "errors": [],  # list
+    "messages": [],  # list
+    "result": {},  # dict
+    "success": True,  # bool
+})
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Memory().list({"account_id": "example"})
+for memory in results:
+    print(memory)
+```
+
+#### `load(reqmatch, ctrl=None) -> dict`
+
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
+
+```python
+result = client.Memory().load({"id": "memory_id", "account_id": "account_id", "namespace_id": "namespace_id", "profile_id": "profile_id"})
+```
+
+#### `remove(reqmatch, ctrl=None) -> dict`
+
+Remove the entity matching the given criteria. Raises on error.
+
+```python
+result = client.Memory().remove({"id": "memory_id", "account_id": "account_id", "namespace_id": "namespace_id"})
+```
+
+### Common Methods
+
+#### `data_get() -> dict`
+
+Get the entity data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> dict`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `MemoryEntity` instance with the same options.
+
+#### `get_name() -> str`
+
+Return the entity name.
+
+
+---
+
+## NamespaceEntity
+
+```python
+namespace = client.Namespace()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `errors` | `list` | Yes | Always empty for a successful response. |
+| `id` | `str` | No |  |
+| `messages` | `list` | Yes | Informational, non-error messages, if any. |
+| `name` | `str` | Yes | Namespace name. |
+| `result` | `dict` | Yes |  |
+| `result_info` | `dict` | No |  |
+| `success` | `bool` | Yes | Always true for a successful response. |
+
+### Operations
+
+#### `create(reqdata, ctrl=None) -> dict`
+
+Create a new entity with the given data. Returns the created entity data and raises on error.
+
+```python
+result = client.Namespace().create({
+    "account_id": "example_account_id",  # str
+    "errors": [],  # list
+    "messages": [],  # list
+    "name": "example_name",  # str
+    "result": {},  # dict
+    "success": True,  # bool
+})
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Namespace().list({"account_id": "example"})
+for namespace in results:
+    print(namespace)
+```
+
+#### `load(reqmatch, ctrl=None) -> dict`
+
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
+
+```python
+result = client.Namespace().load({"id": "namespace_id", "account_id": "account_id"})
+```
+
+#### `remove(reqmatch, ctrl=None) -> dict`
+
+Remove the entity matching the given criteria. Raises on error.
+
+```python
+result = client.Namespace().remove({"id": "namespace_id", "account_id": "account_id"})
+```
+
+### Common Methods
+
+#### `data_get() -> dict`
+
+Get the entity data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> dict`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `NamespaceEntity` instance with the same options.
 
 #### `get_name() -> str`
 
